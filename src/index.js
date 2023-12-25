@@ -1,6 +1,6 @@
 import style from './index.css'
 import toiletIcon from './toilet.png'
-import printMe from './printMe.js'
+import printMe from './components/printMe.js'
 
 function component() {
 	const element = document.createElement('div')
