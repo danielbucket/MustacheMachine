@@ -1,23 +1,9 @@
-import style from './index.css'
-import toiletIcon from './toilet.png'
-import printMe from './components/printMe.js'
+import React from 'react'
+import { createRoot } from 'react-dom/client'
 
-function component() {
-	const element = document.createElement('div')
-		element.classList.add('hello')
-		element.innerHTML = "Mustache Machine"
+import App from './components/App'
 
-	const toilet = new Image()
-		toilet.src = toiletIcon
+const domNode = document.getElementById('root')
+const root = createRoot(domNode)
 
-	const btn = document.createElement('button')
-		btn.innerHTML = 'Click me and check the console'
-		btn.onclick = printMe
-
-	element.appendChild(toilet)
-	element.appendChild(btn)
-
-	return element
-}
-
-document.body.appendChild(component())
+root.render(<App />)
