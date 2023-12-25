@@ -6,6 +6,7 @@ const paths = {
 	DIST: path.resolve(__dirname, 'dist'),
 	SRC: path.resolve(__dirname, 'src'),
 	TEMPLATE: path.resolve(__dirname, 'src/templates'),
+	ASSET_PATH: process.env.ASSET_PATH || '/',
 }
 
 module.exports = {
@@ -15,13 +16,14 @@ module.exports = {
 		filename: '[name].bundle.js',
 		path: paths.DIST,
 		clean: true,
-		publicPath: '/',
+		publicPath: paths.ASSET_PATH,
 	},
 	devtool: 'inline-source-map',
 	plugins: [
 		new CleanWebpackPlugin(),
 		new HtmlWebpackPlugin({
 			title: 'Mustache Machine',
+			description: 'A Webpack compiled React app with an ExpressJS backend',
 			fileName: 'mustacheMachine',
 			template: path.join(paths.TEMPLATE, '/app_template.hbs'),
 		}),
