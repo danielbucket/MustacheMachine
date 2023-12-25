@@ -1,6 +1,5 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 const paths = {
 	DIST: path.resolve(__dirname, 'dist'),
@@ -10,17 +9,17 @@ const paths = {
 }
 
 module.exports = {
-	mode: 'development',
-	entry: './src/index.js',
+	entry: {
+		app: './src/index.js'
+	},
 	output: {
 		filename: '[name].bundle.js',
 		path: paths.DIST,
 		clean: true,
 		publicPath: paths.ASSET_PATH,
 	},
-	devtool: 'inline-source-map',
+
 	plugins: [
-		new CleanWebpackPlugin(),
 		new HtmlWebpackPlugin({
 			title: 'Mustache Machine',
 			description: 'A Webpack compiled React app with an ExpressJS backend',
@@ -28,7 +27,7 @@ module.exports = {
 			template: path.join(paths.TEMPLATE, '/app_template.hbs'),
 		}),
 	],
-
+	
 	module: {
 		rules: [
 			{
@@ -59,5 +58,6 @@ module.exports = {
         type: 'asset/resource',
       },
 		],
-	}
-}
+	},
+};
+	
