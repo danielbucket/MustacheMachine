@@ -1,18 +1,16 @@
 import React from 'react'
 import styles from './app.module.css'
 import Header from './Header/Header'
+import PoopinGuy from './poopinGuy/PoopinGuy'
 
 const poopinGuySays = 'Poop Strong!'
-const poopin = require('../assets/icons/toilet.png')
 
-export default function App({ props }) {
+export default function App() {
 
 	return (
 		<div className={styles.appContainer}>
 			<Header />
-			<div className={styles.imageContainer}>
-				<img className={styles.poopin} src={poopin} alt="poopin" />
-			</div>
+			<PoopinGuy poopinGuy={poopinGuySays} />
 		</div>
 	)
 }
