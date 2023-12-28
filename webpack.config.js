@@ -30,9 +30,9 @@ module.exports = {
 			filename: 'poopinGuy.html',
 			template: path.join(paths.TEMPLATES, '/app_template.hbs'),
 		}),
-		new webpack.EnvironmentPlugin({
-			'NODE_ENV': mode,
-		}),
+		// new webpack.EnvironmentPlugin({
+		// 	'NODE_ENV': mode,
+		// }),
 	].concat(devMode ? [] : [
 			new MiniCssExtractPlugin({ filename: 'poopinGuy.css' })
 	]),

@@ -1,15 +1,15 @@
-.poopin-container {
+.eatin-container {
 	display: flex;
 	flex-direction: column;
 }
 
-.poopin {
+.eatin {
 	background-color: goldenrod;
 	border-radius: 10px;
 	padding: 5px;
 	height: 200px;
 }
 
-.poopin-text {
-	text-align: center;
+.eatin-text {
+	text-align: center
 }

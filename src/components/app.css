@@ -1,3 +1,10 @@
 .app-container {
 	border: 2px solid red;
 }
+
+.guy-container {
+	display: flex;
+	justify-content: space-evenly;
+	margin: auto;
+	width: 90%;
+}
