@@ -1,17 +1,22 @@
 import * as React from 'react'
-import styles from './poopinGuy.module.css'
+import styles from './poopinGuy.css'
 const poopinIcon = require('../../assets/icons/toilet.png')
+
+const imPoopin = () => {
+	console.log(`I'm poopin!`)
+};
 
 export default function PoopinGuy(props) {
 	const { poopinGuy }  = props
 
 	return (
-		<div className={styles.poopinContainer}
-					onClick={(i) => {
-						console.log('I poopin!', i.target)
-					}}>
-			<img className={styles.poopin} src={poopinIcon} alt="poopin" />
-			<p className={styles.text}>{poopinGuy.poopinGuySays}</p>
+		<div
+			className="poopin-container"
+			id="excitePoop"
+			onClick={() => imPoopin()}
+			>
+			<img className="poopin" src={poopinIcon} alt="poopin" />
+			<p className="text">{poopinGuy.poopinGuySays}</p>
 		</div>
 	)
-}
+};

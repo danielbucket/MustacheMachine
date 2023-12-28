@@ -1,22 +1,23 @@
 const express = require('express')
 const webpack = require('webpack')
 const webpackDevMiddleware = require('webpack-dev-middleware')
-const PORT = 3435
-const ENV = process.env.NODE_ENV || 'dev'
+const PORT = process.env.PORT || 3435
 
 const app = express()
-const config = require(`../webpack.${ENV}.config.js`)
-const compiler = webpack(config)
+const webpackConfig = require(`../webpack.config.js`)
+const { publicPath } = webpackConfig.output
+const compiler = webpack(webpackConfig)
 
-const appRouter_v1 = require('./router')
+const appRouter = require('./router')
 
 app.use(
 	webpackDevMiddleware(compiler, {
-		publicPath: config.output.publicPath
+		publicPath,
+		index: 'poopinGuy.html',
 	})
 )
-app.use('/api/v1', appRouter_v1)
+app.use('/api/v1', appRouter)
 
 app.listen(PORT, () => {
-	console.log(`Mustache Machine is listening on port:${PORT}`)
+	console.log(`Poopin Guy is poopin on pot: ${PORT}`)
 })
