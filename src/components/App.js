@@ -6,12 +6,10 @@ import PoopinGuy from './poopinGuy/PoopinGuy'
 import EatinGuy from './eatinGuy/EatinGuy'
 import HungerVal from './hungerVal/HungerVal'
 
-
 export default function App() {
 	const [hungerVal, setHungerVal] = useState(0)
 	const [isEatin, setIsEatin] = useState(false)
 	const [isPoopin, setIsPoopin] = useState(false)
-	// console.log("at start--: ","isPoopin: ", isPoopin, " isEatin: ", isEatin)
 
 	const eatinText = 'The more you eat, the more you poop!'
 	const poopinText = 'Good job poopin\' there, poopin\' guy!'
@@ -36,7 +34,7 @@ export default function App() {
 	return (
 		<div className="app-container">
 			<Header actionText={!isEatin ? poopinText : eatinText}/>
-			<div className="guy-container">
+			<div className="both-guys-container">
 				<EatinGuy
 					isEatin={isEatin}
 					makeEat={handleClick}
