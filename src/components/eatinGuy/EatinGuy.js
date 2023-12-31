@@ -11,14 +11,15 @@ export default function EatinGuy(props) {
 		>
 			<img className="guy-icon" src={eatinGuyIcon} alt="eatin"/>
 			<div className="guy-text-box">
-				<p className="guy-action-text">{isEatin && hungerVal < 10 ? 'I\'m eatin!' : ""}</p>
 		 		<p className="guy-status-text">
 			 		{
 			 			hungerVal === 10
 			 			? "I\'m full. Make me poop so I can eat more!"
-			 			: ""
+			 			: isEatin
+			 				? "Im  eatin!"
+			 				: null
 			 		}
-		 		</p>
+			 	</p>
 			</div>
 		</div>
 	)
