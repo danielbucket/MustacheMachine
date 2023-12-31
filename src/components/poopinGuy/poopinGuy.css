@@ -1,6 +1,7 @@
 .poopin-container {
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 }
 
 .poopin {
@@ -8,6 +9,7 @@
 	border-radius: 10px;
 	padding: 5px;
 	height: 200px;
+	width: 200px;
 }
 
 .poopin-text {

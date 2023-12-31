@@ -1,11 +1,12 @@
 import React from 'react'
 import styles from './header.css'
 
-function Header({ props }) {
+function Header(props) {
+	const { actionText } = props
 
 	return (
 		<div className="header-container">
-			<h1>Great job poopin there, poopin guy!</h1>
+			<h1>{actionText}</h1>
 		</div>
 	)
 }

@@ -4,39 +4,52 @@ import styles from './app.css'
 import Header from './Header/Header'
 import PoopinGuy from './poopinGuy/PoopinGuy'
 import EatinGuy from './eatinGuy/EatinGuy'
+import HungerVal from './hungerVal/HungerVal'
 
 
 export default function App() {
-	const [hunger, setHunger] = useState(0)
+	const [hungerVal, setHungerVal] = useState(0)
+	const [isEatin, setIsEatin] = useState(false)
+	const [isPoopin, setIsPoopin] = useState(false)
+	// console.log("at start--: ","isPoopin: ", isPoopin, " isEatin: ", isEatin)
 
-	const poopinGuySays = 'Poop Strong!'
-	const eatinGuySays = 'I eatin!'
-	const eatinText = 'Eat up, fat guy!'
-	const poopinText = 'Good job poopin there, poopin guy!'
+	const eatinText = 'The more you eat, the more you poop!'
+	const poopinText = 'Good job poopin\' there, poopin\' guy!'
 
-	const makeEat = () => {
-		console.log('I eatin!')
-	};
-
-	const makePoop = () => {
-		console.log('I poopin!')
-	};
-
-	const hungerMeter = () => {
-
-		return (
-			<div
-				className="fill-meter"
-			></div>
-		)
+	const handleClick = action => {
+		switch(action) {
+			case 'eatin': {
+				setIsEatin(true)
+				setIsPoopin(false)
+				hungerVal < 10 ? setHungerVal(a => a + 1) : null
+				break
+			}
+			case 'poopin': {
+				setIsEatin(false)
+				setIsPoopin(true)
+				hungerVal > 0 ? setHungerVal(a => a - 1) : null
+				break
+			}
+		}
 	};
 
 	return (
 		<div className="app-container">
-			<Header actionText={hunger !== 0 ? eatinText : poopinText}/>
+			<Header actionText={!isEatin ? poopinText : eatinText}/>
 			<div className="guy-container">
-				<EatinGuy eatinGuySays={eatinGuySays} makeEat={makeEat} />
-				<PoopinGuy poopinGuySays={poopinGuySays} makePoop={makePoop}/>
+				<EatinGuy
+					isEatin={isEatin}
+					makeEat={handleClick}
+					hungerVal={hungerVal}
+				/>
+				<HungerVal
+					hungerVal={hungerVal}
+				/>
+				<PoopinGuy
+					isPoopin={isPoopin}
+					makePoop={handleClick}
+					hungerVal={hungerVal}
+				/>
 			</div>
 		</div>
 	)
