@@ -1,7 +1,13 @@
 .header-container {
 	grid-row: header;
+	display: flex;
 	background-color: brown;
-	border-radius: 5px;
-	text-align: center;
-	margin: .8rem;	
+	border-radius: .75rem;
+	margin: .5rem;
+}
+
+.header-container p {
+	color: white;
+	font-size: 3.5rem;
+	margin: auto;
 }

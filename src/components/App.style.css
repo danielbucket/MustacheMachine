@@ -1,0 +1,70 @@
+* {
+	/*
+	Setting the margin property to 0 here applies it to
+	all the elements, but it does not carry the same effect
+	when apllied to the html element.
+	Why not?
+	*/
+	margin: 0;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+html, body {
+	box-sizing: border-box;
+	overflow: auto;
+}
+
+
+
+
+.app-container {
+	display: grid;
+	grid-template-rows: [header] 2fr
+											[two_guys] 8fr;
+	border: .5rem solid black;
+	height: 40rem;
+}
+
+.both-guys-container {
+	grid-row: two_guys;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	margin: auto;
+	height: 90%;
+	width: 90%;
+	background-color: #5576f7;
+	border: 1.0rem solid black;
+}
+
+.guy-action-card-container {
+	margin: auto;
+}
+
+.guy-icon {
+	background-color: goldenrod;
+	border-radius: .12rem;
+	padding: 5px;
+	height: 20rem;
+	width: 20rem;
+}
+
+.guy-text-box {
+	width: 20rem;
+	height: 4rem;
+	margin: auto;
+}
+
+.guy-status-text {
+	font-size: 2rem;
+	text-align: center;
+}
