@@ -10,13 +10,14 @@ export default function App() {
 	const [hungerVal, setHungerVal] = useState(0)
 	const [isEatin, setIsEatin] = useState(false)
 	const [isPoopin, setIsPoopin] = useState(false)
+	const [maxPoops, setMaxPoops] = useState(10)
 
 	const handleClick = action => {
 		switch(action) {
 			case 'eatin': {
 				setIsEatin(true)
 				setIsPoopin(false)
-				hungerVal < 10 ? setHungerVal(a => a + 1) : null
+				hungerVal < maxPoops ? setHungerVal(a => a + 1) : null
 				break
 			}
 			case 'poopin': {
@@ -36,9 +37,11 @@ export default function App() {
 					isEatin={isEatin}
 					makeEat={handleClick}
 					hungerVal={hungerVal}
+					maxPoops={maxPoops}
 				/>
 				<HungerVal
 					hungerVal={hungerVal}
+					maxPoops={maxPoops}
 				/>
 				<PoopinGuy
 					isPoopin={isPoopin}

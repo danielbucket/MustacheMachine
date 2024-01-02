@@ -12,9 +12,9 @@ function Header(props) {
 			<p>{
 				isEatin && hungerVal >= 1
 					? isEatinText
-					: !isEatin && hungerVal === 0
-						? defaultText
-						: isPoopinText
+					: !isEatin && hungerVal > 0
+						? isPoopinText
+						: defaultText
 			}</p>
 		</div>
 	)
