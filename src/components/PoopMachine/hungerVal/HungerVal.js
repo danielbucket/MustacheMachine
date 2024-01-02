@@ -8,7 +8,7 @@ export default function HungerVal(props) {
 	const buildPoopMeter = () => {
 		const meterArray = []
 
-		for (let i=0; i <= maxPoops; i++) {
+		for (let i=maxPoops; i >= 0; i--) {
 			let poopsVal = i.toString()
 			if (i === 10) { poopsVal = "9f" }
 			if (i <= 9) { poopsVal = i + "e" }
@@ -23,7 +23,7 @@ export default function HungerVal(props) {
 					className='meter-element'
 					style={meterStyle}
 					>
-				{i + " poops in my bum!"}
+				{i === hungerVal ? i + " poops in my bum!": ''}
 				</div>
 			)
 		}

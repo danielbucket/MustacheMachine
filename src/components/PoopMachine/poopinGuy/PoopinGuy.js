@@ -1,5 +1,5 @@
 import * as React from 'react'
-const poopinGuyIcon = require('../../assets/icons/toilet.png')
+const poopinGuyIcon = require('../../../assets/icons/toilet.png')
 
 export default function PoopinGuy(props) {
 	const { isPoopin, makePoop, hungerVal }  = props

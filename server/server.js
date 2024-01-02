@@ -13,7 +13,7 @@ const appRouter = require('./router')
 app.use(
 	webpackDevMiddleware(compiler, {
 		publicPath,
-		index: 'poopinGuy.html',
+		index: 'PoopinGuy.html',
 	})
 )
 app.use('/api/v1', appRouter)

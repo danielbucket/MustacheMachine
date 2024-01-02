@@ -1,5 +1,5 @@
 import * as React from 'react'
-const eatinGuyIcon = require('../../assets/icons/food.png')
+const eatinGuyIcon = require('../../../assets/icons/food.png')
 
 export default function EatinGuy(props) {
 	const { isEatin, makeEat, hungerVal, maxPoops } = props

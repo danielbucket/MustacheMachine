@@ -27,7 +27,7 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			title: 'Poopin Guy',
 			description: 'A Webpack-compiled React app with an ExpressJS backend.',
-			filename: 'poopinGuy.html',
+			filename: 'PoopinGuy.html',
 			template: path.join(paths.TEMPLATES, '/app_template.hbs'),
 		}),
 		// new webpack.EnvironmentPlugin({
