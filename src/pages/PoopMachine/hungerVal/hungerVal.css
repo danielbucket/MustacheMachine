@@ -1,0 +1,14 @@
+.hunger-val-container {
+	display: flex;
+	flex-direction: column;
+	width: 20%;
+	border-left: 0.25rem solid black;
+	border-right: 0.25rem solid black;
+}
+
+.meter-element {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex-grow: 1;
+}
