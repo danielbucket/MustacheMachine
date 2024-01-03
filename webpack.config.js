@@ -8,6 +8,7 @@ const mode = devMode ? 'development' : 'production'
 const paths = {
 	DIST: path.resolve(__dirname, 'dist'),
 	SRC: path.resolve(__dirname, 'src'),
+	ENTRIES: path.resolve(__dirname, 'src/pages'),
 	TEMPLATES: path.resolve(__dirname, 'src/templates'),
 	PUBLIC_PATH: process.env.PUBLIC_PATH || '/',
 };
@@ -15,7 +16,28 @@ const paths = {
 module.exports = {
 	mode: mode,
 	devtool: devMode ? 'inline-source-map' : '',
-	entry: './src/index.js',
+	entry: {
+		home: './src/index.js',
+		shared: ['react', 'react-dom'],
+		personal: {
+			import: path.resolve(__dirname, 'src/pages/Personal/index.js'),
+			filename: 'pages/personal.js',
+			dependOn: 'shared',
+			chunkLoading: false,
+		},
+		poopMachine: {
+			import: path.resolve(__dirname, 'src/pages/PoopMachine/index.js'),
+			filename: 'pages/poopMachine.js',
+			dependOn: 'shared',
+			chunkLoading: false,
+		},
+		discogsApp: {
+			import: path.resolve(__dirname, 'src/pages/DiscogsApp/index.js'),
+			filename: 'pages/discogsApp.js',
+			dependOn: 'shared',
+			chunkLoading: false,
+		},
+	},
 	output: {
 		filename: '[name].[contenthash].js',
 		path: paths.DIST,
@@ -25,16 +47,13 @@ module.exports = {
 
 	plugins: [
 		new HtmlWebpackPlugin({
-			title: 'Poopin Guy',
+			title: 'Bucket Limited',
 			description: 'A Webpack-compiled React app with an ExpressJS backend.',
-			filename: 'PoopinGuy.html',
+			filename: 'bucketLimited.html',
 			template: path.join(paths.TEMPLATES, '/app_template.hbs'),
 		}),
-		// new webpack.EnvironmentPlugin({
-		// 	'NODE_ENV': mode,
-		// }),
 	].concat(devMode ? [] : [
-			new MiniCssExtractPlugin({ filename: 'poopinGuy.css' })
+			new MiniCssExtractPlugin({ filename: 'bucketLimited.css' })
 	]),
 	
 	module: {

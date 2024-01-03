@@ -13,11 +13,11 @@ const appRouter = require('./router')
 app.use(
 	webpackDevMiddleware(compiler, {
 		publicPath,
-		index: 'PoopinGuy.html',
+		index: 'bucketLimited.html',
 	})
 )
 app.use('/api/v1', appRouter)
 
 app.listen(PORT, () => {
-	console.log(`Poopin Guy is poopin on pot: ${PORT}`)
+	console.log(`Bucket Limited server is running on port: ${PORT}`)
 })

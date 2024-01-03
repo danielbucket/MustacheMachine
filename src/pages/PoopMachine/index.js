@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { useState } from 'react'
-import style from './App.style.css'
+import style from './index.style.css'
 import Header from './Header/Header'
 import PoopinGuy from './poopinGuy/PoopinGuy'
 import EatinGuy from './eatinGuy/EatinGuy'
 import HungerVal from './hungerVal/HungerVal'
 
-export default function App() {
+export default function PoopMachine() {
 	const [hungerVal, setHungerVal] = useState(0)
 	const [isEatin, setIsEatin] = useState(false)
 	const [isPoopin, setIsPoopin] = useState(false)
