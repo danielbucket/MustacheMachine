@@ -16,7 +16,7 @@ export async function getDiscogs(name, token) {
 		'Authorization': `Discogs key=[${KEY}], secret:[${SECRET}]`
 	}).then(res => {
 		if (!res.ok) {
-			throw new ERROR('Network response was no OK')
+			throw new Error('Network response was no OK')
 		}
 		return res.json()
 	}).then(data => {

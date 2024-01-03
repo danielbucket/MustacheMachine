@@ -1,0 +1,6 @@
+.discogs-app-container {
+	display: grid;
+	grid-template-rows: [discogsHeader] 8rem
+											[discogsCollection] calc(100vh - 8rem);
+	background-color: lightgray;
+}

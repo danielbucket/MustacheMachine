@@ -10,7 +10,6 @@ export default function Collection(userData) {
 	return (
 		<div
 			className='discogs-collection-container'>
-			{userCollection}
 			</div>
 	)
 }

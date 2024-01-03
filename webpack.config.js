@@ -33,8 +33,8 @@ module.exports = {
 			chunkLoading: false,
 		},
 		discogsApp: {
-			import: path.resolve(__dirname, 'src/pages/DiscogsApp/index.js'),
-			filename: 'pages/discogsApp.js',
+			import: path.resolve(__dirname, 'src/pages/SpinCollect/index.js'),
+			filename: 'pages/spinCollect.js',
 			dependOn: 'shared',
 			chunkLoading: false,
 		},

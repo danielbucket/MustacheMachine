@@ -33,11 +33,8 @@ const errorPageStyle = {
 	}
 }
 
-
-
 export default function ErrorPage() {
 	const error = useRouteError()
-
 
 	return (
 		<div style={errorPageStyle.container}>

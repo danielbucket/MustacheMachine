@@ -1,0 +1,5 @@
+.discogs-collection-container {
+	grid-row: discogsCollection;
+	margin: 0.75rem;
+	border: .1rem solid black;
+}
