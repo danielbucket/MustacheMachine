@@ -3,17 +3,20 @@ import { useState } from 'react'
 
 import style from './index.style.css'
 import Header from './components/Header'
-import { getDiscogs } from './helpers/discogsHelpers'
+import Collection from './components/Collection'
+
+const DISCOGS_USER = process.env.DISCOGS_USER
+const DISCOGS_TOKEN = process.env.DISCOGS_TOKEN
 
 export default function DiscogsApp() {
 	const [loginStatus, setLoginStatus] = useState(true)
-	const text = 'Discogs App Page'
+	const [userName, setUserName] = useState(DISCOGS_USER)
+	const [userToken, setUserToken] = useState(DISCOGS_TOKEN)
 
 	return (
 		<div className="discogs-app-container">
 			<Header loginStatus={loginStatus} />
-			<button
-				onClick={()=> getDiscogs()}>DISCOGS BUTTON</button>
+			<Collection userData={{userName,userToken}} />
 		</div>
 	)
 }

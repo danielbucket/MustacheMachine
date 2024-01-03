@@ -11,7 +11,7 @@ import ErrorPage from './pages/error-page.js'
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <Home />,
+		element: <DiscogsApp />,
 		errorElement: <ErrorPage />,
 	},
 	{
@@ -22,10 +22,10 @@ const router = createBrowserRouter([
 		path: '/poop_machine',
 		element: <PoopMachine />,
 	},
-	{
-		path: '/discogs_app',
-		element: <DiscogsApp />,
-	},
+	// {
+	// 	path: '/discogs_app',
+	// 	element: <DiscogsApp />,
+	// },
 ])
 
 const domNode = document.getElementById('root')
