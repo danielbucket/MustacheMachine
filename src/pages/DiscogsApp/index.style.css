@@ -1,6 +1,5 @@
 .discogs-app-container {
 	height: 100vh;
 	width: 100%;
-	border: 3rem solid black;
-	background-color: grey;
+	background-color: #c2df2a;
 }
