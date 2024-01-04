@@ -1,5 +1,6 @@
 .discogs-collection-container {
 	grid-row: discogsCollection;
+	overflow-x: scroll;
 	margin: 0.75rem;
 	border: 0.1rem solid black;
 }
@@ -17,7 +18,7 @@
 	margin:  1rem auto;
 	height: 30rem;
 	width: 20rem;
-	border: .2rem solid black;
+/*	border: .2rem solid black;*/
 	font-size: 1.5rem;
 }
 

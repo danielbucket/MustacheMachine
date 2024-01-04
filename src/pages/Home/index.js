@@ -17,7 +17,7 @@ export default function Home() {
 						<Link to={'poop_machine'}>Poop Machine</Link>
 					</li>
 					<li>
-						<Link to={'discogs_app'}>Discogs</Link>
+						<Link to={'spin_collect'}>SpinCollect</Link>
 					</li>
 				</ul>
 			</nav>

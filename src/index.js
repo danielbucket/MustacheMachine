@@ -11,6 +11,7 @@ import ErrorPage from './pages/error-page.js'
 const router = createBrowserRouter([
 	{
 		path: '/',
+		// element: <Home />,
 		element: <SpinCollect />,
 		errorElement: <ErrorPage />,
 	},
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
 		element: <PoopMachine />,
 	},
 	// {
-	// 	path: '/discogs_app',
+	// 	path: '/spin_collect',
 	// 	element: <SpinCollect />,
 	// },
 ])

@@ -2,7 +2,7 @@ import * as React from 'react'
 import style from './index.style.css'
 
 export default function Header(props) {
-	const { loginStatus, userName } = props
+	const { loggedIn, userName } = props
 
 	return (
 		<div className='discogs-header-container'>
@@ -11,7 +11,7 @@ export default function Header(props) {
 					<div className='discogs-user-name'>{userName}</div>
 					<div className='discogs-header-login-status'>
 						{
-							loginStatus
+							loggedIn
 								? 'You are currently logged in.'
 								: 'You are not currently logged in.'
 						}
