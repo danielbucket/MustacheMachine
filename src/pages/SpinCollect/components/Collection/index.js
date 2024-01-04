@@ -5,17 +5,22 @@ import { getDiscogs } from '../../helpers/discogsHelpers'
 import DiscogsCollectCard from './DiscogsCollectCard'
 
 const spinCard = card => {
-	const { id, master_id, master_url, thumb } = card
+	const { id, cover_image, title, year, } = card
 
 	return (
 		<div
 			key={card.id}
 			className='spin-card'>
-			<div className='spin-card-id'>Card ID: {card.id}</div>
+			<div className='spin-card-album'>{card.artists[0].name}</div>
 			<img
 				className='spin-card-thumb-img'
-				src={card.thumb}
+				src={card.cover_image}
 				alt='card image' />
+			<div className='spin-card-title'>{title}</div>
+			<div className='spin-card-data'>
+				<div>Year: {year}</div>
+				<div className='album-genres'>Genres: {card.genres.map(i => <div>{i}</div>)}</div>
+			</div>
 		</div>
 	)
 }
@@ -33,7 +38,6 @@ export default function Collection(props) {
 		}
 	}
 
-			// .then(cards => setDiscogsCollection(cards))
 	return (
 		<div className='discogs-collection-container'>
 			<div>
@@ -43,7 +47,7 @@ export default function Collection(props) {
 					>Spin up {userName}</button>
 			</div>
 				<div className='discogs-spin-card-container'>
-				// {discogsCollection.map(i => spinCard(i))}
+				{discogsCollection.map(i => spinCard(i))}
 				</div>
 			</div>
 	)

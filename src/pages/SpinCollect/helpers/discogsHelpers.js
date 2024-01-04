@@ -29,7 +29,7 @@ export async function getDiscogs(DCC,name, token) {
 			const parentValues = {
 				date_added: i.date_added,
 				rating: i.rating,
-				notes: i.notes,	
+				notes: i.notes || '',	
 			}
 
 			return Object.assign(parentValues, basic_information)

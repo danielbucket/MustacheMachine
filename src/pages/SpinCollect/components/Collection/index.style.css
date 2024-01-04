@@ -10,12 +10,47 @@
 }
 
 .spin-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+  justify-content: center;
 	margin:  1rem auto;
 	height: 30rem;
 	width: 20rem;
-	border: 1px solid black;
+	border: .2rem solid black;
+	font-size: 1.5rem;
+}
+
+.spin-card-album {
+
+}
+
+.spin-card-title {
+	display: flex;
+	align-items: center;
+  justify-content: center;
+  height: 4rem;
+  width: 18rem;
+  margin: auto;
 }
 
 .spin-card-thumb-img {
-	
+	width: 90%;
+	margin: auto;
+}
+
+.spin-card-data {
+	flex-grow: 1;
+
+}
+
+.album-genres {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+
+}
+
+.album-genres > div {
+/*	flex-grow: 1;*/
 }
