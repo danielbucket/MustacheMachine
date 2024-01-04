@@ -3,10 +3,10 @@ import Contact from './components/Contact'
 
 export default function Personal() {
 	const bio = 'This is my bio text.'
-	return(
+
+	return (
 		<div>
 			<div>{bio}</div>
-
 		</div>
 	)
 }

@@ -5,13 +5,13 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './pages/Home'
 import Personal from './pages/Personal'
 import PoopMachine from './pages/PoopMachine'
-import DiscogsApp from './pages/DiscogsApp'
+import SpinCollect from './pages/SpinCollect'
 import ErrorPage from './pages/error-page.js'
 
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <Home />,
+		element: <SpinCollect />,
 		errorElement: <ErrorPage />,
 	},
 	{
@@ -22,10 +22,10 @@ const router = createBrowserRouter([
 		path: '/poop_machine',
 		element: <PoopMachine />,
 	},
-	{
-		path: '/discogs_app',
-		element: <DiscogsApp />,
-	},
+	// {
+	// 	path: '/discogs_app',
+	// 	element: <SpinCollect />,
+	// },
 ])
 
 const domNode = document.getElementById('root')

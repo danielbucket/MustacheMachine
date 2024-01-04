@@ -2,6 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const Dotenv = require('dotenv-webpack')
 const devMode = process.env.NODE_ENV !== "production"
 const mode = devMode ? 'development' : 'production'
 
@@ -32,8 +33,8 @@ module.exports = {
 			chunkLoading: false,
 		},
 		discogsApp: {
-			import: path.resolve(__dirname, 'src/pages/DiscogsApp/index.js'),
-			filename: 'pages/discogsApp.js',
+			import: path.resolve(__dirname, 'src/pages/SpinCollect/index.js'),
+			filename: 'pages/spinCollect.js',
 			dependOn: 'shared',
 			chunkLoading: false,
 		},
@@ -52,6 +53,7 @@ module.exports = {
 			filename: 'bucketLimited.html',
 			template: path.join(paths.TEMPLATES, '/app_template.hbs'),
 		}),
+		new Dotenv(),
 	].concat(devMode ? [] : [
 			new MiniCssExtractPlugin({ filename: 'bucketLimited.css' })
 	]),
