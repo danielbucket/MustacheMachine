@@ -1,0 +1,16 @@
+.app-management-container {
+	grid-row: AppMgmt;
+	min-width: 30rem;
+	background-color: #7c7b7b;
+	display: flex;
+	flex-direction: column;
+}
+
+.spincCollect-app-management {
+	height: 8rem;
+
+}
+
+.spinCollect-operations-container {
+	flex-grow: 1;
+}

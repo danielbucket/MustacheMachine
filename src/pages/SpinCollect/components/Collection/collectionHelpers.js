@@ -4,8 +4,16 @@ export const spinCard = card => {
 	const { id, cover_image, title, year, } = card
 	const { name } = card.artists[0]
 
+	const openCard = () => {
+		console.log('open dick season')
+	}
+
 	return (
-		<div key={card.id} className='spin-card'>
+		<div
+			key={card.id}
+			className='spin-card'
+			onClick={(i) => openCard(i)}
+			>
 			<img
 				className='spin-card-album-img'
 				src={card.cover_image}
