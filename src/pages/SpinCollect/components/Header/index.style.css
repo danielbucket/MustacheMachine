@@ -1,5 +1,5 @@
 .discogs-header-container {
-	grid-row: discogsHeader;
+	grid-row: spinConnectHeader;
 	display: flex;
 	flex-direction: row;
 	background-color: darkgray;

@@ -4,10 +4,9 @@ import { useState } from 'react'
 import style from './index.style.css'
 import Header from './components/Header'
 import Collection from './components/Collection'
+import AppManagement from './components/AppManagement'
 
 const user_package = {
-	KEY: process.env.DISCOGS_CONSUMER_KEY,
-	SECRET: process.env.CONSUMER_SECRET,
 	USER_NAME: process.env.DISCOGS_USER,
 	USER_TOKEN: process.env.DISCOGS_TOKEN,
 }
@@ -21,9 +20,12 @@ export default function SpinCollect() {
 			<Header
 				loggedIn={loggedIn}
 				userName={userPackage.USER_NAME} />
-			<Collection
-				loggedIn={loggedIn}
-				userPackage={userPackage} />
+			<div className='spin-collect-app-body'>
+				<AppManagement />
+				<Collection
+					loggedIn={loggedIn}
+					userPackage={userPackage} />
+			</div>
 		</div>
 	)
 }
