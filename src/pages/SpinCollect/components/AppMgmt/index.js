@@ -8,8 +8,7 @@ import { fetchCollection } from './appMgmtHelpers'
 export default function AppMgmt(props) {
 	const { userPackage } = props
 	
-	const [discogsData, setDiscogsData] = useState({})
-	const [spotifyData, setSpotifyData] = useState({})
+	const [mediaSourceData, setMediaSourceData] = useState({})
 	const { userPackage } = props
 
 	const handleClick = mediaSource => {
@@ -17,11 +16,8 @@ export default function AppMgmt(props) {
 
 		fetchCollection(sourceApi)
 		.then(data => {
-			switch(data.source) {
-				case 'discogs': setDiscogsData(data)
-					break;
-				case 'spotify': setSpotifyData(data)
-			}
+			const newState = Object.assign({}, mediaSourceData, data)
+			setMediaSourceData(newState)
 		})
 	}
 
