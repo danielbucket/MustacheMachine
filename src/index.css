@@ -1,5 +1,28 @@
-* {
-	box-sizing: border-box;
+:root {
+	--ac-sand: 					#F7DE8D;
+	--ac-orange:				#FBB040;
+	--ac-green: 				#AAC27E;
+	--ac-green-opaque: 	#AAC27E69;
+	--ac-blue:					#9FCFCA;
+	--ac-brown: 				#594A42;
+}
+
+*,
+*:before,
+*:after {
 	margin: 0;
-	padding: 0;
+	box-sizing: inherit;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+html, body {
+	box-sizing: border-box;
+	overflow: auto;
+}
+
+body {
+	background-color: blanchedalmond;
 }

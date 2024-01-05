@@ -1,6 +1,41 @@
+:root {
+	--ac-sand: 					#F7DE8D;
+	--ac-orange:				#FBB040;
+	--ac-green: 				#AAC27E;
+	--ac-green-opaque: 	#AAC27E69;
+	--ac-blue:					#9FCFCA;
+	--ac-brown: 				#594A42;
+}
+
+*,
+*:before,
+*:after {
+	margin: 0;
+	box-sizing: inherit;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+html, body {
+	box-sizing: border-box;
+	overflow: auto;
+}
+
+body {
+	background-color: blanchedalmond;
+}
+
 .discogs-app-container {
 	display: grid;
-	grid-template-rows: [discogsHeader] 8rem
-											[discogsCollection] calc(100vh - 8rem);
+	grid-template-rows: [spinConnectHeader] 8rem
+											[spinConnectAppBody] calc(100vh - 8rem);
 	background-color: lightgray;
+}
+
+.spin-collect-app-body {
+	grid-row: spinConnectAppBody;
+	display: flex;
+	flex-direction: row;
 }

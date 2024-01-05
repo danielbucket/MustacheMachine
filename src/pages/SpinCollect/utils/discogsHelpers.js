@@ -1,5 +1,8 @@
+const KEY = process.env.DISCOGS_CONSUMER_KEY
+const SECRET = process.env.CONSUMER_SECRET
+
 export async function getDiscogs(userPackage) {
-	const { KEY, SECRET, USER_NAME, USER_TOKEN } = userPackage
+	const { USER_NAME, USER_TOKEN } = userPackage
 	const GET_discogsURL = `https://api.discogs.com/users/${USER_NAME}/collection/folders/0/releases?token=${USER_TOKEN}&per_page=100&sort=artist`
 
 	return fetch(GET_discogsURL, {

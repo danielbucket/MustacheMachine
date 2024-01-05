@@ -19,15 +19,16 @@ export default function Collection(props) {
 
 	return (
 		<div className='discogs-collection-container'>
-			<div>
+			<div className='collection-navigation'>
 				<button
 					className='fetch-collection-btn'
-					onClick={() => fetchCollection()}
-					>Spin up {userPackage.USER_NAME}</button>
+					onClick={() => fetchCollection()}>
+					Spin up {userPackage.USER_NAME}
+				</button>
 			</div>
-				<div className='discogs-spin-card-container'>
+			<div className='discogs-spin-card-container'>
 				{discogsCollection.map(i => spinCard(i))}
-				</div>
 			</div>
+		</div>
 	)
 }

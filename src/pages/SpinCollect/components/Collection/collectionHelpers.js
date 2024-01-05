@@ -2,21 +2,19 @@ import * as React from 'react'
 
 export const spinCard = card => {
 	const { id, cover_image, title, year, } = card
+	const { name } = card.artists[0]
 
 	return (
-		<div
-			key={card.id}
-			className='spin-card'>
+		<div key={card.id} className='spin-card'>
 			<img
-				className='spin-card-thumb-img'
+				className='spin-card-album-img'
 				src={card.cover_image}
 				alt='card image' />
-			<div className='spin-card-album'>{card.artists[0].name}</div>
-			<div className='spin-card-title'>{title}</div>
-			<div className='spin-card-data'>
+			<div className='card-info'>
+				<div className='spin-card-album-name'>{name}</div>
+				<div className='spin-card-album-title'>{title}</div>
 				<div>{year}</div>
-				<div className='album-genres'>{card.genres.map(i => i)}</div>
-			</div>
+			</div>		
 		</div>
 	)
 }
