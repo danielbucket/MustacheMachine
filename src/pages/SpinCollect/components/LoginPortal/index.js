@@ -17,6 +17,10 @@ export default function LoginPortal({loginPackage}) {
 		}
 	}
 
+	useEffect(() => {
+
+	},[])
+
 	const handleSubmit = event => {
 		event.preventDefault()
 		const userData = { name:name, loggedIn:true }
