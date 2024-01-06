@@ -5,7 +5,7 @@ export const spinCard = card => {
 	const { name } = card.artists[0]
 
 	const openCard = () => {
-		console.log('open dick season')
+		console.log('open card')
 	}
 
 	return (

@@ -7,19 +7,26 @@ const spinConnectUserName = 'bucketLimited'
 const spinnConnectUserPassword = 'password123'
 
 const getUserMediaLoginPackage = (req,res,next) => {
-	const { userName,password } = req.body
-	if (!userName) {
+	const { name, password } = req.params
+
+	if (!name) {
 		res.send('no username')
 		next()
 	}
 
-	if (userName === spinConnectUserName && password === spinnConnectUserPassword) {
-
-		res.send(Object.assign({},{loginSuccess:true},discogsLoginPackage)
+	if (name === spinConnectUserName && password === spinnConnectUserPassword) {
+		resObj = Object.assign({},{loginSuccess:true},discogsLoginPackage)
+		res.status = 200
+		res.send(resObj)
 		next()
 	}
 }
 
+const basicResponse = (req,res,next) => {
+	req.send('poo poo pee pee')
+}
+
 module.exports = {
 	getUserMediaLoginPackage,
+	basicResponse,
 }
