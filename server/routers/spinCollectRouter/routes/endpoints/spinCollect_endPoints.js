@@ -7,6 +7,8 @@ const spinConnectUserName = 'bucketLimited'
 const spinnConnectUserPassword = 'password123'
 
 const getUserMediaLoginPackage = (req,res,next) => {
+	console.log('poo poo pee pee: ', req.params)
+
 	const { name, password } = req.params
 
 	if (!name) {
@@ -23,7 +25,7 @@ const getUserMediaLoginPackage = (req,res,next) => {
 }
 
 const basicResponse = (req,res,next) => {
-	req.send('poo poo pee pee')
+console.log("Basic Response")
 }
 
 module.exports = {
