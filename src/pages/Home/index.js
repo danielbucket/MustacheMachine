@@ -5,10 +5,11 @@ import selfiImage from '../../assets/images/selfi2.jpg'
 import gitHubIcon from '../../assets/logoIcons/github/github-mark.png'
 
 export default function Home() {
-	const aboutMe = "Hey, I'm Daniel. On a whim I once went sailing somewhere south of the coastline. Cool story, bruh. Check out some of the projects I built while sailing."
-	const poopMachineLink = '<Poop Machine />'
-	const personalLink = '<Personal />'
-	const spinCollectLink = '<SpinCollect />'
+	const aboutMe = "Hey, I'm Daniel. On a whim I once went sailing somewhere south of the coastline. Cool story, bruh. Check out some of the projects I built while sailing. I've never been sailing before."
+	const poopMachineLinkText = '<Poop Machine />'
+	const personalLinkText = '<Personal />'
+	const spinCollectLinkText = '<SpinCollect />'
+	const contactLinkText = '<Contact />'
 
 	return (
 		<div className={style.homePageContainer}>
@@ -23,13 +24,16 @@ export default function Home() {
 			<nav className={style.navOptions}>
 				<ul>
 					<li>
-						<Link to={'personal'}>{personalLink}</Link>
+						<Link to={'personal'}>{personalLinkText}</Link>
 					</li>
 					<li>
-						<Link to={'poop_machine'}>{poopMachineLink}</Link>
+						<Link to={'contact'}>{contactLinkText}</Link>
 					</li>
 					<li>
-						<Link to={'spin_collect'}>{spinCollectLink}</Link>
+						<Link to={'spin_collect'}>{spinCollectLinkText}</Link>
+					</li>
+					<li>
+						<Link to={'poop_machine'}>{poopMachineLinkText}</Link>
 					</li>
 				</ul>
 			</nav>
