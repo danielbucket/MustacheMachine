@@ -3,7 +3,7 @@
 	grid-template-rows: [header] 8rem
 											[biography] 60fr
 											[navigation] 40fr
-											[footer] 8rem;
+											[footer] 10rem;
 	background-color: var(--ac-sand);
 	height: 100vh;
 }
@@ -22,31 +22,37 @@
 
 .bioContainer {
 	grid-area: biography;
-}
-
-.bioContainer p {
-
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .bioContainer img {
-	width: 25em;
+	width: 18em;
 	margin: auto;
 	border-radius: 0.5em;
+}
+.bioContainer p {
+	font-family: 'Laila', serif;
+	width: 90%;
+	margin: 0.5rem auto;
+	font-size: 2rem;
 }
 .navOptions {
 	grid-area: navigation;
 	font-size: 4.5em;
+	border: 0.25rem solid #555;
+	width: 90%;
+	margin: auto;
 }
 
 .navOptions ul {
 	list-style-type: none;
-	border-top: 0.25rem solid #555;
-	border-bottom: 0.25rem solid #555;
+	padding: 0;
 }
 
 .navOptions li {
 	border-bottom: .1rem solid #555;
-	text-align: center;
 }
 
 .navOptions li:last-child {
@@ -56,9 +62,11 @@
 .navOptions a {
 	text-decoration: none;
 	display: block;
+	text-align: center;
 	padding: 0.8rem 0.16rem;
 	font-family: 'Roboto';
 	color: var(--ac-green);
+	font-size: 3.75rem;
 }
 
 .navOptions a:hover {
