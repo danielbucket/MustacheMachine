@@ -1,14 +1,22 @@
+import style from './index.style.module.css'
 import * as React from 'react'
 import { Outlet, Link } from 'react-router-dom'
-import style from './index.style.css'
+import selfiImage from '../../assets/images/selfi2.jpg'
+import gitHubIcon from '../../assets/logoIcons/github/github-mark.png'
 
 export default function Home() {
-	const homeText = 'This is the home page'
-
+	const aboutMe = "Hey, I'm Daniel. On a whim I once went sailing somewhere sunny south of the coastline. Cool story, bruh. Check out some of the projects I built while sailing "
 	return (
-		<div className='home-page-container'>
-			<h1>{homeText}</h1>
-			<nav>
+		<div className={style.homePageContainer}>
+			<div className={style.headerContainer}>
+				<h1>Bucket Limited</h1>
+			</div>
+			<div className={style.bioContainer}>
+				<img src={selfiImage} />
+				<p>{aboutMe}</p>
+			</div>
+
+			<nav className={style.navOptions}>
 				<ul>
 					<li>
 						<Link to={'personal'}>Personal</Link>
@@ -21,6 +29,12 @@ export default function Home() {
 					</li>
 				</ul>
 			</nav>
+
+			<footer className={style.footerContainer}>
+				<Link to={'https://github.com/danielbucket'}>
+					<img src={gitHubIcon} alt="Github Icon"/>
+				</Link>
+			</footer>
 		</div>
 	)
 }

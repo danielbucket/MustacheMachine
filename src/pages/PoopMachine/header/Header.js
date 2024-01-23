@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './header.css'
+import style from './header.module.css'
 
 function Header(props) {
 	const { isEatin, hungerVal } = props
@@ -8,7 +8,7 @@ function Header(props) {
 	const isPoopinText = 'Great job poopin\' there, poopin\' guy!'
 
 	return (
-		<div className="header-container">
+		<div className={style.headerContainer}>
 			<p>{
 				isEatin && hungerVal >= 1
 					? isEatinText

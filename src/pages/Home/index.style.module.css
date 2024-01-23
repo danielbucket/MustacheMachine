@@ -1,0 +1,76 @@
+.homePageContainer {
+	display: grid;
+	grid-template-rows: [header] 8rem
+											[biography] 60fr
+											[navigation] 40fr
+											[footer] 8rem;
+	background-color: var(--ac-sand);
+	height: 100vh;
+}
+
+.headerContainer {
+	grid-area: header;
+	display: grid;
+	background-color: gainsboro;
+}
+
+.headerContainer h1 {
+	font-size: 5em;
+	font-family: 'Laila', serif;
+	text-align: center;
+}
+
+.bioContainer {
+	grid-area: biography;
+}
+
+.bioContainer p {
+
+}
+
+.bioContainer img {
+	width: 25em;
+	margin: auto;
+	border-radius: 0.5em;
+}
+.navOptions {
+	grid-area: navigation;
+	font-size: 4.5em;
+}
+
+.navOptions ul {
+	list-style-type: none;
+	border-top: 0.25rem solid #555;
+	border-bottom: 0.25rem solid #555;
+}
+
+.navOptions li {
+	border-bottom: .1rem solid #555;
+	text-align: center;
+}
+
+.navOptions li:last-child {
+	border-bottom: none;
+}
+
+.navOptions a {
+	text-decoration: none;
+	display: block;
+	padding: 0.8rem 0.16rem;
+	font-family: 'Roboto';
+	color: var(--ac-green);
+}
+
+.navOptions a:hover {
+	background-color: var(--ac-orange);
+}
+
+.footerContainer {
+	grid-area: footer;
+	display: inline-block;
+	margin: auto;
+}
+
+.footerContainer img {
+	height: 8rem;
+}

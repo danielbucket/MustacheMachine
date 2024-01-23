@@ -2,16 +2,16 @@ import * as React from 'react'
 const eatinGuyIcon = require('../../../assets/icons/food.png')
 
 export default function EatinGuy(props) {
-	const { isEatin, makeEat, hungerVal, maxPoops } = props
+	const { isEatin, makeEat, hungerVal, maxPoops, style } = props
 
 	return (
 		<div
-			className="guy-action-card-container"
+			className={style.guyActionCardContainer}
 			onClick={() => hungerVal < maxPoops ? makeEat('eatin') : null}
 		>
-			<img className="guy-icon" src={eatinGuyIcon} alt="eatin"/>
-			<div className="guy-text-box">
-		 		<p className="guy-status-text">
+			<img className={style.guyIcon} src={eatinGuyIcon} alt="eatin"/>
+			<div className={style.guyTextBox}>
+		 		<p className={style.guyStatusText}>
 			 		{
 			 			hungerVal === maxPoops
 			 			? "I\'m full. Make me poop so I can eat more!"

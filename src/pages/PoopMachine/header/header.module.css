@@ -1,13 +1,15 @@
-.header-container {
+.headerContainer {
 	grid-row: header;
 	display: flex;
+	justify-content: center;
 	background-color: brown;
 	border-radius: .75rem;
 	margin: .5rem;
 }
 
-.header-container p {
+.headerContainer p {
 	color: white;
 	font-size: 3.5rem;
 	margin: auto;
+	font-family: 'Press Start 2P', system-ui;
 }
