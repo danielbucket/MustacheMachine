@@ -1,31 +1,28 @@
 import * as React from 'react'
-import { useState } from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { useEffect, useState } from 'react'
 
 import style from './index.style.css'
 import Header from './components/Header'
-import Collection from './components/Collection'
-import AppManagement from './components/AppManagement'
+import AppManagement from './components/AppMgmt'
+import { loginRoute } from './utils/constants'
 
-const user_package = {
-	USER_NAME: process.env.DISCOGS_USER,
-	USER_TOKEN: process.env.DISCOGS_TOKEN,
+const userStub = {
+	userName: 'bucketLimited',
+	userToken: 'password123',
 }
 
 export default function SpinCollect() {
-	const [loggedIn, setloggedIn] = useState(true)
-	const [userPackage, setUserPackage] = useState(user_package)
+	const [loginStatus, setLoginStatus] = useState(true)
+	const [userPackage, setUserPackage] = useState(null)
 
 	return (
 		<div className="discogs-app-container">
 			<Header
-				loggedIn={loggedIn}
-				userName={userPackage.USER_NAME} />
-			<div className='spin-collect-app-body'>
-				<AppManagement />
-				<Collection
-					loggedIn={loggedIn}
-					userPackage={userPackage} />
-			</div>
+				logOutPackage={{setLoginStatus, setUserPackage}}
+				loginStatus={loginStatus}
+				loginPackage={{userPackage, setUserPackage, loginRoute}} />
+			<AppManagement userPackage={userPackage} />
 		</div>
 	)
 }

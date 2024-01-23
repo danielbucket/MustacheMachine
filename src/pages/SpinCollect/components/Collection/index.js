@@ -5,20 +5,12 @@ import { getDiscogs } from '../../utils/discogsHelpers'
 import { spinCard } from './collectionHelpers'
 
 export default function Collection(props) {
-	const { loggedIn, userPackage } = props
-	const [discogsCollection, setDiscogsCollection] = useState([])
+	const { loggedIn, userPackage, media } = props
+	
 
-	const fetchCollection = () => {
-		if (!loggedIn) {
-			throw new Error('You are not logged in.')
-		} else {
-			getDiscogs(userPackage)
-			.then(cardDataArr => setDiscogsCollection(cardDataArr))
-		}
-	}
 
 	return (
-		<div className='discogs-collection-container'>
+		<div className='spinCollect-collection-container'>
 			<div className='collection-navigation'>
 				<button
 					className='fetch-collection-btn'
@@ -26,8 +18,12 @@ export default function Collection(props) {
 					Spin up {userPackage.USER_NAME}
 				</button>
 			</div>
-			<div className='discogs-spin-card-container'>
-				{discogsCollection.map(i => spinCard(i))}
+			<div className='spinCollect-spin-card-container'>
+				{
+					discogsCollection.length > 0
+						? discogsCollection.map(i => spinCard(i))
+						: <div className='no-data-found'>'No data from Discogs.</div>
+				}
 			</div>
 		</div>
 	)

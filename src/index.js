@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import Home from './pages/Home'
 import Personal from './pages/Personal'
+import Contact from './pages/Contact'
 import PoopMachine from './pages/PoopMachine'
 import SpinCollect from './pages/SpinCollect'
 import ErrorPage from './pages/error-page.js'
@@ -11,22 +12,25 @@ import ErrorPage from './pages/error-page.js'
 const router = createBrowserRouter([
 	{
 		path: '/',
-		// element: <Home />,
-		element: <SpinCollect />,
+		element: <Home />,
 		errorElement: <ErrorPage />,
+	},
+	{
+		path: '/contact',
+		element: <Contact />
 	},
 	{
 		path: '/personal',
 		element: <Personal />,
 	},
 	{
+		path: '/spin_collect',
+		element: <SpinCollect />,
+	},
+	{
 		path: '/poop_machine',
 		element: <PoopMachine />,
 	},
-	// {
-	// 	path: '/spin_collect',
-	// 	element: <SpinCollect />,
-	// },
 ])
 
 const domNode = document.getElementById('root')

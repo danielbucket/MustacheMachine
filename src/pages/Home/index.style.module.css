@@ -1,0 +1,93 @@
+.homePageContainer {
+	display: grid;
+	grid-template-rows: [header] 8rem
+											[biography] 60fr
+											[navigation] 40fr
+											[footer] 10rem;
+	background-color: var(--ac-sand);
+	height: 100vh;
+}
+
+.headerContainer {
+	grid-area: header;
+	display: grid;
+	background-color: gainsboro;
+}
+
+.headerContainer h1 {
+	font-size: 5em;
+	font-family: 'Laila', serif;
+	text-align: center;
+}
+
+.bioContainer {
+	grid-area: biography;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.bioContainer img {
+	width: 18em;
+	margin: auto;
+	border-radius: 0.5em;
+}
+.bioContainer p {
+	font-family: 'Laila', serif;
+	width: 90%;
+	margin: 0.5rem auto;
+	font-size: 2rem;
+}
+.navOptions {
+	grid-area: navigation;
+	font-size: 4.5em;
+	border: 0.25rem solid #555;
+	width: 90%;
+	margin: auto;
+	height: 18rem;
+	overflow-x: scroll;
+	scroll-snap-type: y mandatory;
+}
+
+.navOptions ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+.navOptions li {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-bottom: .1rem solid #555;
+	height: 5.9rem;
+	scroll-snap-align: start;
+	scroll-snap-stop: always;
+}
+
+.navOptions li:last-child {
+	border-bottom: none;
+}
+
+.navOptions a {
+	text-decoration: none;
+
+	font-family: 'Roboto';
+	color: var(--ac-green);
+	font-size: 3.25rem;
+}
+
+.navOptions a:hover {
+	background-color: var(--ac-orange);
+	border-radius: 1rem;
+}
+
+.footerContainer {
+	grid-area: footer;
+	display: inline-block;
+	margin: auto;
+}
+
+.footerContainer img {
+	height: 8rem;
+}

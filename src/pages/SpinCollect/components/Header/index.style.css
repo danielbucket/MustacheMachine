@@ -1,11 +1,11 @@
-.discogs-header-container {
-	grid-row: spinConnectHeader;
+.spinCollect-header-container {
+	grid-row: Header;
 	display: flex;
 	flex-direction: row;
 	background-color: darkgray;
 }
 
-.discogs-header-title {
+.spinCollect-header-title {
 	flex-grow: 1;
 	display: flex;
 	align-items: center;
@@ -14,22 +14,28 @@
 }
 
 .login-status-container {
-	display: flex;
-  flex-direction: column;
-  align-items: center;
   width: 20rem;
   border-left: .16rem solid black;
   border-bottom: .16rem solid black;
-  padding: 0.15rem 0;
 }
 
-.discogs-user-name {
-	font-size: 2rem;
+.is-logged-in-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+.active-user-name {
 	flex-grow: 1;
 	display: flex;
 	align-items: center;
+	justify-content: center;
+	font-size: 3rem;
 }
 
-.discogs-header-login-status {	
-	height: 1.25rem;
+.is-logged-in-container p  {
+	font-size: 1.2rem;
+	height: 1.5rem;
 }

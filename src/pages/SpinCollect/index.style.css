@@ -24,18 +24,11 @@ html, body {
 }
 
 body {
-	background-color: blanchedalmond;
 }
 
 .discogs-app-container {
 	display: grid;
-	grid-template-rows: [spinConnectHeader] 8rem
-											[spinConnectAppBody] calc(100vh - 8rem);
+	grid-template-rows: [Header] 8rem
+											[AppMgmt] calc(100vh - 8rem);
 	background-color: lightgray;
-}
-
-.spin-collect-app-body {
-	grid-row: spinConnectAppBody;
-	display: flex;
-	flex-direction: row;
 }

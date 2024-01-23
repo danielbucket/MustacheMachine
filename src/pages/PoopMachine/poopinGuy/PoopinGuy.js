@@ -2,15 +2,15 @@ import * as React from 'react'
 const poopinGuyIcon = require('../../../assets/icons/bowel-motion.png')
 
 export default function PoopinGuy(props) {
-	const { isPoopin, makePoop, hungerVal }  = props
+	const { isPoopin, makePoop, hungerVal, style }  = props
 
 	return (
 		<div
-			className='guy-action-card-container'
+			className={style.guyActionCardContainer}
 			onClick={() => hungerVal >= 1 ? makePoop('poopin') : null}>
-			<img className='guy-icon' src={poopinGuyIcon} alt="poopin icon"/>
-			<div className="guy-text-box">
-				<p className='guy-status-text'>
+			<img className={style.guyIcon} src={poopinGuyIcon} alt="poopin icon"/>
+			<div className={style.guyTextBox}>
+				<p className={style.guyStatusText}>
 					{
 						isPoopin === true && hungerVal === 0
 							? "No more poops here!"
