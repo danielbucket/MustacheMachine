@@ -6,7 +6,6 @@ import Home from './pages/Home'
 import Personal from './pages/Personal'
 import Contact from './pages/Contact'
 import PoopMachine from './pages/PoopMachine'
-import SpinCollect from './pages/SpinCollect'
 import ErrorPage from './pages/error-page.js'
 
 const router = createBrowserRouter([
@@ -22,10 +21,6 @@ const router = createBrowserRouter([
 	{
 		path: '/personal',
 		element: <Personal />,
-	},
-	{
-		path: '/spin_collect',
-		element: <SpinCollect />,
 	},
 	{
 		path: '/poop_machine',

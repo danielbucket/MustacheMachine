@@ -6,9 +6,8 @@ import gitHubIcon from '../../assets/logoIcons/github/github-mark.png'
 
 export default function Home() {
 	const aboutMe = "Hey, I'm Daniel. On a whim I once went sailing somewhere south of the coastline. Cool story, bruh. Check out some of the projects I built while sailing. I've never been sailing before."
-	const poopMachineLinkText = '<Poop Machine />'
+	const poopMachineLinkText = '<PoopMachine />'
 	const personalLinkText = '<Personal />'
-	const spinCollectLinkText = '<SpinCollect />'
 	const contactLinkText = '<Contact />'
 
 	return (
@@ -28,9 +27,6 @@ export default function Home() {
 					</li>
 					<li>
 						<Link to={'contact'}>{contactLinkText}</Link>
-					</li>
-					<li>
-						<Link to={'spin_collect'}>{spinCollectLinkText}</Link>
 					</li>
 					<li>
 						<Link to={'poop_machine'}>{poopMachineLinkText}</Link>
