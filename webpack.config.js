@@ -32,12 +32,6 @@ module.exports = {
 			dependOn: 'shared',
 			chunkLoading: false,
 		},
-		discogsApp: {
-			import: path.resolve(__dirname, 'src/pages/SpinCollect/index.js'),
-			filename: 'pages/spinCollect.js',
-			dependOn: 'shared',
-			chunkLoading: false,
-		},
 	},
 	output: {
 		filename: '[name].[contenthash].js',
