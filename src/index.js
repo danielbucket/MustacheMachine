@@ -2,21 +2,23 @@ import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
-import Home from './pages/Home'
+import style from './root.style.css'
+import HomePage from './pages/HomePage'
 import Personal from './pages/Personal'
 import Contact from './pages/Contact'
 import PoopMachine from './pages/PoopMachine'
-import ErrorPage from './pages/error-page.js'
+import ErrorPage from './pages/error-page'
 
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <Home />,
+		element: <HomePage />,
 		errorElement: <ErrorPage />,
 	},
 	{
-		path: '/contact',
-		element: <Contact />
+		path: '/contact/*',
+		element: <Contact />,
+		errorElement: <ErrorPage />,
 	},
 	{
 		path: '/personal',

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useRouteError } from 'react-router-dom'
+import { useRouteError, Link } from 'react-router-dom'
 const dangerRobot = require('../assets/images/dangerWillRobinson.jpeg')
 const errorPageStyle = {
 	container: {
@@ -43,7 +43,9 @@ export default function ErrorPage() {
 				src={dangerRobot}
 				alt="Error, Will Robinson!" />
 			<h1>Error, Will Robinson!</h1>
-			<p>An enexpected error has occured:</p>
+			<Link to={'/'} >
+				CLOSE THIS WINDOW
+			</Link>
 			<p style={errorPageStyle.error}>
 				<i>{error.statusText || error.message}</i>
 			</p>

@@ -20,18 +20,6 @@ module.exports = {
 	entry: {
 		home: './src/index.js',
 		shared: ['react', 'react-dom'],
-		personal: {
-			import: path.resolve(__dirname, 'src/pages/Personal/index.js'),
-			filename: 'pages/personal.js',
-			dependOn: 'shared',
-			chunkLoading: false,
-		},
-		poopMachine: {
-			import: path.resolve(__dirname, 'src/pages/PoopMachine/index.js'),
-			filename: 'pages/poopMachine.js',
-			dependOn: 'shared',
-			chunkLoading: false,
-		},
 	},
 	output: {
 		filename: '[name].[contenthash].js',
@@ -49,7 +37,7 @@ module.exports = {
 		}),
 		new Dotenv(),
 	].concat(devMode ? [] : [
-			new MiniCssExtractPlugin({ filename: 'bucketLimited.css' })
+			new MiniCssExtractPlugin({ filename: 'bucketLimited.style.css' })
 	]),
 	
 	module: {
@@ -57,10 +45,11 @@ module.exports = {
 	    {
 	      test: /\.css$/,
 	      use: [
-	      	devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-	      	"css-loader"
+	      	devMode
+	      		? "style-loader"
+	      		: MiniCssExtractPlugin.loader, "css-loader"
       	],
-	      exclude: /node_moudles/,
+	      exclude: /node_modules/,
 	    },
 			{
 				test: /\.(jsx|js)$/,

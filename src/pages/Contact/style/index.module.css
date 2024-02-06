@@ -1,0 +1,20 @@
+.contactWrapper {
+	background-color: var(--ac-green);
+	padding: .12rem;
+	height: 100vh;
+}
+
+.contactHeader {
+	border: .2rem solid black;
+	font-size: 2rem;
+
+}
+
+.contactHeader p {
+}
+
+.link {
+	display: block;
+	height: 3rem;
+	width: 15rem;
+}
