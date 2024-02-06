@@ -6,6 +6,7 @@ import style from './root.style.css'
 import HomePage from './pages/HomePage'
 import Personal from './pages/Personal'
 import Contact from './pages/Contact'
+import { ContactForm } from './pages/Contact/contactForm.js'
 import PoopMachine from './pages/PoopMachine'
 import ErrorPage from './pages/ErrorPage'
 import SpinnerOfDoom from './pages/SpinnerOfDoom'
@@ -14,12 +15,16 @@ const router = createBrowserRouter([
 	{
 		path: '/',
 		element: <HomePage />,
-		errorElement: <ErrorPage />,
 	},
 	{
-		path: '/contact/*',
+		path: '/contact',
 		element: <Contact />,
-		errorElement: <ErrorPage />,
+		children: [
+			{
+				path: '/contact/contact_form',
+				element: <ContactForm />
+			},
+		],
 	},
 	{
 		path: '/personal',
@@ -28,6 +33,9 @@ const router = createBrowserRouter([
 	{
 		path: '/poop_machine',
 		element: <PoopMachine />,
+	},
+	{
+		path: '*',
 		errorElement: <ErrorPage />,
 	},
 ])

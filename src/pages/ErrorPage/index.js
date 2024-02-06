@@ -8,14 +8,12 @@ export default function ErrorPage() {
 
 	return (
 		<div style={style.container}>
+			<Link to={'/'} >Back to Home</Link>
 			<img
 				style={style.image}
 				src={dangerRobot}
 				alt="Error, Will Robinson!" />
 			<h1>Error, Will Robinson!</h1>
-			<Link to={'/'} >
-				Back to Home
-			</Link>
 			<p style={style.error}>
 				<i>{error.statusText || error.message}</i>
 			</p>
