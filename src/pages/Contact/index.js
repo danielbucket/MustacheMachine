@@ -23,7 +23,7 @@ export default function Contact() {
 			</div>
 
 			<Routes>
-				<Route path='/contact_form' element={ <ContactForm /> }/>
+				<Route path="/contact_form" element={ <ContactForm /> }/>
 			</Routes>
 
 		</div>

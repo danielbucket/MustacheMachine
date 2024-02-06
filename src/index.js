@@ -7,7 +7,8 @@ import HomePage from './pages/HomePage'
 import Personal from './pages/Personal'
 import Contact from './pages/Contact'
 import PoopMachine from './pages/PoopMachine'
-import ErrorPage from './pages/error-page'
+import ErrorPage from './pages/ErrorPage'
+import SpinnerOfDoom from './pages/SpinnerOfDoom'
 
 const router = createBrowserRouter([
 	{
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
 	{
 		path: '/poop_machine',
 		element: <PoopMachine />,
+		errorElement: <ErrorPage />,
 	},
 ])
 
@@ -35,6 +37,9 @@ const root = createRoot(domNode)
 
 root.render(
 	<React.StrictMode>
-		<RouterProvider router={router} />
+		<RouterProvider
+			router={ router }
+			fallbackElement={ <SpinnerOfDoom /> }
+			future={{ v7_startTransition:true }} />
 	</React.StrictMode>
 )
