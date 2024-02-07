@@ -1,0 +1,92 @@
+.homePageContainer {
+	display: grid;
+	grid-template-rows: [header] 8rem
+											[biography] 60fr
+											[navigation] 40fr
+											[footer] 10rem;
+	height: 100vh;
+	background-color: #d9d9d9;
+}
+
+.headerContainer {
+	grid-area: header;
+	display: grid;
+}
+
+.headerContainer h1 {
+	font-size: 5em;
+	font-family: Laila_Med, serif;
+	text-align: center;
+}
+
+.bioContainer {
+	grid-area: biography;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.bioContainer img {
+	width: 18em;
+	margin: auto;
+	border-radius: 0.5em;
+}
+.bioContainer p {
+	font-family: Laila_Med, serif;
+	width: 90%;
+	margin: 0.5rem auto;
+	font-size: 2rem;
+}
+.navOptions {
+	grid-area: navigation;
+	font-size: 4.5em;
+	border: 0.25rem solid var(--ac-brown);
+	border-radius: 0.5rem;
+	width: 90%;
+	margin: auto;
+	height: 18rem;
+	overflow-x: scroll;
+	scroll-snap-type: y mandatory;
+}
+
+.navOptions ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+.navOptions li {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-bottom: .1rem solid var(--ac-brown);
+	height: 5.8rem;
+	scroll-snap-align: start;
+	scroll-snap-stop: always;
+}
+
+.navOptions li:last-child {
+	border-bottom: none;
+}
+
+.navOptions a {
+	text-decoration: none;
+
+	font-family: 'Ubuntu_Reg';
+	color: var(--ac-brown);
+	font-size: 3.25rem;
+}
+
+.navOptions a:hover {
+	color: var(--ac-orange);
+}
+
+.footerContainer {
+	grid-area: footer;
+	display: inline-block;
+	margin: auto;
+}
+
+.footerContainer img {
+	height: 8rem;
+}

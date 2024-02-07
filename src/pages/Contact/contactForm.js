@@ -1,19 +1,23 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import style from './style.module.css'
-const AUTHSERVER_API_URL = process.env.AUTHSERVER_API_URL || 'http://localhost:3647'
+import { Link, useNavigate } from 'react-router-dom'
+import style from './style/contactForm.module.css'
 
-export default function ContactForm() {
+export function ContactForm() {
 	const [email, setEmail] = useState('')
-	const [password, setPassword] = useState('')
+	const [firstName, setFirstName] = useState('')
+	const [lastName, setLastName] = useState('')
+	const [message, setMessage] = useState('')
 	const [emailError, setEmailError] = useState('')
-	const [passwordError, setPasswordError] = useState('')
-
+	const [firstNameError, setFirstNameError] = useState('')
+	const [lastNameError, setLastNameError] = useState('')
+	const [messageError, setMessageError] = useState('')
 	const navigate = useNavigate()
 
-	const onButtonClick = () => {
+	async function onButtonClick() {
 		setEmailError('')
-		setPasswordError('')
+		setMessageError('')
+		setFirstNameError('')
+		setLastNameError('')
 
 		if ('' === email) {
 			setEmailError('Please enter your email')
@@ -25,93 +29,79 @@ export default function ContactForm() {
       return
 	  }
 
-	  if ('' === password) {
-	  	setPasswordError('Please enter a password')
+	  if ('' === message) {
+	  	setMessageError('Please enter a message')
 	  	return
 	  }
 
-	  if (password.length < 7) {
-	  	setPasswordError('The password must be 8 characters or longer')
+	  if (message.length >= 300) {
+	  	setMessageError('The message must be 300 characters or less')
 	  	return
 	  }
 
-	  checkAccountExists(accountExists => {
-	  	if (accounteExists) {
-	  		logIn()
-	  	} else {
-	  		if (window.confirm("An account does not exist with this email address: ", + email + ". Do you want to create a new account?")) {
-	  			logIn()
-	  		}
-	  	}
-	  })
-	}
-
-	const checkAccountExists = callback => {
-		fetch(`${AUTHSERVER_API_URL}/check_account`, {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify({email})
-		})
-		.then(res => res.json())
-		.then(res => {
-			callback(res?.userExists)
-		})
-	}
-
-	const logIn = () => {
-		fetch(`${AUTHSERVER_API_URL}/login`, {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify({ email, password })
-		})
-		.then(res => res.json())
-		.then(res => {
-			if ('success' === res.message) {
-				localStorage.setItem("user", JSON.stringify({ email, token:res.token }))
-				props.setLoggedIn(true)
-				props.setEmail(email)
-				navigate('/')
-			} else {
-				window.alert("Wrong email or password.")
-			}
-		})
+	  //form is validated
+		console.log('form validated, submit')
+		// navigate('/contact', {
+		// 	state: { name:firstName }
+		// })
+		navigate('/')
 	}
 
 	return (
+
 		<div className={style.mainContainer}>
-			<div className={style.titleContainer}>
-				<div>Login</div>
+
+			<div className={style.inputContainer}>
+				<input
+					value={firstName}
+					placeholder="Your first name here..."
+					onChange={
+						(evt) => setFirstName(evt.target.value)
+					} />
+				<label className={style.errorLabel}>{firstNameError}</label>
 			</div>
-			<br />
+
+			<div className={style.inputContainer}>
+				<input
+					value={lastName}
+					placeholder="Your last name here..."
+					onChange={
+						(evt) => setLastName(evt.target.value)
+					} />
+				<label className={style.errorLabel}>{lastNameError}</label>
+			</div>
+
 			<div className={style.inputContainer}>
 				<input
 					value={email}
-					placeholder="Enter your email here"
-					onChange={(evt) => setEmail(evt.target.value)}
-					className={style.inputBox} />
+					type='email'
+					placeholder="Enter your email here..."
+					onChange={
+						(evt) => setEmail(evt.target.value)
+					} />
 				<label className={style.errorLabel}>{emailError}</label>
 			</div>
-			<br />
+
 			<div className={style.inputContainer}>
-				<input 
-					value={password}
-					placeholder="Enter your password"
-					onChange={(evt) => setPassword(evt.target.value)}
-					className={style.inputBox} />
-				<label className={style.errorLabel}>{passwordError}</label>
+				<textarea
+					className={style.textAreaBox}
+					value={message}
+					placeholder="Write your message here..."
+					onChange={
+						(evt) => setMessage(evt.target.value)
+					} />
+				<label className={style.errorLabel}>{messageError}</label>
 			</div>
-			<br />
+
 			<div className={style.inputContainer}>
 				<input
-					value={"Log In"}
+					value={"Send"}
 					className={style.inputButton}
 					type='button'
 					onClick={onButtonClick} />
 			</div>
+
 		</div>
+
 	)
 }
