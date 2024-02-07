@@ -3,13 +3,13 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import style from './root.style.css'
-import HomePage from './pages/HomePage'
-import Personal from './pages/Personal'
-import Contact from './pages/Contact'
-import { ContactForm } from './pages/Contact/contactForm.js'
-import PoopMachine from './pages/PoopMachine'
-import ErrorPage from './pages/ErrorPage'
-import SpinnerOfDoom from './pages/SpinnerOfDoom'
+import HomePage 				from './pages/HomePage'
+import Personal 				from './pages/Personal'
+import Contact 					from './pages/Contact'
+import { ContactForm } 	from './pages/Contact/contactForm.js'
+import PoopMachine 			from './pages/PoopMachine'
+import ErrorPage 				from './pages/ErrorPage'
+import SpinnerOfDoom 		from './pages/SpinnerOfDoom'
 
 const router = createBrowserRouter([
 	{
@@ -17,14 +17,8 @@ const router = createBrowserRouter([
 		element: <HomePage />,
 	},
 	{
-		path: '/contact',
+		path: '/contact/*',
 		element: <Contact />,
-		children: [
-			{
-				path: '/contact/contact_form',
-				element: <ContactForm />
-			},
-		],
 	},
 	{
 		path: '/personal',

@@ -1,4 +1,6 @@
 .contactWrapper {
+	display: flex;
+	flex-direction: column;
 	background-color: var(--ac-green);
 	padding: .12rem;
 	height: 100vh;
@@ -7,7 +9,7 @@
 .contactHeader {
 	border: .2rem solid black;
 	font-size: 2rem;
-
+	height: 18rem;
 }
 
 .contactHeader p {
@@ -17,4 +19,12 @@
 	display: block;
 	height: 3rem;
 	width: 15rem;
+}
+
+.childRoutes {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	align-items: center;
+	border: .15rem solid black;
 }
