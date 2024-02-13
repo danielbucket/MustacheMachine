@@ -1,19 +1,18 @@
-const formSubmit = formData => {
-	console.log('formData: ', Object.keys(formData))
+const POST_formSubmit = (req,res,next) => {
+	// add data to database
+	// api query for email
 
+	const { firstName } = req.body
 
-	const mockFetch = () => {
-		setTimeout(() => {
-			console.log('Contact form submitted')
-			return 
-		}, 1000)
-	}
+	const dbQuery = Object.assign(
+		{},
+		{ firstName }
+	)
 
-
-
-	res.send()
+	res.status(200).send(dbQuery)
+	next()
 }
 
 module.exports = {
-	formSubmit,
+	POST_formSubmit,
 }

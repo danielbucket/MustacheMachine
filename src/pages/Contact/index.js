@@ -1,16 +1,30 @@
-import React, { useState } from 'react'
-import { Routes, Route, Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { Routes, Route, Link, useLocation } from 'react-router-dom'
 import style from './style/index.module.css'
 import { ContactForm } from './contactForm'
 
 export default function Contact() {
+	const [name, setName] = useState('')
+	const location = useLocation()
+
+	useEffect(() => {
+		setName(location.state?.firstName)
+	},[location])
+
 	return (
 		<div className={style.contactWrapper}>
 
 			<div className={style.contactHeader}>
+				{
+					name ? 
+						<p>Thanks for checking in {name}!</p>
+						: null
+				}
 				<Link to='/'>Home</Link>
 				<div className={style.emailContactContainer}>
 					<p>Hello, world. Im Daniel Bucket</p>
+
+					{}
 					<Link
 						className={style.link}
 						to={'/contact/contact_form'} >
