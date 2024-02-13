@@ -3,13 +3,13 @@ import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 
 export function ContactForm() {
-  const { register, handleSubmit, formState: { errors } } = useForm()
-  const [submitSuccess, setSubmitSuccess] = useState(false)
-  const [firstName, setFirstName] = useState('')
+	const { register, handleSubmit, formState: { errors } } = useForm()
+	const [submitSuccess, setSubmitSuccess] = useState(false)
+	const [firstName, setFirstName] = useState('')
 	const [isLoading, setIsLoading] = useState(false)
 	const [error, setError] = useState()
 	const navigate = useNavigate()
-  const baseURL = '/api/v1/contact_form/new'
+  	const baseURL = '/api/v1/contact_form/new'
 
 
   useEffect(() => {

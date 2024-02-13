@@ -1,5 +1,4 @@
-import * as React from 'react'
-import Contact from './components/Contact'
+import React from 'react'
 
 export default function Personal() {
 	const bio = 'This is my bio text.'
