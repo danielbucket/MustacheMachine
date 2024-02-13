@@ -59,11 +59,11 @@ export function ContactForm() {
   
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input value="bob" type="text" placeholder="First name" {...register("firstName", {required: true, maxLength: 80})} />
-      <input value="barker" type="text" placeholder="Last name" {...register("lastName", {required: true, maxLength: 100})} />
-      <input value="dead@deadguy.com" type="text" placeholder="Email" {...register("email", {required: true, pattern: /^\S+@\S+$/i})} />
-      <input value="6666666666" type="tel" placeholder="Mobile number" {...register("mobile number", {required: true, minLength: 6, maxLength: 12})} />
-      <textarea value="french" {...register("Message", {required: true, max: 250, min: 5})} />
+      <input type="text" placeholder="First name" {...register("firstName", {required: true, maxLength: 80})} />
+      <input type="text" placeholder="Last name" {...register("lastName", {required: true, maxLength: 100})} />
+      <input type="text" placeholder="Email" {...register("email", {required: true, pattern: /^\S+@\S+$/i})} />
+      <input type="tel" placeholder="Mobile number" {...register("mobile number", {required: true, minLength: 6, maxLength: 12})} />
+      <textarea {...register("Message", {required: true, max: 250, min: 5})} />
 
       <input type="submit" />
     </form>
