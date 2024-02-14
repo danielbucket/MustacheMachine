@@ -6,7 +6,17 @@
 	height: 100vh;
 }
 
+.homeLink {
+	display: flex;
+	height: 5rem;
+	width: 90%;
+	margin: auto;
+	justify-content: center;
+	align-items: center;
+	font-size: 2.75rem;
+	font-family: Laila_Med;
 
+}
 
 .contactHeader {
 	border: .2rem solid black;
@@ -14,13 +24,45 @@
 	height: 18rem;
 }
 
-.contactHeader p {
+.emailContactContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border: .2rem solid var(--ac-orange);
+	height: 100%
+}
+
+.emailContactContainer p {
+	font-size: 2rem;
+}
+
+.formSubmittedContainer{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	font-family: Laila_Med;
+}
+
+.formSubmittedHeader {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 .link {
-	display: block;
-	height: 3rem;
-	width: 15rem;
+	display: flex;
+	height: 5rem;
+	width: 90%;
+	margin: auto;
+	border: 0.2rem solid black;
+	justify-content: center;
+	align-items: center;
+	font-size: 4rem;
+	font-family: Laila_Med;
 }
 
 .childRoutes {
