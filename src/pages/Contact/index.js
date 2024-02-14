@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { Routes, Route, Link, useLocation } from 'react-router-dom'
+import { Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom'
 import style from './style/index.module.css'
 import { ContactForm } from './contactForm'
+import backIcon from '../../assets/icons/previous.png'
 
 export default function Contact() {
 	const [name, setName] = useState('')
 	const location = useLocation()
+	const navigate = useNavigate()
 
 	useEffect(() => {
 		setName(location.state?.firstName)
@@ -13,6 +15,11 @@ export default function Contact() {
 
 	return (
 		<div className={style.contactWrapper}>
+			<input
+				className={style.navBackBtn}
+				type='button'
+				value='Back'
+				onClick={() => navigate(-1)} />
 			<div className={style.contactHeader}>
 				{
 					!name
@@ -34,18 +41,16 @@ export default function Contact() {
 									</div>
 									<Link to='/' className={style.homeLink}>
 										{`<Link to={'/home} />`}
-										</Link>
+									</Link>
 								</div>
 							)
 				}
 			</div>
-
 			<div className={style.childRoutes}>
 				<Routes>
 					<Route path='/contact_form' element={<ContactForm />} />
 				</Routes>
 			</div>
-
 		</div>
 	)
 }

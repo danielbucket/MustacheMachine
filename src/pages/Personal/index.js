@@ -8,7 +8,7 @@ export default function Personal() {
 
 	return (
 		<div className={style.container}>
-			{/* an h1 with inline style */}
+			
 			<h1>Me llamo es Daniel</h1>
 		</div>
 	)

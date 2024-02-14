@@ -6,6 +6,17 @@
 	height: 100vh;
 }
 
+.navBackBtn {
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	height: 3rem;
+	padding-left: 1rem;
+	font-family: Roboto;
+	font-size: 2rem;
+	border: 0.15rem solid black;
+}
+
 .homeLink {
 	display: flex;
 	height: 5rem;
