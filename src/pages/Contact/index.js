@@ -15,6 +15,7 @@ export default function Contact() {
 
 	return (
 		<div className={style.contactWrapper}>
+			
 			<input
 				className={style.navBackBtn}
 				type='button'
