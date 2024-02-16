@@ -3,7 +3,6 @@ const webpack = require('webpack')
 const webpackDevMiddleware = require('webpack-dev-middleware')
 const cors = require('cors')
 const PORT = process.env.PORT || 3647
-const serverPORT = 3648
 
 const app = express()
 const webpackConfig = require(`../webpack.config.js`)

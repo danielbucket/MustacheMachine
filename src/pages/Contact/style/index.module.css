@@ -1,7 +1,6 @@
 .contactWrapper {
 	display: flex;
 	flex-direction: column;
-	background-color: var(--ac-green);
 	padding: .12rem;
 	height: 100vh;
 }
@@ -32,13 +31,11 @@
 
 .contactHeader span {
 	font-size: 1.75rem;
-	text-align: right;
 }
 
 .childRoutes {
 	display: flex;
 	justify-content: center;
 	flex-grow: 1;
-	align-items: center;
-	border: .15rem solid black;
+	align-items: flex-start;
 }

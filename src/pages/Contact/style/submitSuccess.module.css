@@ -5,8 +5,9 @@
   color: #fff;
   padding: 1rem 5rem;
   border-radius: 1.5rem;
-  font-size: 1.6rem;
+  font-size: 2.75rem;
   transition: background-color 0.3s ease;
+  font-family: Ubuntu_Reg;
 }
 
 .contactFormLink:hover {
@@ -17,10 +18,34 @@
   background-color: #003d80;
 }
 
-.contactFormLink::before {
-  margin-right: 3rem;
+.formSubmittedContainer {
+  width: 95%;
+  font-size: 3.25rem;
+  font-family: 'Laila_Med';
 }
 
-.contactFormLink::after {
+.formSubmittedContainer p {
+  color: #007bff;
+  letter-spacing: -0.1rem;
+  padding-bottom: 1rem;
+}
+
+.formSubmittedHeader {
+
+}
+
+.landingPageRedirect {
+  margin-top: 3rem;
+  font-size: 3rem;
+  font-family: Ubuntu_Reg;
+}
+
+.landingPageRedirect p {
+
+}
+
+.landingPageRedirect span {
+  font-family: KodeMono_Var;
+  font-weight: 700;
   
 }

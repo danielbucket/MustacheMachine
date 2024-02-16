@@ -19,6 +19,11 @@
 	src: url('./assets/fonts/Ubuntu/Ubuntu-Regular.ttf');
 }
 
+@font-face {
+	font-family: KodeMono_Var;
+	src: url('./assets/fonts/Kode_Mono/KodeMono-VariableFont_wght.ttf');
+}
+
 :root {
 	--ac-sand: 					#F7DE8D;
 	--ac-orange:				#FBB040;
@@ -60,4 +65,5 @@ html, body {
 }
 
 body {
+	background-color: #d9d9d9;
 }
