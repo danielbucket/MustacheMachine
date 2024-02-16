@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom'
 import style from './style/index.module.css'
-import backIcon from '../../assets/icons/previous.png'
 import { SubmitSuccess } from './components/submitSuccess'
 import { ContactForm } from './components/contactForm'
+const aboutMeText = `I'm a software engineer with a passion for creating and building things. I'm a full stack developer with a focus on front end technologies. I'm a big fan of React and I'm always looking for new ways to improve my skills. I'm also a big fan of the outdoors and I love to travel.`
 
 export default function Contact() {
 	const [submitSuccess, setSubmitSuccess] = useState(false)
@@ -27,14 +27,12 @@ export default function Contact() {
 	return (
 		<div className={style.contactWrapper}>
 			<input
-				className={style.navBackBtn}
+				className={style.navBtn}
 				type='button'
-				value='Back'
+				value={submitSuccess ? 'Home' : 'Back'}
 				onClick={() => handleClick()} />
 			<div className={style.contactHeader}>
-				<div className={style.emailContactContainer}>
-					<p>Hello, world. Im Daniel Bucket</p>
-				</div>
+				<p>{aboutMeText}<br/><span>-GitHub Co-Pilot</span></p>
 			</div>
 			<div className={style.childRoutes}>
 				<Routes>

@@ -1,0 +1,26 @@
+/* FILEPATH: /Users/danielbucket/BucketLimited/projects/MustacheMachine/src/pages/Contact/style/submitSuccess.module.css */
+
+.contactFormLink {
+  background-color: #007bff;
+  color: #fff;
+  padding: 1rem 5rem;
+  border-radius: 1.5rem;
+  font-size: 1.6rem;
+  transition: background-color 0.3s ease;
+}
+
+.contactFormLink:hover {
+  background-color: #0056b3;
+}
+
+.contactFormLink:active {
+  background-color: #003d80;
+}
+
+.contactFormLink::before {
+  margin-right: 3rem;
+}
+
+.contactFormLink::after {
+  
+}

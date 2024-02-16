@@ -15,9 +15,7 @@ export function SubmitSuccess() {
   if (!submitSuccess) {
     return (
       <>
-        <div>
-          <Link to='/contact/contact_form' >Shoot me an email</Link>
-        </div>
+        <Link className={style.contactFormLink} to='/contact/contact_form' >Send An Email My Way</Link>
         <Outlet />
       </>
     )

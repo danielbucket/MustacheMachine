@@ -40,6 +40,16 @@ a {
 	color: black;
 }
 
+button {
+	cursor: pointer;
+	display: inline-block;
+	border: none;
+	margin: 0;
+	text-decoration: none;
+	background: none;
+	text-align: center;
+}
+
 html {
 	font-size: 62.5%;
 }

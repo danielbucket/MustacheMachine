@@ -1,5 +1,5 @@
 import React from 'react'
-
+import style from './style/index.module.css'
 // create a react page that desscribes who I am
 
 
@@ -8,8 +8,11 @@ export default function Personal() {
 
 	return (
 		<div className={style.container}>
-			
-			<h1>Me llamo es Daniel</h1>
+			<h1>About Me</h1>
+			<p>Me llamo es Daniel</p>
+			<p>Donde es el bano?</p>
+			<p>Me gusta en la biblioteca</p>
+			<p>Me gusta en la playa</p>
 		</div>
 	)
 }
