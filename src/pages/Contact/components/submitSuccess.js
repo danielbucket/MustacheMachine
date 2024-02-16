@@ -30,7 +30,7 @@ export function SubmitSuccess() {
   if (!submitSuccess) {
     return (
       <>
-        <Link className={style.contactFormLink} to='/contact/contact_form' >Send An Email My Way</Link>
+        <Link className={style.contactFormLink} to='/contact/contact_form' >Message Me</Link>
         <Outlet />
       </>
     )

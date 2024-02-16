@@ -3,11 +3,13 @@
 .contactFormLink {
   background-color: #007bff;
   color: #fff;
+  margin-top: 4rem;
   padding: 1rem 5rem;
   border-radius: 1.5rem;
-  font-size: 2.75rem;
+  font-size: 5rem;
   transition: background-color 0.3s ease;
   font-family: Ubuntu_Reg;
+  border: .5rem solid var(--grayd-a-grey);
 }
 
 .contactFormLink:hover {
@@ -24,14 +26,16 @@
   font-family: 'Laila_Med';
 }
 
-.formSubmittedContainer p {
+.formSubmittedHeader {
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+}
+
+.formSubmittedHeader p {
   color: #007bff;
   letter-spacing: -0.1rem;
   padding-bottom: 1rem;
-}
-
-.formSubmittedHeader {
-
 }
 
 .landingPageRedirect {

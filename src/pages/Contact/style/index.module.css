@@ -13,24 +13,28 @@
 	padding-left: 1rem;
 	font-family: Roboto;
 	font-size: 2rem;
-	border: 0.15rem solid black;
+	border: 0.15rem solid var(--grayd-a-grey);
 }
 
 .contactHeader {
-	font-size: 2rem;
-	height: 24rem;
+	height: 25rem;
 	width: 95%;
 	font-family: Laila_Med;
 	margin: 1rem auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
-.contactHeader p {
-	font-size: 1.75rem;
+.contactHeader p:first-child {
+	font-size: 2rem;
 	text-align: left;
 }
 
-.contactHeader span {
+.contactHeader p:last-child {
 	font-size: 1.75rem;
+	text-align: right;
+	text-indent: 2rem;
 }
 
 .childRoutes {

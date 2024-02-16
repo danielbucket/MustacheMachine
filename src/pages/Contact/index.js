@@ -32,7 +32,8 @@ export default function Contact() {
 				value={submitSuccess ? 'Home' : 'Back'}
 				onClick={() => handleClick()} />
 			<div className={style.contactHeader}>
-				<p>{aboutMeText}<br/><span>-GitHub Co-Pilot</span></p>
+				<p>{aboutMeText}</p>
+				<p>-GitHub Co-Pilot</p>
 			</div>
 			<div className={style.childRoutes}>
 				<Routes>
