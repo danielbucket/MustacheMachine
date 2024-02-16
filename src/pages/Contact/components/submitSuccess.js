@@ -6,10 +6,6 @@ export function SubmitSuccess() {
   const [firstName, setFirstName] = useState('')
   const [submitSuccess, setSubmitSuccess] = useState(false)
   const location = useLocation()
-  console.log('location: ', location)
-
-  // console.log('submitSuccess: ', location.state.submitSuccess)
-  // console.log('firstName: ', location.state.firstName)
   
   useEffect(() => {
     setFirstName(location.state?.firstName)
