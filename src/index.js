@@ -6,9 +6,12 @@ import style from './root.style.css'
 import HomePage 				from './pages/HomePage'
 import Personal 				from './pages/Personal'
 import Contact 					from './pages/Contact'
+import { ContactForm } 	from './pages/Contact/components/contactForm'
+import { SubmitSuccess }	from './pages/Contact/components/submitSuccess'
 import PoopMachine 			from './pages/PoopMachine'
 import ErrorPage 				from './pages/ErrorPage'
 import SpinnerOfDoom 		from './pages/SpinnerOfDoom'
+
 
 const router = createBrowserRouter([
 	{
@@ -18,6 +21,16 @@ const router = createBrowserRouter([
 	{
 		path: '/contact/*',
 		element: <Contact />,
+		children: [
+			{
+				path: 'contact_form',
+				element: <ContactForm />,
+			},
+			{
+				path: 'submit',
+				element: <SubmitSuccess />,
+			},
+		],	
 	},
 	{
 		path: '/personal',

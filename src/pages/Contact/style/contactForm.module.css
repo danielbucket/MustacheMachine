@@ -1,9 +1,11 @@
-.mainContainer {
+.formContainer {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	
 	background-color: var(--ac-orange);
 	width: 95%;
+	height: 60rem;
 	margin-top: 5rem;
 	border-radius: 1rem;
 }
@@ -11,6 +13,7 @@
 .inputContainer {
 	display: flex;
 	flex-direction: column;
+	gap: 1rem;
 	margin-top: 1rem;
 	min-height: 8rem;
 	width: 90%;
@@ -18,13 +21,15 @@
 
 .inputContainer input {
 	height: 6rem;
-	width: 24rem;
+	width: 28rem;
 	margin: auto;
 	border-radius: 2rem;
 	border: none;
+	font-size: 2.5rem;
+	text-align: center;
 }
 
-.textAreaBox {
+.inputContainer textarea {
 	resize: none;
 	border: none;
 	outline: none;

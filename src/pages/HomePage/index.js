@@ -1,6 +1,6 @@
-import style from './index.module.css'
-import React, { useState, useEffect } from 'react'
+import * as React from 'react'
 import { Link } from 'react-router-dom'
+import style from './index.module.css'
 import selfiImage from '../../assets/images/selfi2.jpg'
 import gitHubIcon from '../../assets/logoIcons/github/github-mark.png'
 
@@ -23,7 +23,7 @@ export default function HomePage() {
 						<Link to={'personal'}>{`<Personal />`}</Link>
 					</li>
 					<li>
-						<Link to={'contact'}>{`<Contact />`}</Link>
+						<Link to={'contact/submit'}>{`<Contact />`}</Link>
 					</li>
 					<li>
 						<Link to={'poop_machine'}>{`<PoopMachine />`}</Link>
