@@ -32,18 +32,20 @@ export function ContactForm() {
 	    },
 			body: JSON.stringify(data),
 		})
-		.then(res => res.json())
-		.then(name => {
-			setFirstName(() => name.firstName)
+		.then(res => {
+			if (!res.ok) {
+				throw new Error('Network response was not ok')
+			}
+			return res.json()
+		} )
+		.then(res => {
+			setFirstName(() => res.firstName)
 			setSubmitSuccess(() => true)
 			setIsLoading(() => false)
 		})
 		.catch(error => {
-		  console.log('errors: ', error)
-
 			setSubmitSuccess(() => false)
 		  setError(() => error)
-
 			throw new Error(error)
 		})
   }
@@ -67,7 +69,7 @@ export function ContactForm() {
 				<input value='Dork' type="text" placeholder="Last Name" {...register("lastName", {required: true, maxLength: 100})} />
 				<input value='dork@bork.com' type="text" placeholder="Email" {...register("email", {required: true, pattern: /^\S+@\S+$/i})} />
 				<input value='1234567890' type="tel" placeholder="Phone" {...register("mobile number", {required: true, minLength: 6, maxLength: 12})} />
-				<textarea value='message has been written' placeholder="Message..." {...register("Message", {required: true, max: 250, min: 5})} />
+				<textarea value='Please allow for a misplaced hotdog here and there' placeholder="Message..." {...register("message", {required: true, max: 250, min: 5})} />
 				<input type="submit" />
 			</div>
     </form>
