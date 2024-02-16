@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
+import style from '../style/contactForm.module.css'
 
 export function ContactForm() {
 	const { register, handleSubmit, formState: { errors } } = useForm()
@@ -8,14 +9,17 @@ export function ContactForm() {
 	const [firstName, setFirstName] = useState('')
 	const [isLoading, setIsLoading] = useState(false)
 	const [error, setError] = useState()
-	const navigate = useNavigate()
-  	const baseURL = '/api/v1/contact_form/new'
 
+	const navigate = useNavigate()
+	const baseURL = '/api/v1/contact_form/new'
 
   useEffect(() => {
 		if (submitSuccess) {
-			navigate('/contact', {
-				state: firstName
+			navigate('/contact/submit', {
+				state: {
+					firstName: firstName,
+					submitSuccess: submitSuccess,
+				}
 			})
 		}
   },[submitSuccess])
@@ -30,7 +34,7 @@ export function ContactForm() {
 		})
 		.then(res => res.json())
 		.then(name => {
-			setFirstName(() => name)
+			setFirstName(() => name.firstName)
 			setSubmitSuccess(() => true)
 			setIsLoading(() => false)
 		})
@@ -43,7 +47,6 @@ export function ContactForm() {
 			throw new Error(error)
 		})
   }
-
 
   if (isLoading) {
   	return (
@@ -58,14 +61,15 @@ export function ContactForm() {
   }
   
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input type="text" placeholder="First name" {...register("firstName", {required: true, maxLength: 80})} />
-      <input type="text" placeholder="Last name" {...register("lastName", {required: true, maxLength: 100})} />
-      <input type="text" placeholder="Email" {...register("email", {required: true, pattern: /^\S+@\S+$/i})} />
-      <input type="tel" placeholder="Mobile number" {...register("mobile number", {required: true, minLength: 6, maxLength: 12})} />
-      <textarea {...register("Message", {required: true, max: 250, min: 5})} />
-
-      <input type="submit" />
+    <form className={style.formContainer} onSubmit={handleSubmit(onSubmit)}>
+			<div className={style.inputContainer}>
+				<input value='Bork' type="text" placeholder="First Name" {...register("firstName", {required: true, maxLength: 80})} />
+				<input value='Dork' type="text" placeholder="Last Name" {...register("lastName", {required: true, maxLength: 100})} />
+				<input value='dork@bork.com' type="text" placeholder="Email" {...register("email", {required: true, pattern: /^\S+@\S+$/i})} />
+				<input value='1234567890' type="tel" placeholder="Phone" {...register("mobile number", {required: true, minLength: 6, maxLength: 12})} />
+				<textarea value='message has been written' placeholder="Message..." {...register("Message", {required: true, max: 250, min: 5})} />
+				<input type="submit" />
+			</div>
     </form>
   )
 }
