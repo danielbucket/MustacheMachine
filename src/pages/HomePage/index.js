@@ -23,7 +23,7 @@ export default function HomePage() {
 						<Link to={'personal'}>{`<Personal />`}</Link>
 					</li>
 					<li>
-						<Link to={'contact/submit'}>{`<Contact />`}</Link>
+						<Link to={'contact'}>{`<Contact />`}</Link>
 					</li>
 					<li>
 						<Link to={'poop_machine'}>{`<PoopMachine />`}</Link>

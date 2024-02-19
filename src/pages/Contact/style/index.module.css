@@ -43,3 +43,39 @@
 	flex-grow: 1;
 	align-items: flex-start;
 }
+
+.homePageRedirect {
+  margin-top: 3rem;
+  font-size: 3rem;
+  font-family: Ubuntu_Reg;
+}
+
+.homePageRedirect p {
+
+}
+
+.homePageRedirect span {
+  font-family: KodeMono_Var;
+  font-weight: 700;
+  
+}
+
+.contactFormLink {
+  background-color: #007bff;
+  color: #fff;
+  margin-top: 4rem;
+  padding: 1rem 5rem;
+  border-radius: 1.5rem;
+  font-size: 5rem;
+  transition: background-color 0.3s ease;
+  font-family: Ubuntu_Reg;
+  border: .5rem solid var(--grayd-a-grey);
+}
+
+.contactFormLink:hover {
+  background-color: #0056b3;
+}
+
+.contactFormLink:active {
+  background-color: #003d80;
+}
