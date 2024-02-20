@@ -3,12 +3,14 @@ import { Octokit } from '@octokit/core'
 export const getUserProfile = async (username) => {
   const response = await fetch(`https://api.github.com/users/${username}`)
   const data = await response.json()
+  
   return data
 }
 
 export const getRepoList = async (username) => {
   const response = await fetch(`https://api.github.com/users/${username}/repos`)
   const data = await response.json()
+
   return data
 }
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import style from './index.module.css'
 import { getUserProfile, getRepoList, getProjectCommits } from './helpers'
 
@@ -9,14 +10,15 @@ const userData = {
 }
 
 export default function GitHubProjectModule() {
-  const [gitHubStatus, setGitHubStatus] = useState('')
+  const [projectCommits, setProjectCommits] = useState([])
   const [gitHubStatusError, setGitHubStatusError] = useState('')
-
+  const navigate = useNavigate()
+  
   useEffect(() => {
     try {
       const user = getProjectCommits(userData)
       user.then(data => {
-        console.log('data: ', data)
+        setProjectCommits(() => data)
       })
     }
     catch (error) {
@@ -25,9 +27,25 @@ export default function GitHubProjectModule() {
 
   }, [])
 
+  const commitCards = projectCommits.map((commitObj, index) => {
+    const { sha, html_url, commit } = commitObj
+    const { author, message } = commit
+    const { name, date } = author
+    
+    return (
+      <Link to={html_url} key={sha} className={style.card}>
+        <h3>{name}</h3>
+        <p>{message}</p>
+        <p>{date}</p>
+      </Link>
+    )
+  })
+  
   return (
-    <div className={style.spinConnectContainer}>
-      <h1>{}</h1>
+    <div className={style.moduleContainer}>
+      <button onClick={() => navigate('/')}>Close</button>
+      <h1>{userData.repo}</h1>
+      <div className={style.cardsContainer}>{commitCards}</div>
     </div>
   )
 }
