@@ -10,13 +10,12 @@ export default function HomePage() {
 	return (
 		<div className={style.homePageContainer}>
 			<div className={style.headerContainer}>
-				<h1>Bucket Limited</h1>
+				<h1>{`<BucketLimited />`}</h1>
 			</div>
 			<div className={style.bioContainer}>
 				<img src={selfiImage} />
 				<p>{aboutMe}</p>
 			</div>
-
 			<nav className={style.navOptions}>
 				<ul>
 					<li>
@@ -26,11 +25,13 @@ export default function HomePage() {
 						<Link to={'contact'}>{`<Contact />`}</Link>
 					</li>
 					<li>
+						<Link to={'spin_connect'}>{`<SpinConnect />`}</Link>
+					</li>
+					<li>
 						<Link to={'poop_machine'}>{`<PoopMachine />`}</Link>
 					</li>
 				</ul>
 			</nav>
-
 			<footer className={style.footerContainer}>
 				<Link to={'https://github.com/danielbucket'}>
 					<img src={gitHubIcon} alt="Github Icon"/>

@@ -9,11 +9,13 @@
 
 .headerContainer {
 	grid-area: header;
-	display: grid;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .headerContainer h1 {
-	font-size: 5em;
+	font-size: 4em;
 	font-family: Laila_Med, serif;
 	text-align: center;
 }
@@ -26,20 +28,22 @@
 }
 
 .bioContainer img {
-	width: 18em;
+	width: 24em;
 	margin: auto;
-	border-radius: 0.5em;
+	border-radius: 2em;
 }
 .bioContainer p {
 	font-family: Laila_Med, serif;
 	width: 90%;
-	margin: 0.5rem auto;
-	font-size: 2rem;
+	margin: 2rem auto 1rem auto;
+	font-size: 2.25rem;
+	text-indent: 1rem;
+	line-height: 1.5;
 }
 .navOptions {
 	grid-area: navigation;
 	font-size: 4.5em;
-	border: 0.25rem solid var(--ac-brown);
+	border: 0.25rem solid var(--special-blue);
 	border-radius: 0.5rem;
 	width: 90%;
 	margin: auto;
@@ -58,8 +62,8 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	border-bottom: .1rem solid var(--ac-brown);
-	height: 5.8rem;
+	border-bottom: .1rem solid var(--special-blue);
+	height: 5.9rem;
 	scroll-snap-align: start;
 	scroll-snap-stop: always;
 }
@@ -72,7 +76,7 @@
 	text-decoration: none;
 
 	font-family: 'Ubuntu_Reg';
-	color: var(--ac-brown);
+	color: var(--special-blue);
 	font-size: 3.25rem;
 }
 

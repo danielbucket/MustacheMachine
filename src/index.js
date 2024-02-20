@@ -7,10 +7,10 @@ import HomePage 				from './pages/HomePage'
 import Personal 				from './pages/Personal'
 import Contact 					from './pages/Contact'
 import { ContactForm } 	from './pages/Contact/components/contactForm'
+import SpinConnect 		from './pages/SpinConnect'
 import PoopMachine 			from './pages/PoopMachine'
 import ErrorPage 				from './pages/ErrorPage'
 import SpinnerOfDoom 		from './pages/SpinnerOfDoom'
-
 
 const router = createBrowserRouter([
 	{
@@ -30,6 +30,10 @@ const router = createBrowserRouter([
 	{
 		path: '/personal',
 		element: <Personal />,
+	},
+	{
+		path: '/spin_connect',
+		element: <SpinConnect />,
 	},
 	{
 		path: '/poop_machine',

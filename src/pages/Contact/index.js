@@ -61,7 +61,7 @@ export default function Contact() {
 			<input
 				className={style.navBtn}
 				type='button'
-				value={'Home'}
+				value={`Back to <Home />`}
 				onClick={() => handleClick()} />
 			{
 				submitSuccess ? submitSuccessElement : (
