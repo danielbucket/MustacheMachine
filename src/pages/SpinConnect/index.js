@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, Outlet, useNavigate } from 'react-router-dom'
 import style from './index.module.css'
 import { getUserProfile, getRepoList, getProjectCommits } from './helpers'
 
@@ -22,20 +22,36 @@ export default function GitHubProjectModule() {
       })
     }
     catch (error) {
-      setGitHubStatusError('Error: Unable to connect to GitHub')
+      setGitHubStatusError(`Unable to connect to GitHub: ${error}`)
     }
-
   }, [])
 
-  const commitCards = projectCommits.map((commitObj, index) => {
-    const { sha, html_url, commit } = commitObj
-    const { author, message } = commit
-    const { name, date } = author
+
+
+
+  const commitsList = projectCommits.map(commitObj => {
+    const { node_id, name, date } = commitObj
+    const cleanDate = date.slice(0, 10)
+    
+
+
     
     return (
-      <Link to={html_url} key={sha} className={style.card}>
+      <Link to={`commits/:${date}`} key={node_id} className={style.Arr}>
         <h3>{name}</h3>
-        <p>{message}</p>
+        <p>{date}</p>
+      </Link>
+    )
+  })
+
+
+
+  const commitListCards = projectCommits.map(commitObj => {
+    const { message, node_id, html_url, name, date } = commitObj
+    
+    return (
+      <Link to={html_url} key={node_id} className={style.card}>
+        <h3>{name}</h3>
         <p>{date}</p>
       </Link>
     )
@@ -43,9 +59,13 @@ export default function GitHubProjectModule() {
   
   return (
     <div className={style.moduleContainer}>
-      <button onClick={() => navigate('/')}>Close</button>
-      <h1>{userData.repo}</h1>
-      <div className={style.cardsContainer}>{commitCards}</div>
+      <div className={style.headerContainer}>
+        <button onClick={() => navigate('/', { replace:true }) }>Close</button>
+        <h1>{`<${userData.repo} />`}</h1>
+      </div>
+      <div className={style.cardsContainer}>
+      </div>
+      <Outlet />
     </div>
   )
 }
