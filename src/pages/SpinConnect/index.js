@@ -4,7 +4,7 @@ import style from './index.module.css'
 import { getUserProfile, getRepoList, getProjectCommits } from './helpers'
 
 const userData = {
-  key: process.env.GITHUB_KEY,
+  key: process.env.GITHUB_KeEY,
   user: process.env.GITHUB_USER_NAME,
   repo: process.env.GITHUB_REPO_NAME,
 }
