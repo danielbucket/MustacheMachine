@@ -25,11 +25,11 @@ Here are some of the projects I have worked on:
 
 1. **SpinConnect**: A single app combining Discogs api with other music streaming platforms.
 2. **ArborCraft Tree Service**: Small business website.
-3. **GardenBrain**: A weather app that provides real-time weather information using React and OpenWeatherMap API.
+3. **GardenBrain**: A garden automation app that maintains and operates hydroponic system and provides real-time weather information using React and OpenWeatherMap API.
 
 ### Experience
 
-I have worked as a software engineer at XYZ Company for the past two years. During my time there, I have gained valuable experience in developing scalable and efficient web applications.
+I attended Turing School in 2017. Since 2020, I've been operating a small business in aboriculture, ArborCraft Tree Service. My desire to code never left, however, and I'm now writing code on the side.
 
 
 ### Contact
