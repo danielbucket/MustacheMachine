@@ -1,0 +1,1 @@
+export const bioText = "Hey, I'm Daniel. On a whim I once went sailing somewhere south of the coastline. Cool story, bruh. Check out some of the projects I built while sailing. I've never been sailing before."
