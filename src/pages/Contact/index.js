@@ -3,6 +3,9 @@ import { Routes, Route, useNavigate, useLocation, Link } from 'react-router-dom'
 import style from './style/index.module.css'
 import { ContactForm } from './components/contactForm'
 import { NavBtn } from '../components/NavBtn'
+import { aboutMeText } from './contactText.js'
+
+const selfiImage = require('../../assets/images/selfi_klr250.jpg')
 
 export default function Contact() {
 	const [firstName, setFirstName] = useState('')
@@ -11,7 +14,6 @@ export default function Contact() {
 	
 	const navigate = useNavigate()
 	const location = useLocation()
-	const aboutMeText = `I'm a software engineer with a passion for creating and building things. I'm a full stack developer with a focus on front end technologies. I'm a big fan of React and I'm always looking for new ways to improve my skills. I'm also a big fan of the outdoors and I love to travel.`
 	
 	useEffect(() => {
 		if (location.state?.submitSuccess) {
@@ -38,7 +40,7 @@ export default function Contact() {
 	}
 
 	const aboutMeElement = (
-		<div className={style.contactHeader}>
+		<div className={style.textContainer}>
 			<p>{aboutMeText}</p>
 			<p>-GitHub Co-Pilot</p>
 		</div>
@@ -47,28 +49,32 @@ export default function Contact() {
 	const navBtn = NavBtn('Home', handleClick)
 
 	const submitSuccessElement = (
-		<div className={style.formSubmittedContainer}>
+		<>
 			<div className={style.formSubmittedHeader}>
-				<p>Hey, {firstName}!</p>
-				<p>Thanks for checking in!</p>
+				<p>Hello, {firstName}!</p>
+				<p>Thanks for checking in.</p>
 				<p>Your message has been received and I'll be sure to get back to you as soon as I can.</p>
 			</div>
 			<div className={style.homePageRedirect}>
 				<p>You will be redirected to the Home page in: <span>{count}</span></p>
 			</div>
-		</div>
+		</>
+	)
+
+	const noSubmitElement = (
+		<Link className={style.contactFormLink}
+					to='/contact/contact_form' >Message Me</Link>
 	)
 
 	return (
 		<div className={style.contactWrapper}>
-			{navBtn}
-			{
-				submitSuccess ? submitSuccessElement : (
-					<Link
-						className={style.contactFormLink}
-						to='/contact/contact_form' >Message Me</Link>
-				)
-			}
+			<div className={style.navWrapper}>{navBtn}</div>
+			<div className={style.imageContainer}>
+				<img src={selfiImage} alt="personal photo" />
+			</div>
+			<div className={style.logic}>
+				{ !submitSuccess ? noSubmitElement : submitSuccessElement } 
+			</div>
 
 			<div className={style.childRoutes}>
 				<Routes>
@@ -77,7 +83,6 @@ export default function Contact() {
 					<Route path='contact/submit' element={ submitSuccessElement }/>
 				</Routes>
 			</div>
-
 		</div>
 	)
 }

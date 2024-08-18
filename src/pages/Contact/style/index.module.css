@@ -1,35 +1,62 @@
 .contactWrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  display: grid;
   justify-content: center;
+	grid-template-rows: [siteNav] 8rem
+											[image] 25rem
+											[logic] 8rem
+											[routes] 1fr;
   height: 100vh;
-  font-family: Laila_Med;
-  font-size: 3rem;
 }
 
-.contactHeader {
-	height: 25rem;
-	width: 95%;
-	font-family: Laila_Med;
-	margin: 1rem auto;
+.navWrapper {
+	grid-area: siteNav;
+	display: flex;
+	width: 98%;
+	margin: auto;
+}
+
+.imageContainer {
+	grid-area: image;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 }
 
-.contactHeader p:first-child {
-	font-size: 2rem;
-	text-align: left;
+.imageContainer img {
+	width: 98%;
+	border-radius: 2rem;
+	margin: auto;
 }
 
-.contactHeader p:last-child {
+.logic {
+	grid-area: logic;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.textContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.textContainer p:first-child {
+	font-size: 2.5rem;
+  text-indent: 1rem;
+  width: 98%;
+  text-align: start;
+}
+
+.textContainer p:last-child {
 	font-size: 1.75rem;
 	text-align: right;
 	text-indent: 2rem;
 }
 
 .childRoutes {
+	grid-area: routes;
 	display: flex;
 	justify-content: center;
 	flex-grow: 1;
@@ -49,16 +76,18 @@
 .homePageRedirect span {
   font-family: KodeMono_Var;
   font-weight: 700;
-  
 }
 
 .contactFormLink {
+	display: flex;
+  justify-content: center;
+  align-items: center;
+	margin: auto;
+	width: 98%;
+	border-radius: 2rem;
   background-color: #007bff;
   color: #fff;
-  margin-top: 4rem;
-  padding: 1rem 5rem;
-  border-radius: 1.5rem;
-  font-size: 5rem;
+  font-size: 4rem;
   transition: background-color 0.3s ease;
   font-family: Ubuntu_Reg;
   border: .5rem solid var(--grayd-a-grey);
