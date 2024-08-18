@@ -6,16 +6,42 @@
   height: 100vh;
   font-family: Laila_Med;
   font-size: 3rem;
-}
+} 
 
 .imageContainer {
-  height: 28rem;
+  height: 25rem;
   margin: 1rem auto;
 
+}
+
+.image {
+  height: 100%;
+  border-radius: 2rem;
 }
 
 .bioContainer {
   flex-grow: 1;
   width: 100%;
   padding: .5rem;
+  font-size: 2rem;
+}
+
+.personText {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.personText h1 {
+  margin-bottom: -1.5rem;
+}
+
+.personText p {
+  font-size: 1.5rem;
+}
+
+.bioText p {
+  font-size: 1.5rem;
+  text-indent: 1rem;
 }
