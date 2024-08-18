@@ -11,8 +11,8 @@
 .navWrapper {
   grid-area: siteNav;
   display: flex;
-	justify-content: center;
-	align-items: center;
+	width: 98%;
+	margin: auto;
 }
 
 .imageContainer {

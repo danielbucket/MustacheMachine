@@ -1,7 +1,6 @@
 import React from 'react'
 import style from './style/index.module.css'
 import { useNavigate } from 'react-router-dom'
-
 import { NavBtn } from '../components/NavBtn'
 
 const selfiImage = require('../../assets/images/selfi_0723.jpg')
