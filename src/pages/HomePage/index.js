@@ -1,19 +1,19 @@
-import * as React from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import style from './index.module.css'
-import t100Image from '../../assets/images/T100_0720.jpg'
+import t100Image from '../../assets/images/T100_0724.jpg'
 import gitHubIcon from '../../assets/logoIcons/github/github-mark.png'
 
+const { NavBtn } = require('../components/NavBtn')
+
 export default function HomePage() {
+	const navBtn = NavBtn('Bucket Limited, LLC', null)
 	
 	return (
-		<div className={style.homePageContainer}>
-			<div className={style.headerContainer}>
-				<h1>{`<BucketLimited />`}</h1>
-			</div>
-			<div className={style.bioContainer}>
-				<img src={t100Image} />
-				<p>Daniel Bucket</p>
+		<div className={style.homePageWrapper}>
+			<div className={style.navWrapper}>{navBtn}</div>
+			<div className={style.imageContainer}>
+				<img src={t100Image} alt="image of truck"/>
 			</div>
 			<nav className={style.navOptions}>
 				<ul>

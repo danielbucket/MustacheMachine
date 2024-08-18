@@ -1,0 +1,14 @@
+.navBtnContainer {
+  display: flex;
+	justify-content: center;
+	width: 90%;
+} 
+
+.navBtn {
+	flex-grow: 1;
+	font-family: Roboto;
+	font-size: clamp(3rem, 8vw, 10rem);
+	background-color: transparent;
+	border: .25rem solid black;
+	border-radius: 0.5rem;
+}

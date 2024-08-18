@@ -1,25 +1,33 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+.personalWrapper {
+  display: grid;
   justify-content: center;
+  grid-template-rows: [siteNav] 8rem
+                      [image] 60fr
+                      [bio] 40fr
+                      [footer] 10rem;
   height: 100vh;
-  font-family: Laila_Med;
-  font-size: 3rem;
-} 
-
-.imageContainer {
-  height: 25rem;
-  margin: 1rem auto;
-
 }
 
-.image {
-  height: 100%;
+.navWrapper {
+  grid-area: siteNav;
+  display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.imageContainer {
+  grid-area: image;
+  display: flex;
+  justify-content: center;
+}
+
+.imageContainer img {
+  height: 20rem;
   border-radius: 2rem;
 }
 
 .bioContainer {
+  grid-area: bio;
   flex-grow: 1;
   width: 100%;
   padding: .5rem;
@@ -34,7 +42,7 @@
 }
 
 .personText h1 {
-  margin-bottom: -1.5rem;
+  margin-bottom: -0.75rem;
 }
 
 .personText p {
@@ -45,3 +53,7 @@
   font-size: 1.5rem;
   text-indent: 1rem;
 }
+
+.footerContainer {
+  grid-area: footer;
+} 
