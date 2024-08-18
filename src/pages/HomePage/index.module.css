@@ -1,48 +1,33 @@
-.homePageContainer {
+.homePageWrapper {
 	display: grid;
-	grid-template-rows: [header] 8rem
-											[biography] 60fr
-											[navigation] 40fr
+	justify-content: center;
+	grid-template-rows: [siteNav] 8rem
+											[image] 60fr
+											[navOptions] 40fr
 											[footer] 10rem;
 	height: 100vh;
 }
 
-.headerContainer {
-	grid-area: header;
+.navWrapper {
+	grid-area: siteNav;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-.headerContainer h1 {
-	font-size: clamp(3.5em, 8vw, 10em);
-  margin-top: 1rem;
-	font-family: Laila_Med, serif;
-	text-align: center;
-}
-
-.bioContainer {
-	grid-area: biography;
+.imageContainer {
+	grid-area: image;
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
 }
 
-.bioContainer img {
-	width: 24em;
-	margin: auto;
+.imageContainer img {
+	height: 30em;
 	border-radius: 2em;
 }
-.bioContainer p {
-	font-family: Laila_Med, serif;
-	width: 90%;
-	margin: 2rem auto 1rem auto;
-	font-size: 2.25rem;
-	text-indent: 1rem;
-	line-height: 1.5;
-}
+
 .navOptions {
-	grid-area: navigation;
+	grid-area: navOptions;
 	font-size: 4.5em;
 	border: 0.25rem solid var(--special-blue);
 	border-radius: 0.5rem;

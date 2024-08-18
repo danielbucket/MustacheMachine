@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Routes, Route, useNavigate, useLocation, Link } from 'react-router-dom'
 import style from './style/index.module.css'
 import { ContactForm } from './components/contactForm'
+import { NavBtn } from '../components/NavBtn'
 
 export default function Contact() {
 	const [firstName, setFirstName] = useState('')
@@ -43,6 +44,8 @@ export default function Contact() {
 		</div>
 	)
 
+	const navBtn = NavBtn('Home', handleClick)
+
 	const submitSuccessElement = (
 		<div className={style.formSubmittedContainer}>
 			<div className={style.formSubmittedHeader}>
@@ -58,13 +61,7 @@ export default function Contact() {
 
 	return (
 		<div className={style.contactWrapper}>
-			<div className={style.navBtnContainer}>
-				<input
-					className={style.navBtn}
-					type='button'
-					value={`Back to <Home />`}
-					onClick={() => handleClick()} />
-			</div>
+			{navBtn}
 			{
 				submitSuccess ? submitSuccessElement : (
 					<Link

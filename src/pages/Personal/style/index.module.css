@@ -1,37 +1,33 @@
 .personalWrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  display: grid;
   justify-content: center;
+  grid-template-rows: [siteNav] 8rem
+                      [image] 60fr
+                      [bio] 40fr
+                      [footer] 10rem;
   height: 100vh;
-  font-family: Laila_Med;
-  font-size: 3rem;
 }
 
-.navBtnContainer {
+.navWrapper {
+  grid-area: siteNav;
   display: flex;
-  width: 100%;
-  height: 3rem;
-} 
-
-.navBtn {
-	flex-grow: 1;
-	font-family: Roboto;
-	font-size: 2rem;
-	border: 0.15rem solid var(--grayd-a-grey);
+	justify-content: center;
+	align-items: center;
 }
 
 .imageContainer {
-  height: 25rem;
-  margin: 1rem auto;
+  grid-area: image;
+  display: flex;
+  justify-content: center;
 }
 
-.image {
-  height: 100%;
+.imageContainer img {
+  height: 30rem;
   border-radius: 2rem;
 }
 
 .bioContainer {
+  grid-area: bio;
   flex-grow: 1;
   width: 100%;
   padding: .5rem;
@@ -57,3 +53,7 @@
   font-size: 1.5rem;
   text-indent: 1rem;
 }
+
+.footerContainer {
+  grid-area: footer;
+} 
