@@ -1,11 +1,10 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
 import style from './index.module.css'
-import selfiImage from '../../assets/images/selfi2.jpg'
+import t100Image from '../../assets/images/T100_0720.jpg'
 import gitHubIcon from '../../assets/logoIcons/github/github-mark.png'
 
 export default function HomePage() {
-	const aboutMe = "Hey, I'm Daniel. On a whim I once went sailing somewhere south of the coastline. Cool story, bruh. Check out some of the projects I built while sailing. I've never been sailing before."
 	
 	return (
 		<div className={style.homePageContainer}>
@@ -13,8 +12,8 @@ export default function HomePage() {
 				<h1>{`<BucketLimited />`}</h1>
 			</div>
 			<div className={style.bioContainer}>
-				<img src={selfiImage} />
-				<p>{aboutMe}</p>
+				<img src={t100Image} />
+				<p>Daniel Bucket</p>
 			</div>
 			<nav className={style.navOptions}>
 				<ul>

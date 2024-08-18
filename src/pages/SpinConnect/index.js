@@ -8,14 +8,18 @@ const userData = {
   user: process.env.GITHUB_USER_NAME,
   repo: process.env.GITHUB_REPO_NAME,
 }
+console.log('userData: ', process.env)
 
 export default function GitHubProjectModule() {
+  const [githubKeys, setGitHubKeys] = useState({})
   const [projectCommits, setProjectCommits] = useState([])
   const [gitHubStatusError, setGitHubStatusError] = useState('')
   const navigate = useNavigate()
   
   useEffect(() => {
     try {
+      
+      
       const user = getProjectCommits(userData)
       user.then(data => {
         setProjectCommits(() => data)
@@ -26,15 +30,9 @@ export default function GitHubProjectModule() {
     }
   }, [])
 
-
-
-
   const commitsList = projectCommits.map(commitObj => {
     const { node_id, name, date } = commitObj
     const cleanDate = date.slice(0, 10)
-    
-
-
     
     return (
       <Link to={`commits/:${date}`} key={node_id} className={style.Arr}>
@@ -43,7 +41,6 @@ export default function GitHubProjectModule() {
       </Link>
     )
   })
-
 
 
   const commitListCards = projectCommits.map(commitObj => {

@@ -26,14 +26,7 @@ export const getProjectCommits = async ({key, repo, user}) => {
     }
   })
 
-
-
-
-
-
-
-
-  const boogerShoes = data.reduce((acc, obj, ind) => {
+  const repoData = data.reduce((acc, obj, ind) => {
     console.log('acc: ', acc)
     const date = obj.commit.author.date.slice(0, 10)
     const prevDate = data[ind - 1] ? data[ind - 1].commit.author.date.slice(0, 10) : null
@@ -52,7 +45,7 @@ export const getProjectCommits = async ({key, repo, user}) => {
     
   }, [])
   
-console.log('boogerShoes: ', boogerShoes)
+console.log('repoData: ', repoData)
 
 
 
