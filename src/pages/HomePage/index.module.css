@@ -2,8 +2,8 @@
 	display: grid;
 	justify-content: center;
 	grid-template-rows: [siteNav] 8rem
-											[image] 60fr
-											[navOptions] 40fr
+											[image] 25rem
+											[navOptions] 1fr
 											[footer] 10rem;
 	height: 100vh;
 }
@@ -18,12 +18,14 @@
 .imageContainer {
 	grid-area: image;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 }
 
 .imageContainer img {
-	height: 20em;
+	width: 98%;
 	border-radius: 2em;
+	margin: auto;
 }
 
 .navOptions {

@@ -2,8 +2,8 @@
   display: grid;
   justify-content: center;
   grid-template-rows: [siteNav] 8rem
-                      [image] 60fr
-                      [bio] 40fr
+                      [image] 25rem
+                      [bio] 1fr
                       [footer] 10rem;
   height: 100vh;
 }
@@ -19,11 +19,13 @@
   grid-area: image;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .imageContainer img {
-  height: 20rem;
-  border-radius: 2rem;
+	width: 98%;
+	border-radius: 2em;
+	margin: auto;
 }
 
 .bioContainer {
