@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import style from './index.module.css'
-import t100Image from '../../assets/images/T100_0720.jpg'
+import t100Image from '../../assets/images/T100_0724.jpg'
 import gitHubIcon from '../../assets/logoIcons/github/github-mark.png'
 
 const { NavBtn } = require('../components/NavBtn')

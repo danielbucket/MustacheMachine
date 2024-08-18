@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { NavBtn } from '../components/NavBtn'
 
-const selfiImage = require('../../assets/images/selfi2.jpg')
+const selfiImage = require('../../assets/images/selfi_0723.jpg')
 const { bioText } =  require('./bioText.js')
 const { personName } = require('./bioText.js')
 const { position } = require('./bioText.js')

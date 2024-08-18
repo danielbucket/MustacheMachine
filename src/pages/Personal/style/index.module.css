@@ -22,7 +22,7 @@
 }
 
 .imageContainer img {
-  height: 30rem;
+  height: 20rem;
   border-radius: 2rem;
 }
 
@@ -42,7 +42,7 @@
 }
 
 .personText h1 {
-  margin-bottom: -1.5rem;
+  margin-bottom: -0.75rem;
 }
 
 .personText p {
