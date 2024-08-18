@@ -58,11 +58,13 @@ export default function Contact() {
 
 	return (
 		<div className={style.contactWrapper}>
-			<input
-				className={style.navBtn}
-				type='button'
-				value={`Back to <Home />`}
-				onClick={() => handleClick()} />
+			<div className={style.navBtnContainer}>
+				<input
+					className={style.navBtn}
+					type='button'
+					value={`Back to <Home />`}
+					onClick={() => handleClick()} />
+			</div>
 			{
 				submitSuccess ? submitSuccessElement : (
 					<Link
