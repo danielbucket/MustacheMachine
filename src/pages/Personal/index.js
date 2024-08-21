@@ -3,10 +3,10 @@ import style from './style/index.module.css'
 import { useNavigate } from 'react-router-dom'
 import { NavBtn } from '../components/NavBtn'
 
+// this data is to be aquired via API fetch call
+import { personalPageData as data } from './personalPageData.js'
+
 const selfiImage = require('../../assets/images/selfi_0723.jpg')
-const { bioText } =  require('./bioText.js')
-const { personName } = require('./bioText.js')
-const { position } = require('./bioText.js')
 
 export default function Personal() {
 	const navigate = useNavigate()
@@ -25,11 +25,11 @@ export default function Personal() {
 			</div>
 			<div className={style.bioContainer}>
 				<div className={style.personText}>
-					<h1>{personName}</h1>
-					<p>{position}</p>
+					<h1>{data.personName}</h1>
+					<p>{data.position}</p>
 				</div>
 				<div className={style.bioText}>
-					<p>{bioText}</p>
+					<p>{data.bioText}</p>
 				</div>
 			</div>
 			<div className={style.footerContainer}>Footer</div>
