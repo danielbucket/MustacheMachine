@@ -3,7 +3,9 @@ import { Routes, Route, useNavigate, useLocation, Link } from 'react-router-dom'
 import style from './style/index.module.css'
 import { ContactForm } from './components/contactForm'
 import { NavBtn } from '../components/NavBtn'
-import { aboutMeText } from './contactText.js'
+
+// this data is to be aquired via API fetch call
+import { contactData as data } from './contactPageData.js'
 
 const selfiImage = require('../../assets/images/selfi_klr250.jpg')
 
@@ -41,7 +43,7 @@ export default function Contact() {
 
 	const aboutMeElement = (
 		<div className={style.textContainer}>
-			<p>{aboutMeText}</p>
+			<p>{data.statement}</p>
 			<p>-GitHub Co-Pilot</p>
 		</div>
 	)
