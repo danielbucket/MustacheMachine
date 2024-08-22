@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Routes, Route, useNavigate, useLocation, Link } from 'react-router-dom'
+import { Routes, Route, useNavigate, useLocation, useLoaderData, Link } from 'react-router-dom'
 import style from './style/index.module.css'
 import { ContactForm } from './components/contactForm'
 import { NavBtn } from '../components/NavBtn'
-
-// this data is to be aquired via API fetch call
-import { contactData as data } from './contactPageData.js'
-
-const selfiImage = require('../../assets/images/selfi_klr250.jpg')
 
 export default function Contact() {
 	const [firstName, setFirstName] = useState('')
@@ -16,6 +11,8 @@ export default function Contact() {
 	
 	const navigate = useNavigate()
 	const location = useLocation()
+	const data = useLoaderData()
+	const { statement, image } = data
 	
 	useEffect(() => {
 		if (location.state?.submitSuccess) {
@@ -43,7 +40,7 @@ export default function Contact() {
 
 	const aboutMeElement = (
 		<div className={style.textContainer}>
-			<p>{data.statement}</p>
+			<p>{statement}</p>
 			<p>-GitHub Co-Pilot</p>
 		</div>
 	)
@@ -72,7 +69,7 @@ export default function Contact() {
 		<div className={style.contactWrapper}>
 			<div className={style.navWrapper}>{navBtn}</div>
 			<div className={style.imageContainer}>
-				<img src={selfiImage} alt="personal photo" />
+				<img src={image} alt="personal photo" />
 			</div>
 			<div className={style.logic}>
 				{ !submitSuccess ? noSubmitElement : submitSuccessElement } 
