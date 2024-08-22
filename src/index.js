@@ -12,6 +12,8 @@ import PoopMachine 			from './pages/PoopMachine'
 import ErrorPage 				from './pages/ErrorPage'
 import SpinnerOfDoom 		from './pages/SpinnerOfDoom'
 
+import { contactDataStub } from './pages/stubs/contactStub'
+
 const router = createBrowserRouter([
 	{
 		path: '/',
@@ -20,12 +22,17 @@ const router = createBrowserRouter([
 	{
 		path: '/contact/*',
 		element: <Contact />,
+		loader: async ({params}) => {
+			return contactDataStub
+			// return fetch('/api/contact')
+		},
 		children: [
 			{
 				path: 'contact_form',
 				element: <ContactForm />,
 			},
-		],	
+		],
+		errorElement: <ErrorPage />,
 	},
 	{
 		path: '/personal',
