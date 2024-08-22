@@ -12,19 +12,25 @@ import PoopMachine 			from './pages/PoopMachine'
 import ErrorPage 				from './pages/ErrorPage'
 import SpinnerOfDoom 		from './pages/SpinnerOfDoom'
 
+import { homeDataStub } from './pages/stubs/homeStub'
 import { contactDataStub } from './pages/stubs/contactStub'
+import { personalDataStub } from './pages/stubs/personalStub'
 
 const router = createBrowserRouter([
 	{
 		path: '/',
 		element: <HomePage />,
+		loader: async () => {
+			// return fetch('/api/home')
+			return homeDataStub
+		}
 	},
 	{
 		path: '/contact/*',
 		element: <Contact />,
-		loader: async ({params}) => {
-			return contactDataStub
+		loader: async () => {
 			// return fetch('/api/contact')
+			return contactDataStub
 		},
 		children: [
 			{
@@ -37,6 +43,10 @@ const router = createBrowserRouter([
 	{
 		path: '/personal',
 		element: <Personal />,
+		loader: async () => {
+			// return fetch('/api/personal')
+			return personalDataStub
+		}
 	},
 	{
 		path: '/spin_connect',

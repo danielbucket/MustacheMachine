@@ -12,7 +12,7 @@ export default function Contact() {
 	const navigate = useNavigate()
 	const location = useLocation()
 	const data = useLoaderData()
-	const { statement, image } = data
+	const { statement, author, image } = data
 	
 	useEffect(() => {
 		if (location.state?.submitSuccess) {
@@ -41,7 +41,7 @@ export default function Contact() {
 	const aboutMeElement = (
 		<div className={style.textContainer}>
 			<p>{statement}</p>
-			<p>-GitHub Co-Pilot</p>
+			<p>-{author}</p>
 		</div>
 	)
 
