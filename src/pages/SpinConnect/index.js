@@ -8,7 +8,6 @@ const userData = {
   user: process.env.GITHUB_USER_NAME,
   repo: process.env.GITHUB_REPO_NAME,
 }
-console.log('userData: ', process.env)
 
 export default function GitHubProjectModule() {
   const [githubKeys, setGitHubKeys] = useState({})
@@ -17,12 +16,15 @@ export default function GitHubProjectModule() {
   const navigate = useNavigate()
   
   useEffect(() => {
-    try {
-      
-      
+    try {    
       const user = getProjectCommits(userData)
+
       user.then(data => {
         setProjectCommits(() => data)
+      })
+      .catch(error => {
+        setGitHubStatusError(`Error retreiving commits: ${error}`)
+        console.log('Error: ', gitHubStatusError)
       })
     }
     catch (error) {

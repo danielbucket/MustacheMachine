@@ -20,6 +20,7 @@ const router = createBrowserRouter([
 	{
 		path: '/',
 		element: <HomePage />,
+		errorElement: <ErrorPage />,
 		loader: async () => {
 			// return fetch('/api/home')
 			return homeDataStub
@@ -38,7 +39,6 @@ const router = createBrowserRouter([
 				element: <ContactForm />,
 			},
 		],
-		errorElement: <ErrorPage />,
 	},
 	{
 		path: '/personal',
