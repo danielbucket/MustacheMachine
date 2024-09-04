@@ -23,24 +23,3 @@
   left:  0;
   font-size: 2rem;
 }
-
-.headerContainer h1 {
-  margin: 2rem auto;
-  font-size: 4rem
-}
-
-.cardsContainer {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 98%;
-  border: .2rem solid black;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-}
-
-.card {
-  
-}

@@ -25,7 +25,7 @@ export default function HomePage() {
 						<Link to={'contact'}>{`<Contact />`}</Link>
 					</li>
 					<li>
-						<Link to={'spin_connect'}>{`<SpinConnect />`}</Link>
+						<Link to={'gh_projects'}>{`<GithubProjects />`}</Link>
 					</li>
 					<li>
 						<Link to={'poop_machine'}>{`<PoopMachine />`}</Link>
