@@ -1,11 +1,11 @@
 export const ghProjectsDataStub = [
   {
     user: process.env.GITHUB_USER,
-    repoName: 'SpinConnect',
+    repoName: 'MustacheMachine',
   },
   {
     user: process.env.GITHUB_USER,
-    repoName: 'MustacheMachine',
+    repoName: 'SpinConnect',
   },
   {
     user: process.env.GITHUB_USER,

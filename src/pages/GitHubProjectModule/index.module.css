@@ -23,3 +23,27 @@
   left:  0;
   font-size: 2rem;
 }
+
+
+
+.projectsListContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 80%;
+  margin: 2rem 0;
+  background-color: #f0f0f0;
+
+}
+
+.projectCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-size: 2rem;
+  height: 10rem;
+  border: .2rem solid black;
+}

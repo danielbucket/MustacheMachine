@@ -56,7 +56,7 @@ const router = createBrowserRouter([
 		loader: async () => {
 			// return fetch('/api/gh_projects/GET_projectsList')
 			return ghProjectsDataStub
-		}
+		},
 	},
 
 	{
