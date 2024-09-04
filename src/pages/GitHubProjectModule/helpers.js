@@ -7,27 +7,20 @@ export const getUserProfile = async (username) => {
   return data
 }
 
-export const getRepoList = async (username) => {
-  const response = await fetch(`https://api.github.com/users/${username}/repos`)
-  const data = await response.json()
-
-  return data
-}
 
 export const getProjectCommits = async ({key, repo, user}) => {
-  const octokit = new Octokit({ auth: key })
+  const octokit = new Octokit({})
 
   const { data } = await octokit.request(`GET /repos/${user}/${repo}/commits`, {
     owner: user,
     repo: repo,
-    accept: 'application/vnd.github+json',
+    // accept: 'application/vnd.github+json',
     headers: {
       'X-GitHub-Api-Version': '2022-11-28'
     }
   })
 
   const repoData = data.reduce((acc, obj, ind) => {
-    console.log('acc: ', acc)
     const date = obj.commit.author.date.slice(0, 10)
     const prevDate = data[ind - 1] ? data[ind - 1].commit.author.date.slice(0, 10) : null
     
@@ -44,8 +37,6 @@ export const getProjectCommits = async ({key, repo, user}) => {
     }
     
   }, [])
-  
-console.log('repoData: ', repoData)
 
 
 

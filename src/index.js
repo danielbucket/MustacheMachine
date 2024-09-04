@@ -3,18 +3,19 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import style from './root.style.css'
-import HomePage 				from './pages/HomePage'
-import Personal 				from './pages/Personal'
-import Contact 					from './pages/Contact'
-import { ContactForm } 	from './pages/Contact/components/contactForm'
-import SpinConnect 			from './pages/SpinConnect'
-import PoopMachine 			from './pages/PoopMachine'
-import ErrorPage 				from './pages/ErrorPage'
-import SpinnerOfDoom 		from './pages/SpinnerOfDoom'
+import HomePage from './pages/HomePage'
+import Personal from './pages/Personal'
+import Contact from './pages/Contact'
+import { ContactForm } from './pages/Contact/components/contactForm'
+import GitHubProjectModule from './pages/GitHubProjectModule'
+import PoopMachine from './pages/PoopMachine'
+import ErrorPage from './pages/ErrorPage'
+import SpinnerOfDoom from './pages/SpinnerOfDoom'
 
 import { homeDataStub } from './pages/stubs/homeStub'
 import { contactDataStub } from './pages/stubs/contactStub'
 import { personalDataStub } from './pages/stubs/personalStub'
+import { ghProjectsDataStub } from './pages/stubs/ghProjectsStub'
 
 const router = createBrowserRouter([
 	{
@@ -46,12 +47,18 @@ const router = createBrowserRouter([
 		loader: async () => {
 			// return fetch('/api/personal')
 			return personalDataStub
-		}
+		},
 	},
+
 	{
-		path: '/spin_connect',
-		element: <SpinConnect />,
+		path: '/gh_projects',
+		element: <GitHubProjectModule />,
+		loader: async () => {
+			// return fetch('/api/gh_projects/GET_projectsList')
+			return ghProjectsDataStub
+		},
 	},
+
 	{
 		path: '/poop_machine',
 		element: <PoopMachine />,

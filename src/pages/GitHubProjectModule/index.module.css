@@ -24,23 +24,26 @@
   font-size: 2rem;
 }
 
-.headerContainer h1 {
-  margin: 2rem auto;
-  font-size: 4rem
-}
 
-.cardsContainer {
-  flex-grow: 1;
+
+.projectsListContainer {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  width: 98%;
-  border: .2rem solid black;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
+  width: 80%;
+  margin: 2rem 0;
+  background-color: #f0f0f0;
+
 }
 
-.card {
-  
+.projectCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-size: 2rem;
+  height: 10rem;
+  border: .2rem solid black;
 }
