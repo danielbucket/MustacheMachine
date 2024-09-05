@@ -1,5 +1,5 @@
 import { React } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import style from './projectPage.module.css'
 
 
@@ -27,6 +27,7 @@ const commitListCards = commit => {
 
 
 export default function ProjectPage(data) {
+  const params = useParams()
   const [projectCommits, setProjectCommits] = useState([])
   const [error, setError] = useState('')
 

@@ -7,8 +7,8 @@ export const getUserProfile = async (username) => {
   return data
 }
 
-
 export const getProjectCommits = async ({key, repo, user}) => {
+  console.log('key:', key)
   const octokit = new Octokit({})
 
   const { data } = await octokit.request(`GET /repos/${user}/${repo}/commits`, {
@@ -24,6 +24,7 @@ export const getProjectCommits = async ({key, repo, user}) => {
     const date = obj.commit.author.date.slice(0, 10)
     const prevDate = data[ind - 1] ? data[ind - 1].commit.author.date.slice(0, 10) : null
     
+    // no exit condition set for failed iterationss
     if (date !== prevDate) {
       const { commit, node_id, html_url } = obj
       const { author, message } = commit
@@ -33,17 +34,8 @@ export const getProjectCommits = async ({key, repo, user}) => {
         acc[Date.parse(date)] = {}
         Object.assign(acc[Date.parse(date)], { node_id, html_url, message, name, }) 
       }
-
     }
-    
   }, [])
-
-
-
-
-
-
-
 
   return data.map((commitObj) => {
     const { commit, node_id, html_url } = commitObj

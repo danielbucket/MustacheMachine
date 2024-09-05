@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { Link, Outlet, useNavigate, useLoaderData } from 'react-router-dom'
+import { Routes, Route, Link, Outlet, useNavigate, useLoaderData } from 'react-router-dom'
 import style from './index.module.css'
 
 import ProjectPage from './components/projectPage'
+import { getProjectCommits } from './helpers'
 
 export default function GitHubProjectModule() {
+
   const [projectsList, setProjectsList] = useState([])
   const [error, setError] = useState({})
 
@@ -12,30 +14,32 @@ export default function GitHubProjectModule() {
   const loaderData = useLoaderData()
 
   useEffect(() => {
-    setProjectsList(loaderData)
+    setProjectsList(() => loaderData)
   }, [])
-  
-  console.log(projectsList)
   
   return (
     <div className={style.moduleContainer}>
       <div className={style.headerContainer}>
         <button onClick={() => navigate('/', { replace:true }) }>Close</button>
       </div>
-
       <div className={style.projectsListContainer}>
         {
-          projectsList.map((project, index) => {
+          projectsList.map((project, i) => {
             return (
-              <Link to={project.html_url}
-                key={index}
+              <Link to={`/gh_projects/${project.repoName}`}
+                key={i}
                 className={style.projectCard}>{project.repoName}</Link> 
             )
           })
         }
       </div>
-
-      <Outlet />
+      <Routes >
+        <Route
+          path="/gh_projects/:projectName"
+          element={<ProjectPage />}
+          loader={({ params }) => getProjectCommits(params)}
+        />
+      </Routes>
     </div>
   )
 }
