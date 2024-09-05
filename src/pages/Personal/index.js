@@ -1,13 +1,19 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import style from './style/index.module.css'
 import { useNavigate, useLoaderData } from 'react-router-dom'
 import { NavBtn } from '../components/NavBtn'
 
-export default function Personal() {
-	const navigate = useNavigate()
-	const data = useLoaderData()
-	const { name, position, bio, image } = data
+const importedImage = require('../../assets/images/danielBucket.jpg')
 
+export default function Personal() {
+	const [image, setImage ] = useState()
+	const navigate = useNavigate()
+	const { name, position, bio } = useLoaderData()
+
+	useEffect(() => {
+		setImage(importedImage)
+	},[])
+	
 	const handleClick = () => {
 		navigate(-1)
 	}

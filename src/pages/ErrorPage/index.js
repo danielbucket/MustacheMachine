@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { useRouteError, Link } from 'react-router-dom'
 import style from './index.module.css'
 const dangerRobot = require('../../assets/images/dangerWillRobinson.jpeg')
