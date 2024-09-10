@@ -6,7 +6,6 @@ const GET_ghRepoList = async (req, res) => {
 }
 
 const GET_ghRepoData = async (req, res, next) => {
-
   const octokit = new Octokit()
   const { owner, repo } = req.query
 

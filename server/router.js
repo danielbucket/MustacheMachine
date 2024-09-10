@@ -13,5 +13,6 @@ router.use('/get_poopin', poopin_data.getPoopinData)
 router.use('/contact_form/new', contactFormSubmit.POST_formSubmit)
 
 router.use('/gh_projects/GET_repo_list', ghProjectsModule.GET_ghRepoList)
+router.use('/gh_projects/GET_repo_data', ghProjectsModule.GET_ghRepoData)
 
 module.exports = router

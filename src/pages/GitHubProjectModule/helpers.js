@@ -7,7 +7,7 @@ export const getUserProfile = async (username) => {
   return data
 }
 
-export const getProjectCommits = async ({key, repo, user}) => {
+export const getProjectCommits = async ({ repo, user }) => {
   console.log('key:', key)
   const octokit = new Octokit({})
 

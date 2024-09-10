@@ -62,7 +62,7 @@ export default function Contact() {
 
 	const noSubmitElement = (
 		<Link className={style.contactFormLink}
-					to='/contact/contact_form' >Message Me</Link>
+					to='/contact/contact_form'>Message Me</Link>
 	)
 
 	return (
