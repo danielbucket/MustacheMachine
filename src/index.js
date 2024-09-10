@@ -49,20 +49,18 @@ const router = createBrowserRouter([
 		},
 	},
 	{
-		path: '/gh_projects/*',
+		path: '/gh_projects/',
 		element: <GitHubProjectModule />,
 		loader: async () => {
 			return await fetch('/api/v1/gh_projects/GET_repo_list')
 		},
-		children: [
-			{
-				path: ':projectName',
-				element: <ProjectPage />,
-				loader: async () => {
-					return await fetch('/api/v1/gh_projects/GET_projectCommits')
-				}
-			},
-		],
+	},
+	{
+		path: '/gh_projects/:projectName',
+		element: <ProjectPage />,
+		loader: async ({ params }) => {
+			return await fetch(`/api/v1/gh_projects/GET_repo_data/${params.projectName}`)
+		}
 	},
 	{
 		path: '/poop_machine',
