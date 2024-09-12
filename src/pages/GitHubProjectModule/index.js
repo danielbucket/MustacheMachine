@@ -26,11 +26,12 @@ export default function GitHubProjectModule() {
           <nav>
             {
               projectsList.map((project, i) => {
+                const { user, repo } = project
                 return (
                   //this route mapping is a 'one-to-many' relationship
-                  <Link to={`/gh_projects/${project.repoName}`}
+                  <Link to={`/gh_projects/${user}/${repo}`}
                     key={i}
-                    className={style.projectCard}>{project.repoName}</Link> 
+                    className={style.projectCard}>{repo}</Link> 
                 )
               })
             }

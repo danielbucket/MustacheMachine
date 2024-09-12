@@ -1,16 +1,32 @@
-const ghProjectsDataStub = [
+const user = 'danielbucket'
+
+const repoList = [
   {
-    user: process.env.GITHUB_USER,
-    repoName: 'MustacheMachine',
+    user: user,
+    repo: 'MustacheMachine',
   },
   {
-    user: process.env.GITHUB_USER,
-    repoName: 'SpinConnect',
+    user: user,
+    repo: 'SpinConnect',
   },
   {
-    user: process.env.GITHUB_USER,
-    repoName: 'PoopMachine',
+    user: user,
+    repo: 'PoopMachine',
   },
 ]
 
-module.exports = ghProjectsDataStub
+const ghProjectsCommitsResponseStub =
+  [
+    {
+      "name": "branch_5",
+      "commit": {
+        "sha": "c5b97d5ae6c19d5c5df71a34c7fbeeda2479ccbc",
+        "url": "https://api.github.com/repos/octocat/Hello-World/commits/c5b97d5ae6c19d5c5df71a34c7fbeeda2479ccbc"
+      },
+      "protected": false
+    },
+  ]
+
+module.exports = {
+  repoList,
+}
