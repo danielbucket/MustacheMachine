@@ -1,18 +1,16 @@
 const { Octokit } = require('@octokit/core')
-const ghProjectsDataStub = require('../stubs/gh_RepoList')
+const { repoList } = require('../stubs/gh_RepoList')
 
 const GET_ghRepoList = async (req, res) => {
-  res.send(ghProjectsDataStub)
+  res.send(repoList)
 }
 
 const GET_ghRepoData = async (req, res, next) => {
+  const { user, repo } = req.params
   const octokit = new Octokit()
-  const { owner, repo } = req.query
 
-  console.log('GET_ghProjectRepoList: ', req.query)
-
-  await octokit.request(`GET /repos/${owner}/${repo}/commits`, {
-    owner: owner,
+  await octokit.request(`GET /repos/${user}/${repo}/commits`, {
+    owner: user,
     repo: repo,
     headers: {
       'X-GitHub-Api-Version': '2022-11-28'

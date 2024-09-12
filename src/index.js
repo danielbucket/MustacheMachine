@@ -15,7 +15,6 @@ import SpinnerOfDoom from './pages/SpinnerOfDoom'
 
 import { homeDataStub } from './pages/stubs/homeStub'
 import { contactDataStub } from './pages/stubs/contactStub'
-import { ghProjectsDataStub } from './pages/stubs/ghProjectsStub'
 
 const router = createBrowserRouter([
 	{
@@ -56,10 +55,18 @@ const router = createBrowserRouter([
 		},
 	},
 	{
-		path: '/gh_projects/:projectName',
+		path: '/gh_projects/:user/:repo',
 		element: <ProjectPage />,
 		loader: async ({ params }) => {
-			return await fetch(`/api/v1/gh_projects/GET_repo_data/${params.projectName}`)
+			const { user, repo } = params
+
+			return await fetch(`/api/v1/gh_projects/GET_repo_data/${user}/${repo}`)
+			.then(res => res.json())
+			// .then(data => {
+			// 	if (data.status === 200) {
+			// 		return data
+			// 	}
+			// })
 		}
 	},
 	{
