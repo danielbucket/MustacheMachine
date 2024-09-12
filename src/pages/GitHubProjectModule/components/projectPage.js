@@ -21,15 +21,13 @@ export default function ProjectPage() {
       <h1>Project Page</h1>
       <div className={style.commitsList}>
         {
-          projectCommits.map(commit => {
-            const { id, html_url, message, name, date } = commit
-            
+          projectCommits.map(({id, html_url, message, name, date }, i) => {
             return (
-              <div key={id} className={style.commitCard}>
-                <h3>{message}</h3>
+              <div key={i} className={style.commitCard}>
+                <h3>{date}</h3>
                 <p>Author: {name}</p>
-                <p>Date: {date}</p>
-                <a href={html_url}>Link to commit</a>
+                <p>Message: {message}</p>
+                <Link to={html_url}>Link to commit</Link>
               </div>
             )
           })
