@@ -19,7 +19,8 @@ import { contactDataStub } from './pages/stubs/contactStub'
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <HomePage />,
+		element: 
+				<HomePage />,
 		errorElement: <ErrorPage />,
 		loader: async () => {
 			// return fetch('/api/home')

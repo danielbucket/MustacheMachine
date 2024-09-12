@@ -1,18 +1,11 @@
 .homePageWrapper {
 	display: grid;
 	justify-content: center;
-	grid-template-rows: [siteNav] 8rem
+	grid-template-rows: [navBar] 8rem
 											[image] 25rem
 											[navOptions] 1fr
 											[footer] 10rem;
 	height: 100vh;
-}
-
-.navWrapper {
-	grid-area: siteNav;
-	display: flex;
-	width: 98%;
-	margin: auto;
 }
 
 .imageContainer {
