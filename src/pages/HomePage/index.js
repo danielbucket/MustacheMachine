@@ -1,18 +1,18 @@
 import React from 'react'
 import { Link, useLoaderData } from 'react-router-dom'
-import style from './index.module.css'
+import { NavBarWrapper } from '../components/navBarWrapper/wrapper.styled.js'
 import gitHubIcon from '../../assets/logoIcons/github/github-mark.png'
+import style from './index.module.css'
 
-const { NavBtn } = require('../components/NavBtn')
+const { NavBtn } = require('../components/Wrapper')
 
-export default function HomePage() {
+export default function HomePage(props) {
 	const navBtn = NavBtn('Bucket Limited, LLC', null)
-	const data = useLoaderData()
-	const { image } = data
+	const { image } = useLoaderData()
 	
 	return (
 		<div className={style.homePageWrapper}>
-			<div className={style.navWrapper}>{navBtn}</div>
+			<NavBarWrapper>{navBtn}</NavBarWrapper>
 			<div className={style.imageContainer}>
 				<img src={image} alt="image of truck"/>
 			</div>

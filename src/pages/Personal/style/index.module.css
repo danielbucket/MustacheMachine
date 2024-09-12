@@ -1,7 +1,7 @@
 .personalWrapper {
   display: grid;
   justify-content: center;
-  grid-template-rows: [siteNav] 8rem
+  grid-template-rows: [navWrapper] 8rem
                       [image] 25rem
                       [bio] 1fr
                       [footer] 10rem;
@@ -9,7 +9,7 @@
 }
 
 .navWrapper {
-  grid-area: siteNav;
+  grid-area: navWrapper;
   display: flex;
 	width: 98%;
 	margin: auto;

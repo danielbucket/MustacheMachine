@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Routes, Route, useNavigate, useLocation, useLoaderData, Link } from 'react-router-dom'
 import style from './style/index.module.css'
 import { ContactForm } from './components/contactForm'
-import { NavBtn } from '../components/NavBtn'
+import { NavBtn } from '../components/Wrapper'
 
 export default function Contact() {
 	const [firstName, setFirstName] = useState('')
@@ -11,8 +11,7 @@ export default function Contact() {
 	
 	const navigate = useNavigate()
 	const location = useLocation()
-	const data = useLoaderData()
-	const { statement, author, image } = data
+	const { statement, author, image } = useLoaderData()
 	
 	useEffect(() => {
 		if (location.state?.submitSuccess) {

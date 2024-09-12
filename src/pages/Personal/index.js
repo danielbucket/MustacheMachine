@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import style from './style/index.module.css'
 import { useNavigate, useLoaderData } from 'react-router-dom'
-import { NavBtn } from '../components/NavBtn'
+import { NavBtn } from '../components/Wrapper'
 
 const importedImage = require('../../assets/images/danielBucket.jpg')
 
