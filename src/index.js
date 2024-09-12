@@ -62,11 +62,11 @@ const router = createBrowserRouter([
 
 			return await fetch(`/api/v1/gh_projects/GET_repo_data/${user}/${repo}`)
 			.then(res => res.json())
-			// .then(data => {
-			// 	if (data.status === 200) {
-			// 		return data
-			// 	}
-			// })
+			.then(data => {
+				if (data.status === 200) {
+					return data
+				}
+			})
 		}
 	},
 	{
