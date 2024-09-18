@@ -1,5 +1,5 @@
 const { Octokit } = require('@octokit/core')
-const { repoList } = require('../stubs/gh_RepoList')
+const { repoList } = require('../stubs/projectsStub')
 
 const GET_ghRepoList = async (req, res) => {
   res.send(repoList)

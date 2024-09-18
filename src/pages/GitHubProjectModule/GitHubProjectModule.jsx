@@ -8,12 +8,17 @@ import { getProjectCommits } from './helpers'
 export default function GitHubProjectModule() {
   const [projectsList, setProjectsList] = useState([])
   const [error, setError] = useState({})
-
   const navigate = useNavigate()
-  const loaderData = useLoaderData()
 
   useEffect(() => {
-    setProjectsList(() => loaderData)
+    async function fetchRepoList() {
+      await fetch('/api/v1/gh_projects/GET_repo_list')
+      then(response => response.json())
+      .then(data => setProjectsList(data))
+      .catch(err => setError(err))
+    }
+
+    fetchRepoList()
   }, [])
   
   return (

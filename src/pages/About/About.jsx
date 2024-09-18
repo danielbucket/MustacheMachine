@@ -1,41 +1,42 @@
 import React, { useState, useEffect } from 'react'
+import { MainContent } from '../../components/pageLayout.styled'
 import style from './style/index.module.css'
-import { useNavigate, useLoaderData } from 'react-router-dom'
-import { NavBtn } from '../components/Wrapper'
 
 const importedImage = require('../../assets/images/danielBucket.jpg')
 
-export default function Personal() {
+function About() {
 	const [image, setImage ] = useState()
-	const navigate = useNavigate()
-	const { name, position, bio } = useLoaderData()
+	const [data, setData] = useState({})
 
 	useEffect(() => {
+		async function fetchData() {
+			await fetch('/api/v1/about/GET_data')
+				.then(response => response.json())
+				.then(data => setData(data))
+		}
+		fetchData()
 		setImage(importedImage)
 	},[])
-	
-	const handleClick = () => {
-		navigate(-1)
-	}
 
-	const navBtn = NavBtn('Home', handleClick)
+	const { name, title, bio } = data
 
 	return (
-		<div className={style.personalWrapper}>
-			<div className={style.navWrapper}>{navBtn}</div>
+		<MainContent>
 			<div className={style.imageContainer}>
 				<img src={image} alt="personal photo" />
 			</div>
 			<div className={style.bioContainer}>
 				<div className={style.personText}>
 					<h1>{name}</h1>
-					<p>{position}</p>
+					<p>{title}</p>
 				</div>
 				<div className={style.bioText}>
 					<p>{bio}</p>
 				</div>
 			</div>
 			<div className={style.footerContainer}>Footer</div>
-		</div>
+		</MainContent>
 	)
 }
+
+export default About
