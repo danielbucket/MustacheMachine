@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
-import style from '../style/contactForm.module.css'
+import {
+	Form,
+	InputContainer,
+	ErrorElement,
+} from './index.styled.js'
 
 export function ContactForm() {
 	const { register, handleSubmit, formState: { errors } } = useForm()
@@ -11,21 +15,17 @@ export function ContactForm() {
 	const [error, setError] = useState()
 
 	const navigate = useNavigate()
-	const baseURL = '/api/v1/contact_form/new'
 
   useEffect(() => {
 		if (submitSuccess) {
 			navigate('/contact/submit', {
-				state: {
-					firstName: firstName,
-					submitSuccess: submitSuccess,
-				}
+				state: { firstName, submitSuccess }
 			})
 		}
   },[submitSuccess])
 
   const onSubmit = (data={}) => {
-		fetch(baseURL, {
+		fetch('/api/v1/contact_form/submit', {
 			method: "POST",
 	    headers: {
 	      "Content-Type": "application/json",
@@ -39,7 +39,7 @@ export function ContactForm() {
 			return res.json()
 		} )
 		.then(res => {
-			setFirstName(() => res.firstName)
+			setFirstName(() => res.name)
 			setSubmitSuccess(() => true)
 			setIsLoading(() => false)
 		})
@@ -58,20 +58,20 @@ export function ContactForm() {
 
   if (error) {
   	return (
-  		<div>Something went wrong: {err}</div>
+  		<ErrorElement>Something went wrong: <span>{error}</span></ErrorElement>
   	)
   }
   
   return (
-    <form className={style.formContainer} onSubmit={handleSubmit(onSubmit)}>
-			<div className={style.inputContainer}>
+    <Form onSubmit={handleSubmit(onSubmit)}>
+			<InputContainer>
 				<input value='Bork' type="text" placeholder="First Name (required)" {...register("firstName", {required: true, maxLength: 80})} />
 				<input value='Dork' type="text" placeholder="Last Name (required)" {...register("lastName", {required: true, maxLength: 100})} />
 				<input type="text" placeholder="Email (required)" {...register("email", {required: true, pattern: /^\S+@\S+$/i})} />
 				<input type="tel" placeholder="Phone (optional)" {...register("mobileNumber", {required: false, minLength: 6, maxLength: 12})} />
 				<textarea value='Please allow for a misplaced hotdog here and there' placeholder="Message (required)" {...register("message", {required: true, max: 250, min: 5})} />
 				<input type="submit" />
-			</div>
-    </form>
+			</InputContainer>
+    </Form>
   )
 }
