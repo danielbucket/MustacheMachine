@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import gitHubIcon from '../../assets/logoIcons/github/github-mark.png'
 import { StyledHomePage } from './index.styled.js'
 import { StyledFooter } from '../../components/pageLayout.styled'
-import importedImage from '../../assets/images/danielBucket.jpg'
+import importedImage from '../../assets/images/selfi_klr250.jpg'
 
 
 function HomePage() {
@@ -39,4 +39,6 @@ function HomePage() {
 			</StyledFooter>
 		</StyledHomePage>
 	)
-}export default HomePage
+}
+
+export default HomePage

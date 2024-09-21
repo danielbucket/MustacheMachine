@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { Routes, Route, useLocation} from 'react-router-dom'
+import { Routes, Route, useLocation, Outlet} from 'react-router-dom'
 import ErrorPage from '../ErrorPage/ErrorPage.jsx'
 import { ContactForm } from './components/contactForm.jsx'
 import OnSubmitElement from './components/OnSubmitElement.jsx'
-import importedImage from '../../assets/images/danielBucket.jpg'
-import {
-		FormStatusElement, StyledLink,
-		StyledContactPage,
-		ChildrenContainer,
-	} from './index.styled.js'
+import importedImage from '../../assets/images/T100_0724.jpg'
+import { StyledLink, StyledContactPage } from './index.styled.js'
+
+function CustomLink({ to, children, ...props}) {
+	return (
+		<StyledLink to={to} {...props} >{children}</StyledLink>
+	)
+}
 
 function Contact() {
 	const [firstName, setFirstName] = useState('')
@@ -19,7 +21,7 @@ function Contact() {
 
 	useEffect(()=> {
 		async function fetchData() {
-			await fetch('/api/v1/contact')
+			await fetch('/api/v1/contact/GET_data')
 				.then(res => res.json())
 				.then(data => {
 					setContent(() => data)
@@ -27,42 +29,36 @@ function Contact() {
 				.catch(err => setError(err))
 		}
 		
-		setImage(importedImage)
 		fetchData()
+		setImage(importedImage)
 	},[])
 
-	const InactiveFormElement = (
-			<FormStatusElement>
-				<div>
-					<p>Go ahead, fill out that form...</p>
-					<p>...I dare you.</p>
+	function ContactLandingPage() {
+		return (
+			<div className={'text-content-container'}>
+				<div className='header-container'>
+					<img src={image} alt="photo of a truck" />
 				</div>
-				<StyledLink to='/contact/contact_form'
-					onClick={ () => setFormIsActive(()=>true) }>Message Me</StyledLink>
-			</FormStatusElement>
-	)
-
-	const ActiveFormElement = (
-		<div className='text-content-container'>
-			<p>{content.bio}</p>
-			
-		</div>
-	)
+				<div className='body-container'>
+					<div className='text-content-container'>
+						<CustomLink to='/contact/contact_form'
+							onClick={ ()=>setFormIsActive(true) }>
+								{content.bio}
+						</CustomLink>
+					</div>
+				</div>
+			</div>
+		)
+	}
 
 	return (
 		<StyledContactPage>
-			<div className='header-container'>
-				<img src={image} alt="personal photo" />
-			</div>
-			<div className='body-container'>
-			{ActiveFormElement}
-				<Routes>
-					{/* <Route path='/contact' element={ <InactiveFormElement /> } /> */}
-					<Route path='/contact/submit' element={ <OnSubmitElement /> }/>
-					<Route path='/contact/contact_form' element={ <ContactForm /> }/>
-					<Route path='/contact/*' element={ <ErrorPage error={ error } /> }/>
-				</Routes>
-			</div>
+			<ContactLandingPage />
+			<Routes>
+				<Route path='/contact/submit' element={ <OnSubmitElement /> }/>
+				<Route path='/contact/contact_form' element={ <ContactForm /> }/>
+				<Route path='/contact/*' element={ <ErrorPage error={ error } /> }/>
+			</Routes>
 		</StyledContactPage>
 	)
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { StyledAboutPage } from './index.styled'
 
-const importedImage = require('../../assets/images/T100_0724.jpg')
+const importedImage = require('../../assets/images/danielBucket.jpg')
 
 function About() {
 	const [image, setImage ] = useState()
@@ -22,7 +22,7 @@ function About() {
 	return (
 		<StyledAboutPage>
 			<div className={'header-container'}>
-				<img src={image} alt="personal photo" />
+				<img src={image} alt="selfie image" />
 			</div>
 
 			<div className={'body-container'}>

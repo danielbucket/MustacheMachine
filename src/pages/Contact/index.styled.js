@@ -5,27 +5,6 @@ import { MainContent } from '../../components/pageLayout.styled'
 export const StyledContactPage = styled(MainContent)`
 `
 
-export const FormStatusElement = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-  font-family: Ubuntu_Reg;
-
-  & p:first-child {
-    font-size: 2.05rem;
-    text-indent: 1rem;
-    width: 95%;
-    text-align: start;
-  }
-
-  & p:last-child {
-    font-size: 1.75rem;
-    text-align: right;
-    text-indent: 2rem;
-  }
-`
-
 export const SubmitSuccess = styled.div`
   display: flex;
   flex-direction: column;
@@ -70,10 +49,4 @@ export const StyledLink = styled(Link)`
   transition: background-color 0.3s ease;
   font-family: Ubuntu_Reg;
   border: .5rem solid var(--grayd-a-grey);
-`
-
-export const ChildrenContainer = styled.div`
-	display: flex;
-	justify-content: stretch;
-	align-items: flex-start;
 `

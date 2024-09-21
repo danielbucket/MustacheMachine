@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
-import { Form, InputContainer, ErrorElement } from './index.styled.js'
+import { StyledForm, ErrorElement } from './index.styled.js'
 
-export function ContactForm() {
+function ContactForm() {
 	const { register, handleSubmit, formState: { errors } } = useForm()
 	const [submitSuccess, setSubmitSuccess] = useState(false)
 	const [firstName, setFirstName] = useState('')
@@ -13,10 +13,13 @@ export function ContactForm() {
 	const navigate = useNavigate()
 
   useEffect(() => {
-		if (submitSuccess) {
+		if (submitSuccess && firstName !== '') {
 			navigate('/contact/submit', {
 				state: { submitSuccess, firstName }
 			})
+		} else {
+			// validate potential errors before this check gate has a chance to fail
+			setError('Something done gone wrong!')
 		}
   },[submitSuccess])
 
@@ -34,8 +37,8 @@ export function ContactForm() {
 			}
 			return res.json()
 		} )
-		.then(res => {
-			setFirstName(() => res.name)
+		.then(({ firstName } ) => {
+			setFirstName(() => firstName)
 			setIsLoading(() => false)
 			setSubmitSuccess(() => true)
 		})
@@ -59,15 +62,19 @@ export function ContactForm() {
   }
   
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
-			<InputContainer>
-				<input type="text" value='Bork' placeholder="First Name (required)" {...register("firstName", {required: true, maxLength: 15})} />
-				<input type="text" value='Dork' placeholder="Last Name (required)" 	{...register("lastName", {required: true, maxLength: 100})} />
-				<input type="text" placeholder="Email (required)" {...register("email", {required: true, pattern: /^\S+@\S+$/i})} />
-				<input type="tel" placeholder="Phone (optional)" {...register("mobileNumber", {required: false, minLength: 6, maxLength: 12})} />
-				<textarea value='Whan can I do for you?' placeholder="Message (required)" {...register("message", {required: true, max: 250, min: 5})} />
-				<input type="submit" />
-			</InputContainer>
-    </Form>
+		<StyledForm>
+			<form onSubmit={ handleSubmit(onSubmit) }>
+				<div className='input-container'>
+					<input type="text" value='Bork' placeholder="First Name (required)" {...register("firstName", {required: true, maxLength: 15})} />
+					<input type="text" value='Dork' placeholder="Last Name (required)" 	{...register("lastName", {required: true, maxLength: 100})} />
+					<input type="text" placeholder="Email (required)" {...register("email", {required: true, pattern: /^\S+@\S+$/i})} />
+					<input type="tel" placeholder="Phone (optional)" {...register("mobileNumber", {required: false, minLength: 6, maxLength: 12})} />
+					<textarea value='Whan can I do for you?' placeholder="Message (required)" {...register("message", {required: true, max: 250, min: 5})} />
+					<input type="submit" />
+				</div>
+			</form>
+		</StyledForm>
   )
 }
+
+export default ContactForm

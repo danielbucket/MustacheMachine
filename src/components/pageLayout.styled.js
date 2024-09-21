@@ -11,10 +11,13 @@ export const AppWrapper = styled.div`
   background-color: --var(--ac-green);
 `
 
-export const MainContent = styled.div`
+export const MainContentLayout = styled.div`
 	grid-area: MainContent;
 	padding-top: 1.75rem;
 	height: 100%;
+`
+
+export const MainContent = styled(MainContentLayout)`
 	font-family: Roboto;
 
 	 & .header-container {
