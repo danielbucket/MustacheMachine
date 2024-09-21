@@ -7,7 +7,7 @@ const Contact_GET_controller = require('./routers/Contact_GET_controller')
 const Contact_POST_controller = require('./routers/Contact_POST_controller')
 const Projects_GET_controller = require('./routers/Projects_GET_controller')
 
-router.use('/home', Home_GET_controller.GET_HomeContent)
+router.use('/home/GET_data', Home_GET_controller.GET_HomeContent)
 
 router.use('/about/GET_data', About_GET_controller.GET_AboutContent)
 

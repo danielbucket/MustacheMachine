@@ -2,7 +2,6 @@ import React from 'react'
 import { StyledNavBar, SiteTitle, UL, StyledLink } from './index.styled'
 
 function NavBar() {
-
   return (
     <StyledNavBar>
       <SiteTitle to='/'>Bucket, LLC</SiteTitle>

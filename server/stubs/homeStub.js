@@ -1,7 +1,3 @@
-const homeDataStub = {
-  text: 'Welcome to the home page',
-}
-
 module.exports = {
-  homeDataStub
+  text: 'Solving all the worlds problems, one bucket of code at a time.',
 }

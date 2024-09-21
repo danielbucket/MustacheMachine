@@ -1,30 +1,22 @@
 import React, { useEffect, useState } from 'react'
-import { Routes, Route, useNavigate, useLocation} from 'react-router-dom'
+import { Routes, Route, useLocation} from 'react-router-dom'
 import ErrorPage from '../ErrorPage/ErrorPage.jsx'
 import { ContactForm } from './components/contactForm.jsx'
-import { SubmitSuccessElement } from './components/SubmitSuccessElement.jsx'
+import OnSubmitElement from './components/OnSubmitElement.jsx'
 import importedImage from '../../assets/images/danielBucket.jpg'
 import {
-		AboutElement, SubmitSuccess,
-		PageRedirect, StyledLink,
-		StyledHeader, Image,
-		StyledContactWrapper,
-		Logic, ChildrenContainer,
+		FormStatusElement, StyledLink,
+		StyledContactPage,
+		ChildrenContainer,
 	} from './index.styled.js'
 
 function Contact() {
 	const [firstName, setFirstName] = useState('')
-	const [content, setContent] = useState({bio:'Biography', name:'Mittens'})
+	const [content, setContent] = useState({bio:''})
 	const [image, setImage] = useState()
 	const [formIsActive, setFormIsActive] = useState(false)
-  const [count, setCount] = useState(5)
-  const [submitSuccess, setSubmitSuccess] = useState(false)
 	const [error, setError] = useState({})
-	
-	const navigate = useNavigate()
-	const location = useLocation()
 
-	
 	useEffect(()=> {
 		async function fetchData() {
 			await fetch('/api/v1/contact')
@@ -39,51 +31,39 @@ function Contact() {
 		fetchData()
 	},[])
 
+	const InactiveFormElement = (
+			<FormStatusElement>
+				<div>
+					<p>Go ahead, fill out that form...</p>
+					<p>...I dare you.</p>
+				</div>
+				<StyledLink to='/contact/contact_form'
+					onClick={ () => setFormIsActive(()=>true) }>Message Me</StyledLink>
+			</FormStatusElement>
+	)
 
-	// useEffect(() => {
-	// 	if (location.state?.submitSuccess) {
-	// 		setFirstName(location.state.firstName)
-	// 		setSubmitSuccess(location.state.submitSuccess)
-	// 	}
-	// 	if (submitSuccess) {
-	// 		const timer = setInterval(() => {
-	// 			setCount(count => count - 1)
-	// 		}, 1000)
-	// 		setTimeout(() => {
-	// 			clearInterval(timer)
-	// 			navigate('/')
-	// 		}, 5900)
-	// 	}
-	// }, [location, submitSuccess])
-
-	const aboutElement = (
-		<AboutElement>
+	const ActiveFormElement = (
+		<div className='text-content-container'>
 			<p>{content.bio}</p>
-			<p>-{content.name}</p>
-		</AboutElement>
+			
+		</div>
 	)
 
-	const noSubmitElement = (
-		<StyledLink
-			to='/contact/contact_form'
-			onClick={() => setFormIsActive(()=>true)}>Message Me</StyledLink>
-	)
 	return (
-		<StyledContactWrapper>
-			<StyledHeader>
-				<Image src={image} alt="personal photo" />
-				<Logic>{ !formIsActive ? noSubmitElement : aboutElement }</Logic>
-			</StyledHeader>
-
-			<ChildrenContainer>
+		<StyledContactPage>
+			<div className='header-container'>
+				<img src={image} alt="personal photo" />
+			</div>
+			<div className='body-container'>
+			{ActiveFormElement}
 				<Routes>
-					<Route path='/contact' element={ noSubmitElement }/>
-					<Route path='/contact/submit' element={ <SubmitSuccessElement /> }/>
-					<Route path='/contact_form' element={ <ContactForm submitSuccess={ submitSuccess }/> }/>
+					{/* <Route path='/contact' element={ <InactiveFormElement /> } /> */}
+					<Route path='/contact/submit' element={ <OnSubmitElement /> }/>
+					<Route path='/contact/contact_form' element={ <ContactForm /> }/>
 					<Route path='/contact/*' element={ <ErrorPage error={ error } /> }/>
 				</Routes>
-			</ChildrenContainer>
-		</StyledContactWrapper>
+			</div>
+		</StyledContactPage>
 	)
 }
 

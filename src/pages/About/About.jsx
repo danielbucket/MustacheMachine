@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { MainContent } from '../../components/pageLayout.styled'
-import style from './style/index.module.css'
+import { StyledAboutPage } from './index.styled'
 
-const importedImage = require('../../assets/images/danielBucket.jpg')
+const importedImage = require('../../assets/images/T100_0724.jpg')
 
 function About() {
 	const [image, setImage ] = useState()
@@ -21,21 +20,24 @@ function About() {
 	const { name, title, bio } = data
 
 	return (
-		<MainContent>
-			<div className={style.imageContainer}>
+		<StyledAboutPage>
+			<div className={'header-container'}>
 				<img src={image} alt="personal photo" />
 			</div>
-			<div className={style.bioContainer}>
-				<div className={style.personText}>
-					<h1>{name}</h1>
-					<p>{title}</p>
-				</div>
-				<div className={style.bioText}>
-					<p>{bio}</p>
+
+			<div className={'body-container'}>
+				<div className="text-content-container">
+					{/* // this is where a new styled-component will be layered in for this compnents specific styling */}
+					<div className={'name-text'}>
+						<h1>{name}</h1>
+						<p>{title}</p>
+					</div>
+					<div className={'bio-text'}>
+						<p>{bio}</p>
+					</div>
 				</div>
 			</div>
-			<div className={style.footerContainer}>Footer</div>
-		</MainContent>
+		</StyledAboutPage>
 	)
 }
 
