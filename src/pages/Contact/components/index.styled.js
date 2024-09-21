@@ -76,3 +76,33 @@ export const ErrorElement = styled.div`
 	font-size: 1.5rem;
 	margin: 0.5rem auto;
 ` 
+export const SubmitSuccess = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+
+  & p {
+    margin: 1rem;
+  }
+
+  & p:first-child {
+    font-size: 3rem;
+  }
+
+  & p:last-child {
+    font-size: 2rem;
+  }
+`
+
+export const PageRedirect = styled.div`
+  margin-top: 3rem;
+  font-size: 3rem;
+  font-family: Ubuntu_Reg;
+
+  & span {
+    font-family: KodeMono_Var;
+    font-weight: 700;
+  }
+`

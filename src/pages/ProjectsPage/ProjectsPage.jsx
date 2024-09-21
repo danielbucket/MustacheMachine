@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { ModuleContainer, StyledLink, ProjectsListContainer } from './index.styled'
+import { useNavigate } from 'react-router-dom'
+import { StyledLink, ProjectsListContainer } from './index.styled'
 
 function ProjectsPage() {
   const [projectsList, setProjectsList] = useState([])

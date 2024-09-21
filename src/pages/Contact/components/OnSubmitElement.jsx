@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useLocation, useNavigate } from 'react-router-dom'
-import { SubmitSuccess, PageRedirect } from '../index.styled.js'
+import { SubmitSuccess, PageRedirect } from './index.styled.js'
 
 export default function OnSubmitElement() {
   const [count, setCount] = useState(5)
