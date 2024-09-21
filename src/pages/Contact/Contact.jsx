@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Routes, Route, useLocation, Outlet} from 'react-router-dom'
 import ErrorPage from '../ErrorPage/ErrorPage.jsx'
-import { ContactForm } from './components/contactForm.jsx'
+import ContactForm from './components/contactForm.jsx'
 import OnSubmitElement from './components/OnSubmitElement.jsx'
 import importedImage from '../../assets/images/T100_0724.jpg'
 import { StyledLink, StyledContactPage } from './index.styled.js'
@@ -57,7 +57,7 @@ function Contact() {
 			<Routes>
 				<Route path='/contact/submit' element={ <OnSubmitElement /> }/>
 				<Route path='/contact/contact_form' element={ <ContactForm /> }/>
-				<Route path='/contact/*' element={ <ErrorPage error={ error } /> }/>
+				{/* <Route path='/contact/*' element={ <ErrorPage error={ error } /> }/> */}
 			</Routes>
 		</StyledContactPage>
 	)

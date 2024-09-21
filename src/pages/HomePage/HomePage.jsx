@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import gitHubIcon from '../../assets/logoIcons/github/github-mark.png'
 import { StyledHomePage } from './index.styled.js'
-import { StyledFooter } from '../../components/pageLayout.styled'
 import importedImage from '../../assets/images/selfi_klr250.jpg'
 
 
@@ -31,12 +30,6 @@ function HomePage() {
 					<p>{data.text}</p>
 				</div>
 			</div>
-			<StyledFooter>
-				<Link className='footer-link' to={'https://github.com/danielbucket'}>
-					<img src={gitHubIcon} alt="Github Icon"/>
-					<p>@danielBucket</p>
-				</Link>
-			</StyledFooter>
 		</StyledHomePage>
 	)
 }
