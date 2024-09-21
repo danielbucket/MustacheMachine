@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useLoaderData } from 'react-router-dom'
-import style from './projectPage.module.css'
+import { Link } from 'react-router-dom'
 import { ghRepoCommits } from '../helpers'
 
 export default function ProjectPage() {
-  const { data } = useLoaderData()
   const [projectCommits, setProjectCommits] = useState([])
   const [error, setError] = useState('')
 
@@ -17,13 +15,13 @@ export default function ProjectPage() {
   }, [])
 
   return (
-    <div className={style.container}>
+    <div className={'container'}>
       <h1>Project Page</h1>
-      <div className={style.commitsList}>
+      <div className={'commits-list'}>
         {
-          projectCommits.map(({id, html_url, message, name, date }, i) => {
+          projectCommits.map(({ id, html_url, message, name, date }) => {
             return (
-              <div key={i} className={style.commitCard}>
+              <div key={id} className={'commit-card'}>
                 <h3>{date}</h3>
                 <p>Author: {name}</p>
                 <p>Message: {message}</p>
