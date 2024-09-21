@@ -1,7 +1,7 @@
 const stub = require('../stubs/homeStub')
 
 const GET_HomeContent = async (req, res) => {
-  res.send(stub)
+  res.send({...stub})
 }
 
 module.exports ={

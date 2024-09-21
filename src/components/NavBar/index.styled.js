@@ -1,36 +1,42 @@
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 export const StyledNavBar = styled.div`
 	grid-area: NavBar;
-	display: grid;
-	grid-template-columns:
-		[Title] 15rem
-		[Links] 1fr;
-	width: 98%;
-	margin: auto;
-`
-export const SiteTitle = styled(Link)`
-	grid-area: Title;
-	font-size: 2.25em;
-	color: #333;
-`
-export const UL = styled.ul`
-	grid-area: Links;
-	justify-content: space-around;
-	list-style: none;
-  display: flex;
-  gap: 1rem;
-	font-size: 1.25em;
-  padding: 0;
-  margin: 0;
+	display: flex;
+	flex-direction:row;
+	justify-content: start;
+	align-items: center;
+	padding: 0 0.5rem;
+	font-family: Ubuntu_Reg;
+	font-size: 1.25rem;
 `
 
-export const StyledLink = styled(Link)`
+export const StyledLink = styled(NavLink)`
 	color: inherit;
 	text-decoration: none;
 	padding: 0.25rem;
 	&.active, &:hover {
 		color: #777;
 	}
+`
+
+export const SiteTitle = styled(StyledLink)`
+	grid-area: Title;
+	width: 35%;
+	font-size: 2rem;
+	font-family: Laila_Med;
+	&.active {
+		color: black;
+	}
+`
+
+export const UL = styled.ul`
+	display: flex;
+	justify-content: end;
+	gap: 1rem;
+	flex-grow: 1;
+	list-style: none;
+	font-size: 1.25em;
+  padding: 0;
 `

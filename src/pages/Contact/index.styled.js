@@ -1,20 +1,26 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { MainContent } from '../../components/pageLayout.styled'
 
-export const AboutElement = styled.div`
+export const StyledContactPage = styled(MainContent)`
+`
+
+export const FormStatusElement = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
   font-family: Ubuntu_Reg;
+
   & p:first-child {
-  	font-size: 2.05rem;
+    font-size: 2.05rem;
     text-indent: 1rem;
     width: 95%;
     text-align: start;
   }
+
   & p:last-child {
-  	font-size: 1.75rem;
+    font-size: 1.75rem;
     text-align: right;
     text-indent: 2rem;
   }
@@ -26,12 +32,15 @@ export const SubmitSuccess = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 2.5rem;
+
   & p {
     margin: 1rem;
   }
+
   & p:first-child {
     font-size: 3rem;
   }
+
   & p:last-child {
     font-size: 2rem;
   }
@@ -41,6 +50,7 @@ export const PageRedirect = styled.div`
   margin-top: 3rem;
   font-size: 3rem;
   font-family: Ubuntu_Reg;
+
   & span {
     font-family: KodeMono_Var;
     font-weight: 700;
@@ -62,37 +72,8 @@ export const StyledLink = styled(Link)`
   border: .5rem solid var(--grayd-a-grey);
 `
 
-export const StyledContactWrapper = styled.div`
-  grid-area: MainContent
-  display: grid;
-  grid-template-rows:
-    [Header] 20rem
-    [Children] 1fr;
-`
-
-export const StyledHeader = styled.div`
-  grid-area: Header;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`
-
-export const Image = styled.img`
-  width: 98%;
-	border-radius: 2rem;
-	margin: 1rem auto;
-`
-
-export const Logic = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`
-
 export const ChildrenContainer = styled.div`
 	display: flex;
-	justify-content: center;
+	justify-content: stretch;
 	align-items: flex-start;
 `
