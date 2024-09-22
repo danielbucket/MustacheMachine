@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
+import { useRouteError } from 'react-router-dom'
 import { StyledErrorPage, StyledLink } from './index.styled.js'
 const dangerRobot = require('../../assets/images/dangerWillRobinson.jpeg')
 
-function ErrorPage(props) {
+function ErrorPage() {
 	const [errorState, setErrorState] = useState({})
-	console.log('ErrorPage error: ', props)
-	const { error } = props
+	const routeError = useRouteError()
 
 	useEffect(() => {
-		setErrorState(() => error)
+		setErrorState(() => routeError)
 	},[])
 	
 	return (
