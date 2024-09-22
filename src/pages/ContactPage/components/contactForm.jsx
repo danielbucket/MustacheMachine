@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { StyledForm, ErrorElement } from './index.styled.js'
 
-function ContactForm() {
+export function ContactForm() {
 	const { register, handleSubmit, formState: { errors } } = useForm()
 	const [submitSuccess, setSubmitSuccess] = useState(false)
 	const [firstName, setFirstName] = useState('')
@@ -76,5 +76,3 @@ function ContactForm() {
 		</StyledForm>
   )
 }
-
-export default ContactForm

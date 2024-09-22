@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
-import ErrorPage from '../ErrorPage/ErrorPage.jsx'
-import ContactForm from './components/contactForm.jsx'
-import OnSubmitElement from './components/OnSubmitElement.jsx'
+import { Outlet, useLoaderData } from 'react-router-dom'
 import importedImage from '../../assets/images/T100_0724.jpg'
 import { StyledLink, StyledContactPage } from './index.styled.js'
 
@@ -14,16 +11,11 @@ function Contact() {
 	const [content, setContent] = useState({bio:''})
 	const [image, setImage] = useState()
 	const [error, setError] = useState({})
+	const loaderData = useLoaderData()
 
 	useEffect(() => {
-		fetch('/api/v1/contact/GET_data')
-			.then(res => res.json())
-			.then(data => {
-				setContent(() => data)
-			})
-			.catch(err => setError(err))
-		
-		setImage(importedImage)
+		setContent(() => loaderData)
+		setImage(() => importedImage)
 	},[])
 
 	function ContactLandingPage() {
@@ -45,12 +37,8 @@ function Contact() {
 
 	return (
 		<StyledContactPage>
-			<Routes>
-				<Route path='/' index element={ <ContactLandingPage /> } />
-				<Route path='/contact/submit' element={ <OnSubmitElement /> }/>
-				<Route path='/contact/contact_form' element={ <ContactForm /> }/>
-				<Route path='/*' element={ <ErrorPage error={ error } /> }/>
-			</Routes>
+			<ContactLandingPage />
+			<Outlet />
 		</StyledContactPage>
 	)
 }

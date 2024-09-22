@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Routes, Route, useNavigate, Outlet } from 'react-router-dom'
+import { useNavigate, Outlet, useLoaderData } from 'react-router-dom'
 
-import ErrorPage from '../ErrorPage/ErrorPage.jsx'
-import { ProjectDetails } from './components/ProjectDetails.jsx'
 import { ProjectsListElement } from './components/ProjectsListElement.jsx'
 import { StyledProjectsPage } from './index.styled'
 
@@ -10,14 +8,10 @@ export default function ProjectsPage() {
   const [projectsList, setProjectsList] = useState([])
   const [errorState, setErrorState] = useState(null)
   const navigate = useNavigate()
+  const loaderData = useLoaderData()
 
   useEffect(() => {
-    fetch('/api/v1/projects/GET_repo_list')
-      .then(res => res.json())
-      .then(data => setProjectsList(() => data))
-      .catch(err => {
-        setErrorState(() => err)
-      })
+    setProjectsList(() => loaderData)
   }, [])
 
   if (errorState !== null) {
@@ -26,11 +20,8 @@ export default function ProjectsPage() {
   
   return (
     <StyledProjectsPage>
-      <Routes>
-        <Route path='/' element={ <ProjectsListElement projectsList={ projectsList }/> } />
-        <Route path='/contact/:user/:repo' element={<ProjectDetails /> } />
-        <Route path='/error' element={<ErrorPage />} />
-      </Routes>
+      <ProjectsListElement projectsList={ projectsList }/>
+      <Outlet />
     </StyledProjectsPage>
   )
 }
