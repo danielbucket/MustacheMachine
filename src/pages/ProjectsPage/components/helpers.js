@@ -14,5 +14,5 @@ export const commitSorter = data => {
     const date = author.date.slice(0, 10)
 
     return Object.assign({}, id, html_url, message, name, date )
-  )
+  })
 }

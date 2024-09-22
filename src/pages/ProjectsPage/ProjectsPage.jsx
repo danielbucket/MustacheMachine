@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Routes, Route, useNavigate } from 'react-router-dom'
+import { Routes, Route, useNavigate, Outlet } from 'react-router-dom'
 import ProjectDetails from './components/projectDetails.jsx'
 import ErrorPage from '../ErrorPage/ErrorPage.jsx'
 import { StyledLink, StyledProjectsPage } from './index.styled'
@@ -17,7 +17,7 @@ export default function ProjectsPage() {
   }, [])
 
   const ProjectsListElement = () => {
-  return (
+    return (
       <nav>
         {
           projectsList.map((project, i) => {
@@ -30,6 +30,7 @@ export default function ProjectsPage() {
             )
           })
         }
+        <Outlet />
       </nav>
     )
   }
@@ -40,8 +41,8 @@ export default function ProjectsPage() {
   
   return (
     <StyledProjectsPage>
-      <ProjectsListElement />
       <Routes>
+        <Route path='/' index element={ <ProjectsListElement /> } />
         <Route path='/projects/:user/:repo' element={ <ProjectDetails /> } />
         <Route path='/error' element={ <ErrorPage /> } />
       </Routes>
