@@ -1,39 +1,50 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { StyledLink, ProjectsListContainer } from './index.styled'
+import { Routes, Route, useNavigate } from 'react-router-dom'
+import ProjectDetails from './components/projectDetails.jsx'
+import ErrorPage from '../ErrorPage/ErrorPage.jsx'
+import { StyledLink, StyledProjectsPage } from './index.styled'
 
-function ProjectsPage() {
+export default function ProjectsPage() {
   const [projectsList, setProjectsList] = useState([])
-  const [error, setError] = useState({})
+  const [errorState, setErrorState] = useState(null)
   const navigate = useNavigate()
 
   useEffect(() => {
-    async function fetchRepoList() {
-      await fetch('/api/v1/projects/GET_repo_list')
-      .then(response => response.json())
-      .then(data => setProjectsList(data))
-      .catch(err => setError(err))
-    }
-
-    fetchRepoList()
+    fetch('/api/v1/projects/GET_repo_list')
+      .then(res => res.json())
+      .then(data => setProjectsList(() => data))
+      .catch(err => setErrorState(() => err))
   }, [])
-  
+
+  const ProjectsListElement = () => {
   return (
-    <ProjectsListContainer>
       <nav>
         {
           projectsList.map((project, i) => {
             const { user, repo } = project
+
             return (
-              //this route mapping is a 'one-to-many' relationship
-              <StyledLink to={`/gh_projects/${user}/${repo}`}
-                key={i} >{repo}</StyledLink> 
+              <StyledLink to={`/projects/${user}/${repo}`} key={ i } >
+                { repo }
+              </StyledLink>
             )
           })
         }
       </nav>
-    </ProjectsListContainer>
+    )
+  }
+
+  if (errorState !== null) {
+    navigate('/error', { state: { errorState } })
+  }
+  
+  return (
+    <StyledProjectsPage>
+      <ProjectsListElement />
+      <Routes>
+        <Route path='/projects/:user/:repo' element={ <ProjectDetails /> } />
+        <Route path='/error' element={ <ErrorPage /> } />
+      </Routes>
+    </StyledProjectsPage>
   )
 }
-
-export default ProjectsPage

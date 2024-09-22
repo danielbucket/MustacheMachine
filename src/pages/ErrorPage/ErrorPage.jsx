@@ -7,11 +7,11 @@ import {
 } from './index.styled.js'
 const dangerRobot = require('../../assets/images/dangerWillRobinson.jpeg')
 
-function ErrorPage(error) {
+function ErrorPage({ error }) {
 	const [errorState, setErrorState] = useState({})
 
 	useEffect(() => {
-		setErrorState(error)
+		setErrorState(() => error)
 	},[])
 	
 	return (

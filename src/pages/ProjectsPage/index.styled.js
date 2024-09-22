@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { MainContentLayout } from '../../components/pageLayout.styled'
 
-export const ProjectsListContainer = styled(MainContentLayout)`
+export const StyledProjectsPage = styled(MainContentLayout)`
   & nav {
     display: flex;
     flex-direction: column;

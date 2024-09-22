@@ -1,11 +1,11 @@
 const express = require('express')
 const router = express.Router()
 
-const Home_GET_controller = require('./routers/Home_GET_controller')
-const About_GET_controller = require('./routers/About_GET_controller')
-const Contact_GET_controller = require('./routers/Contact_GET_controller')
-const Contact_POST_controller = require('./routers/Contact_POST_controller')
-const Projects_GET_controller = require('./routers/Projects_GET_controller')
+const Home_GET_controller = require('./controllers/Home_GET_controller')
+const About_GET_controller = require('./controllers/About_GET_controller')
+const Contact_GET_controller = require('./controllers/Contact_GET_controller')
+const Contact_POST_controller = require('./controllers/Contact_POST_controller')
+const Projects_GET_controller = require('./controllers/Projects_GET_controller')
 
 router.use('/home/GET_data', Home_GET_controller.GET_HomeContent)
 

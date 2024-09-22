@@ -9,7 +9,7 @@ async function POST_formSubmit(req,res) {
 		{ firstName }
 	)
 
-	res.status(200).send(dbQuery)
+	res.status(200).send(JSON.stringify(dbQuery))
 }
 
 async function test_POST(req,res,next) {

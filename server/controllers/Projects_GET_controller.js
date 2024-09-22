@@ -2,7 +2,8 @@ const { Octokit } = require('@octokit/core')
 const { repoList } = require('../stubs/projectsStub')
 
 const GET_ghRepoList = async (req, res) => {
-  res.send(repoList)
+
+  res.status(200).send(JSON.stringify(repoList))
 }
 
 const GET_ghRepoData = async (req, res, next) => {
@@ -16,8 +17,8 @@ const GET_ghRepoData = async (req, res, next) => {
       'X-GitHub-Api-Version': '2022-11-28'
     },
   })
-  .then(response => {
-    res.status(200).send(JSON.stringify(response))
+  .then(res => {
+    res.status(200).send(JSON.stringify(res))
   })
   .catch(err => {
     res.status(404).send(JSON.stringify(err))
