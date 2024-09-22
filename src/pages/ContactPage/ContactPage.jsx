@@ -45,11 +45,11 @@ function Contact() {
 
 	return (
 		<StyledContactPage>
-			<ContactLandingPage />
 			<Routes>
+				<Route path='/' index element={ <ContactLandingPage /> } />
 				<Route path='/contact/submit' element={ <OnSubmitElement /> }/>
 				<Route path='/contact/contact_form' element={ <ContactForm /> }/>
-				<Route path='/contact/*' element={ <ErrorPage error={ error } /> }/>
+				<Route path='/*' element={ <ErrorPage error={ error } /> }/>
 			</Routes>
 		</StyledContactPage>
 	)

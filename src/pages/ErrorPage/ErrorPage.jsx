@@ -1,30 +1,25 @@
 import React, { useEffect, useState } from 'react'
-import {
-	StyledContainer,
-	StyledLink,
-	StyledImg,
-	ErrorElement
-} from './index.styled.js'
+import { StyledErrorPage, StyledLink } from './index.styled.js'
 const dangerRobot = require('../../assets/images/dangerWillRobinson.jpeg')
 
-function ErrorPage({ error }) {
+function ErrorPage(props) {
 	const [errorState, setErrorState] = useState({})
+	console.log('ErrorPage error: ', props)
+	const { error } = props
 
 	useEffect(() => {
 		setErrorState(() => error)
 	},[])
 	
 	return (
-		<>
-			<StyledContainer>
-				<StyledLink to={'/'} >Back to Home</StyledLink>
-				<StyledImg src={dangerRobot} alt="Error, Will Robinson!" />
-				<h1>Error, Will Robinson!</h1>
-				<ErrorElement>
-					<i>{errorState.statusText || errorState.message}</i>
-				</ErrorElement>
-			</StyledContainer>
-		</>
+		<StyledErrorPage>
+			<StyledLink to={-1} >Close</StyledLink>
+			<img src={ dangerRobot } alt="Error, Will Robinson!" />
+			<h1>Error, Will Robinson!</h1>
+			<div className="error-text">
+				<i>{errorState.statusText || errorState.message}</i>
+			</div>
+		</StyledErrorPage>
 	)
 }
 

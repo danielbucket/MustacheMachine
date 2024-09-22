@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import { commitSorter } from './helpers'
 
-function CommitsList() {
+export function CommitsList() {
   const [errorState, setError] = useState(null)
   const navigate = useNavigate()
 
@@ -27,5 +27,3 @@ function CommitsList() {
     </div>
   )
 }
-
-export default CommitsList

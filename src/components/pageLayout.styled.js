@@ -16,11 +16,10 @@ export const MainContentLayout = styled.div`
 	grid-area: MainContent;
 	padding-top: 1.75rem;
 	height: 100%;
+  font-family: Roboto;
 `
 
 export const MainContent = styled(MainContentLayout)`
-	font-family: Roboto;
-
 	 & .header-container {
     display: flex;
     flex-direction: column;

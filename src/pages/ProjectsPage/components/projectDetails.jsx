@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import CommitsList from './commitsList.jsx'
-import { commitSorter } from './helpers'
+import { CommitsList } from './commitsList.jsx'
+import { commitSorter } from './helpers.js'
 
-function ProjectDetails() {
-  console.log('ProjectDetails')
+export function ProjectDetails() {
   const [projectCommits, setProjectCommits] = useState([])
   const [errorState, setErrorState] = useState(null)
   const { user, repo } = useParams()
@@ -30,5 +29,3 @@ function ProjectDetails() {
     </StyledProjectDetails>
   )
 }
-
-export default ProjectDetails
