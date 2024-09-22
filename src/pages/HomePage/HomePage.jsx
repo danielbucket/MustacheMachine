@@ -17,21 +17,16 @@ function HomePage() {
 	},[])
 
 	return (
-		<AppWrapper>
-			<NavBar />
-			<StyledHomePage>
-				<div className={'header-container'}>
-					<img src={image} alt="image of truck"/>
+		<StyledHomePage>
+			<div className={'header-container'}>
+				<img src={image} alt="image of truck"/>
+			</div>
+			<div className="body-container">
+				<div className={'text-content-container'}>
+					<p>{content.text}</p>
 				</div>
-				<div className="body-container">
-					<div className={'text-content-container'}>
-						<p>{content.text}</p>
-					</div>
-				</div>
-				<Outlet />
-			</StyledHomePage>
-			<Footer />
-		</AppWrapper>
+			</div>
+		</StyledHomePage>
 	)
 }
 

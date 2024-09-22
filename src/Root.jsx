@@ -2,14 +2,14 @@ import React from "react"
 import { Outlet } from 'react-router-dom'
 import { NavBar } from './components/NavBar/NavBar.jsx'
 import { Footer } from './components/Footer/Footer.jsx'
-import { AppWrapper, MainContent } from './components/pageLayout.styled'
+import { AppWrapper, MainContent } from './components/pageLayout.styled.js'
 
-function App() {
+function Root() {
 
   return (
     <AppWrapper>
       <NavBar />
-      <MainContent>
+      <MainContent >
         <Outlet />
       </MainContent>
       <Footer />
@@ -17,4 +17,4 @@ function App() {
   )
 }
 
-export default App
+export default Root

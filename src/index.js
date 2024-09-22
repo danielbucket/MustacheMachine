@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import App from './App.jsx'
+import Root from './Root.jsx'
 import './root.style.css'
 
 import HomePage from './pages/HomePage/HomePage.jsx'
@@ -16,57 +16,63 @@ import ErrorPage from './pages/ErrorPage/ErrorPage.jsx'
 const router = createBrowserRouter([
 	{
 		path:'/',
-		element: <HomePage />,
-		loader:  async () => {
-			return await fetch('/api/v1/home/GET_content')
-			.then(res => res.json())
-			.then(data => data)
-			.catch(err => err)
-		},
-	},
-	{
-		path: '/about',
-		element: <AboutPage />,
-		loader: async () => {
-			return await fetch('/api/v1/about/GET_content')
-			.then(res => res.json())
-			.then(data => data)
-			.catch(err => err)
-		}
-	},
-	{
-		path: '/contact',
-		element: <ContactPage />,
-		loader: async () => {
-			return await fetch('/api/v1/contact/GET_content')
-			.then(res => res.json())
-			.then(data => data)
-			.catch(err => err)
-		},
+		element: <Root />,
 		children: [
 			{
-				path: '/contact/submit',
-				element: <OnSubmitElement />,
+				index: true,
+				element: <HomePage />,
+				loader:  async () => {
+					return await fetch('/api/v1/home/GET_content')
+					.then(res => res.json())
+					.then(data => data)
+					.catch(err => err)
+				},
 			},
 			{
-				path: '/contact/contact_form',
-				element: <ContactForm />,
+				path: '/about',
+				element: <AboutPage />,
+				loader: async () => {
+					return await fetch('/api/v1/about/GET_content')
+					.then(res => res.json())
+					.then(data => data)
+					.catch(err => err)
+				}
 			},
-		]
-	},
-	{
-		path: '/projects',
-		element: <ProjectsPage />,
-		loader: async () => {
-			return await fetch('/api/v1/projects/GET_repo_list')
-			.then(res => res.json())
-			.then(data => data)
-			.catch(err => err)
-		},
-		children: [
 			{
-				path: '/projects/:user/:repo',
-				element: <ProjectDetails />,
+				path: '/contact',
+				element: <ContactPage />,
+				loader: async () => {
+					return await fetch('/api/v1/contact/GET_content')
+					.then(res => res.json())
+					.then(data => data)
+					.catch(err => err)
+				},
+				children: [
+					{
+						path: '/contact/submit',
+						element: <OnSubmitElement />,
+					},
+					{
+						path: '/contact/contact_form',
+						element: <ContactForm />,
+					},
+				]
+			},
+			{
+				path: '/projects',
+				element: <ProjectsPage />,
+				loader: async () => {
+					return await fetch('/api/v1/projects/GET_repo_list')
+					.then(res => res.json())
+					.then(data => data)
+					.catch(err => err)
+				},
+				children: [
+					{
+						path: '/projects/:user/:repo',
+						element: <ProjectDetails />,
+					},
+				],
 			},
 		],
 	},
@@ -76,7 +82,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
 	<React.StrictMode>
 		<RouterProvider router={router}>
-			<App />
+			<Root />
 		</RouterProvider>
 	</React.StrictMode>
 )
