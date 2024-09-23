@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useParams, useNavigate } from 'react-router-dom'
-import { commitSorter } from './helpers'
+import { Link, useNavigate } from 'react-router-dom'
 
-export function CommitsList() {
+export function CommitsList({ commits }) {
   const [errorState, setError] = useState(null)
   const navigate = useNavigate()
 
@@ -13,7 +12,7 @@ export function CommitsList() {
   return (
     <div className={'commits-list'}>
       {
-        projectCommits.map(({ id, html_url, message, name, date }) => {
+        commits.map(({ id, html_url, message, name, date }) => {
           return (
             <div key={ id } className={'commit-card'}>
               <h3>{date}</h3>

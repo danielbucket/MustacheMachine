@@ -11,12 +11,13 @@ import { OnSubmitElement } from './pages/ContactPage/components/onSubmitElement.
 import { ContactForm } from './pages/ContactPage/components/contactForm.jsx'
 import ProjectsPage from './pages/ProjectsPage/ProjectsPage.jsx'
 import { ProjectDetails } from './pages/ProjectsPage/components/projectDetails.jsx'
-import ErrorPage from './pages/ErrorPage/ErrorPage.jsx'
+import ErrorBoundary from './pages/ErrorBoundary/ErrorBoundary.jsx'
 
 const router = createBrowserRouter([
 	{
 		path:'/',
 		element: <Root />,
+		errorElement: <ErrorBoundary />,
 		children: [
 			{
 				index: true,
@@ -69,12 +70,27 @@ const router = createBrowserRouter([
 				},
 				children: [
 					{
-						path: '/projects/:user/:repo',
+						path: '/projects/:owner/:repo',
 						element: <ProjectDetails />,
+						loader: async ({ params }) => {
+							const { owner, repo } = params
+
+							return await fetch(`/api/v1/projects/GET_repo_data/${owner}/${repo}`)
+							.then(res => res.json())
+							.then(data => {
+								console.log('data at router: ', data)
+								return data
+							})
+							.catch(error => error)
+						},
 					},
 				],
 			},
 		],
+	},
+	{
+		path: '/error',
+		element: <ErrorBoundary />,
 	},
 ])
 

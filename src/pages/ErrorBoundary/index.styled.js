@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { MainContentLayout } from '../../components/pageLayout.styled'
 
-export const StyledErrorPage = styled(MainContentLayout)`
+export const StyledErrorBoundary = styled(MainContentLayout)`
 	display: flex;
 	flex-direction: column;
 	align-items: center;

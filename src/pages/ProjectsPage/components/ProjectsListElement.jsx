@@ -7,10 +7,10 @@ export const ProjectsListElement = ({ projectsList }) => {
       <StyledProjectsListElement>
         {
           projectsList.map((project, i) => {
-            const { user, repo } = project
+            const { owner, repo } = project
 
             return (
-              <StyledLink to={`/projects/${user}/${repo}`} key={ i } >
+              <StyledLink to={`/projects/${owner}/${repo}`} key={ i } >
                 { repo }
               </StyledLink>
             )

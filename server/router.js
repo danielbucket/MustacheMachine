@@ -14,7 +14,7 @@ router.use('/about/GET_content', About_GET_controller.GET_AboutContent)
 router.use('/contact/GET_content', Contact_GET_controller.GET_ContactContent)
 router.use('/contact_form/submit', Contact_POST_controller.test_POST)
 
-router.use('/projects/GET_repo_list', Projects_GET_controller.GET_ghRepoList)
-router.use('/projects/GET_repo_data/:user/:repo', Projects_GET_controller.GET_ghRepoData)
+router.use('/projects/GET_repo_list', Projects_GET_controller.GET_repo_list)
+router.use('/projects/GET_repo_data/:owner/:repo', Projects_GET_controller.GET_repo_data)
 
 module.exports = router
