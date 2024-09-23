@@ -2,15 +2,15 @@ const user = 'danielbucket'
 
 const repoList = [
   {
-    user: user,
+    owner: user,
     repo: 'MustacheMachine',
   },
   {
-    user: user,
+    owner: user,
     repo: 'SpinConnect',
   },
   {
-    user: user,
+    owner: user,
     repo: 'PoopMachine',
   },
 ]

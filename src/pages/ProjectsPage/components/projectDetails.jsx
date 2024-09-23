@@ -1,31 +1,28 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useLoaderData, useParams, useRouteError } from 'react-router-dom'
 import { CommitsList } from './commitsList.jsx'
 import { commitSorter } from './helpers.js'
+import { StyledProjectDetails } from './index.styled'
 
 export function ProjectDetails() {
   const [projectCommits, setProjectCommits] = useState([])
   const [errorState, setErrorState] = useState(null)
-  const { user, repo } = useParams()
+  const { loaderData } = useLoaderData()
+  const { owner, repo } = useParams()
 
   useEffect(() => {
-    fetch(`/api/v1/projects/GET_repo_data/${params.user}/${params.repo}`)
-    .then(res => res.json())
-    .then(data => setProjectCommits(() => commitSorter(data)))
-    .catch(err => setErrorState(() => err))
-  }, [])
+    console.log('loaderData: ', loaderData)
+    setProjectCommits( () => commitSorter(loaderData.commits) )
+  },[])
 
-  if (errorState !== null) {
-    navigate('/error', { state: { errorState } })
-  }
-  
+
   return (
     <StyledProjectDetails>
       <div>
-        <h1>{user}</h1>
+        <h1>{owner}</h1>
         <p>{repo}</p>
       </div>
-      <CommitsList projectCommits={projectCommits} />
+      <CommitsList commits={projectCommits} />
     </StyledProjectDetails>
   )
 }
