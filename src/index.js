@@ -11,6 +11,7 @@ import { OnSubmitElement } from './pages/ContactPage/components/OnSubmitElement.
 import { ContactForm } from './pages/ContactPage/components/contactForm.jsx'
 import ProjectsPage from './pages/ProjectsPage/ProjectsPage.jsx'
 import { ProjectDetails } from './pages/ProjectsPage/components/projectDetails.jsx'
+import UnderConstructionPage from './pages/UnderConstPage/UnderConstPage.jsx'	
 import ErrorBoundary from './pages/ErrorBoundary/ErrorBoundary.jsx'
 
 const router = createBrowserRouter([
@@ -51,11 +52,11 @@ const router = createBrowserRouter([
 				children: [
 					{
 						path: '/contact/submit',
-						element: <OnSubmitElement />,
+						element: <UnderConstructionPage />,
 					},
 					{
 						path: '/contact/contact_form',
-						element: <ContactForm />,
+						element: <UnderConstructionPage	 />,
 					},
 				]
 			},
@@ -70,12 +71,21 @@ const router = createBrowserRouter([
 				},
 				children: [
 					{
-						path: '/projects/:owner/:repo',
+						path: '/projects/:repo',
 						element: <ProjectDetails />,
 						loader: async ({ params }) => {
 							const { owner, repo } = params
 
-							return await fetch(`/api/v1/projects/GET_repo_data/${owner}/${repo}`)
+							return await fetch(`/api/v1/projects/GET_repo_data/${owner}/${repo}`, {
+								method: 'GET',
+								headers: {
+									'Content-Type': 'application/json',
+								},
+								params: {
+									owner,
+									repo,
+								},	
+							})
 							.then(res => res.json())
 							.then(data => {
 								console.log('data at router: ', data)

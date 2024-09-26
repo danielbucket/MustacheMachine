@@ -9,7 +9,7 @@ export default function ProjectsPage() {
   const [errorState, setErrorState] = useState(null)
   const navigate = useNavigate()
   const loaderData = useLoaderData()
-
+  
   useEffect(() => {
     setProjectsList(() => loaderData)
   }, [])

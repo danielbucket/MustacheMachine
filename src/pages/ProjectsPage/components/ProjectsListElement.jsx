@@ -10,7 +10,7 @@ export const ProjectsListElement = ({ projectsList }) => {
             const { owner, repo } = project
 
             return (
-              <StyledLink to={`/projects/${owner}/${repo}`} key={ i } >
+              <StyledLink to={`/projects/${owner}/${repo}`} key={ i }>
                 { repo }
               </StyledLink>
             )

@@ -7,7 +7,7 @@ export function Footer() {
   return (
     <StyledFooter>
       <Link className='footer-link' to={'https://github.com/danielbucket'}>
-        <img src={gitHubIcon} alt="Github Icon"/>
+        <img src={ gitHubIcon } alt="Github Icon"/>
         <p>@danielBucket</p>
       </Link>
     </StyledFooter>

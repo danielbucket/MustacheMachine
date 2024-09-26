@@ -6,7 +6,9 @@ const GET_repo_list = async (req, res) => {
 }
 
 const GET_repo_data = async (req, res, next) => {
+  debugger
   const { owner, repo } = req.params
+  console.log(req.params)
 
   const octokit = new Octokit()
   await octokit.request(`GET /repos/${owner}/${repo}/commits`, {
@@ -16,7 +18,10 @@ const GET_repo_data = async (req, res, next) => {
       'X-GitHub-Api-Version': '2022-11-28'
     }
   })
-  .then(res => res)
+  .then(res => {
+    console.log(res)
+    return res
+  })
   .catch(err => err)
   next()
 }
